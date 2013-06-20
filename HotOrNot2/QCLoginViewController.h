@@ -10,4 +10,7 @@
 
 @interface QCLoginViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIButton *loginButton;
+- (IBAction)loginButtonPressed:(UIButton *)sender;
+
 @end

@@ -24,6 +24,33 @@
 		6FEBE1AA17738D160091BE0F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1A917738D160091BE0F /* second@2x.png */; };
 		6FEBE1AD17738D160091BE0F /* QCFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1AB17738D160091BE0F /* QCFirstViewController.xib */; };
 		6FEBE1B017738D160091BE0F /* QCSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1AE17738D160091BE0F /* QCSecondViewController.xib */; };
+		6FEBE1B7177390EB0091BE0F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1B6177390EB0091BE0F /* FacebookSDK.framework */; };
+		6FEBE1BA1773916D0091BE0F /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1B81773916D0091BE0F /* FacebookSDKResources.bundle */; };
+		6FEBE1BB1773916D0091BE0F /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1B91773916D0091BE0F /* FBUserSettingsViewResources.bundle */; };
+		6FEBE1BD177391E30091BE0F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1BC177391E30091BE0F /* AdSupport.framework */; };
+		6FEBE1BF177392110091BE0F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1BE177392110091BE0F /* Accounts.framework */; };
+		6FEBE1C1177392410091BE0F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1C0177392410091BE0F /* libsqlite3.dylib */; };
+		6FEBE1C3177392550091BE0F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1C2177392550091BE0F /* Security.framework */; };
+		6FEBE1C51773927E0091BE0F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1C41773927E0091BE0F /* Social.framework */; };
+		6FEBE1C7177397BC0091BE0F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1C6177397BC0091BE0F /* Parse.framework */; };
+		6FEBE1C9177398160091BE0F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1C8177398160091BE0F /* AudioToolbox.framework */; };
+		6FEBE1CB177398740091BE0F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1CA177398730091BE0F /* CFNetwork.framework */; };
+		6FEBE1CD177398A00091BE0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1CC177398A00091BE0F /* CoreLocation.framework */; };
+		6FEBE1CF177398B70091BE0F /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1CE177398B70091BE0F /* libz.1.1.3.dylib */; };
+		6FEBE1D1177398E30091BE0F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1D0177398E20091BE0F /* MobileCoreServices.framework */; };
+		6FEBE1D3177399110091BE0F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1D2177399110091BE0F /* QuartzCore.framework */; };
+		6FEBE1D717739ACE0091BE0F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1D617739ACE0091BE0F /* StoreKit.framework */; };
+		6FEBE1D917739AD80091BE0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1D817739AD80091BE0F /* SystemConfiguration.framework */; };
+		6FEBE1DD17739F210091BE0F /* QCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE1DB17739F210091BE0F /* QCLoginViewController.m */; };
+		6FEBE1DE17739F210091BE0F /* QCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1DC17739F210091BE0F /* QCLoginViewController.xib */; };
+		6FEBE1E31773A4230091BE0F /* menu_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1DF1773A4230091BE0F /* menu_up@2x.png */; };
+		6FEBE1E41773A4230091BE0F /* menu_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1E01773A4230091BE0F /* menu_up.png */; };
+		6FEBE1E51773A4230091BE0F /* menu_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1E11773A4230091BE0F /* menu_down@2x.png */; };
+		6FEBE1E61773A4230091BE0F /* menu_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1E21773A4230091BE0F /* menu_down.png */; };
+		6FEBE1EB1773A4C30091BE0F /* login-button-small-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1E71773A4C30091BE0F /* login-button-small-pressed.png */; };
+		6FEBE1EC1773A4C30091BE0F /* login-button-small-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1E81773A4C30091BE0F /* login-button-small-pressed@2x.png */; };
+		6FEBE1ED1773A4C30091BE0F /* login-button-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1E91773A4C30091BE0F /* login-button-small.png */; };
+		6FEBE1EE1773A4C30091BE0F /* login-button-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1EA1773A4C30091BE0F /* login-button-small@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +77,34 @@
 		6FEBE1A917738D160091BE0F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		6FEBE1AC17738D160091BE0F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QCFirstViewController.xib; sourceTree = "<group>"; };
 		6FEBE1AF17738D160091BE0F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QCSecondViewController.xib; sourceTree = "<group>"; };
+		6FEBE1B6177390EB0091BE0F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		6FEBE1B81773916D0091BE0F /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		6FEBE1B91773916D0091BE0F /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
+		6FEBE1BC177391E30091BE0F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		6FEBE1BE177392110091BE0F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		6FEBE1C0177392410091BE0F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		6FEBE1C2177392550091BE0F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6FEBE1C41773927E0091BE0F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		6FEBE1C6177397BC0091BE0F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		6FEBE1C8177398160091BE0F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6FEBE1CA177398730091BE0F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6FEBE1CC177398A00091BE0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6FEBE1CE177398B70091BE0F /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		6FEBE1D0177398E20091BE0F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6FEBE1D2177399110091BE0F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6FEBE1D617739ACE0091BE0F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		6FEBE1D817739AD80091BE0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6FEBE1DA17739F210091BE0F /* QCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLoginViewController.h; sourceTree = "<group>"; };
+		6FEBE1DB17739F210091BE0F /* QCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLoginViewController.m; sourceTree = "<group>"; };
+		6FEBE1DC17739F210091BE0F /* QCLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLoginViewController.xib; sourceTree = "<group>"; };
+		6FEBE1DF1773A4230091BE0F /* menu_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_up@2x.png"; sourceTree = "<group>"; };
+		6FEBE1E01773A4230091BE0F /* menu_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_up.png; sourceTree = "<group>"; };
+		6FEBE1E11773A4230091BE0F /* menu_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_down@2x.png"; sourceTree = "<group>"; };
+		6FEBE1E21773A4230091BE0F /* menu_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_down.png; sourceTree = "<group>"; };
+		6FEBE1E71773A4C30091BE0F /* login-button-small-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed.png"; sourceTree = "<group>"; };
+		6FEBE1E81773A4C30091BE0F /* login-button-small-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed@2x.png"; sourceTree = "<group>"; };
+		6FEBE1E91773A4C30091BE0F /* login-button-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small.png"; sourceTree = "<group>"; };
+		6FEBE1EA1773A4C30091BE0F /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +112,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FEBE1D917739AD80091BE0F /* SystemConfiguration.framework in Frameworks */,
+				6FEBE1D717739ACE0091BE0F /* StoreKit.framework in Frameworks */,
+				6FEBE1D3177399110091BE0F /* QuartzCore.framework in Frameworks */,
+				6FEBE1D1177398E30091BE0F /* MobileCoreServices.framework in Frameworks */,
+				6FEBE1CF177398B70091BE0F /* libz.1.1.3.dylib in Frameworks */,
+				6FEBE1CD177398A00091BE0F /* CoreLocation.framework in Frameworks */,
+				6FEBE1CB177398740091BE0F /* CFNetwork.framework in Frameworks */,
+				6FEBE1C9177398160091BE0F /* AudioToolbox.framework in Frameworks */,
+				6FEBE1C51773927E0091BE0F /* Social.framework in Frameworks */,
+				6FEBE1C3177392550091BE0F /* Security.framework in Frameworks */,
+				6FEBE1C1177392410091BE0F /* libsqlite3.dylib in Frameworks */,
+				6FEBE1BF177392110091BE0F /* Accounts.framework in Frameworks */,
+				6FEBE1BD177391E30091BE0F /* AdSupport.framework in Frameworks */,
 				6FEBE18617738D160091BE0F /* UIKit.framework in Frameworks */,
 				6FEBE18817738D160091BE0F /* Foundation.framework in Frameworks */,
 				6FEBE18A17738D160091BE0F /* CoreGraphics.framework in Frameworks */,
+				6FEBE1B7177390EB0091BE0F /* FacebookSDK.framework in Frameworks */,
+				6FEBE1C7177397BC0091BE0F /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +156,23 @@
 		6FEBE18417738D160091BE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FEBE1D817739AD80091BE0F /* SystemConfiguration.framework */,
+				6FEBE1D617739ACE0091BE0F /* StoreKit.framework */,
+				6FEBE1D2177399110091BE0F /* QuartzCore.framework */,
+				6FEBE1D0177398E20091BE0F /* MobileCoreServices.framework */,
+				6FEBE1CE177398B70091BE0F /* libz.1.1.3.dylib */,
+				6FEBE1CC177398A00091BE0F /* CoreLocation.framework */,
+				6FEBE1CA177398730091BE0F /* CFNetwork.framework */,
+				6FEBE1C8177398160091BE0F /* AudioToolbox.framework */,
+				6FEBE1C6177397BC0091BE0F /* Parse.framework */,
+				6FEBE1C41773927E0091BE0F /* Social.framework */,
+				6FEBE1C2177392550091BE0F /* Security.framework */,
+				6FEBE1C0177392410091BE0F /* libsqlite3.dylib */,
+				6FEBE1BE177392110091BE0F /* Accounts.framework */,
+				6FEBE1BC177391E30091BE0F /* AdSupport.framework */,
+				6FEBE1B81773916D0091BE0F /* FacebookSDKResources.bundle */,
+				6FEBE1B91773916D0091BE0F /* FBUserSettingsViewResources.bundle */,
+				6FEBE1B6177390EB0091BE0F /* FacebookSDK.framework */,
 				6FEBE18517738D160091BE0F /* UIKit.framework */,
 				6FEBE18717738D160091BE0F /* Foundation.framework */,
 				6FEBE18917738D160091BE0F /* CoreGraphics.framework */,
@@ -99,6 +186,9 @@
 				6FEBE19417738D160091BE0F /* QCAppDelegate.h */,
 				6FEBE19517738D160091BE0F /* QCAppDelegate.m */,
 				6FEBE19D17738D160091BE0F /* QCFirstViewController.h */,
+				6FEBE1DA17739F210091BE0F /* QCLoginViewController.h */,
+				6FEBE1DB17739F210091BE0F /* QCLoginViewController.m */,
+				6FEBE1DC17739F210091BE0F /* QCLoginViewController.xib */,
 				6FEBE19E17738D160091BE0F /* QCFirstViewController.m */,
 				6FEBE1A017738D160091BE0F /* first.png */,
 				6FEBE1A217738D160091BE0F /* first@2x.png */,
@@ -116,6 +206,14 @@
 		6FEBE18C17738D160091BE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6FEBE1E71773A4C30091BE0F /* login-button-small-pressed.png */,
+				6FEBE1E81773A4C30091BE0F /* login-button-small-pressed@2x.png */,
+				6FEBE1E91773A4C30091BE0F /* login-button-small.png */,
+				6FEBE1EA1773A4C30091BE0F /* login-button-small@2x.png */,
+				6FEBE1DF1773A4230091BE0F /* menu_up@2x.png */,
+				6FEBE1E01773A4230091BE0F /* menu_up.png */,
+				6FEBE1E11773A4230091BE0F /* menu_down@2x.png */,
+				6FEBE1E21773A4230091BE0F /* menu_down.png */,
 				6FEBE18D17738D160091BE0F /* HotOrNot2-Info.plist */,
 				6FEBE18E17738D160091BE0F /* InfoPlist.strings */,
 				6FEBE19117738D160091BE0F /* main.m */,
@@ -189,6 +287,17 @@
 				6FEBE1AA17738D160091BE0F /* second@2x.png in Resources */,
 				6FEBE1AD17738D160091BE0F /* QCFirstViewController.xib in Resources */,
 				6FEBE1B017738D160091BE0F /* QCSecondViewController.xib in Resources */,
+				6FEBE1BA1773916D0091BE0F /* FacebookSDKResources.bundle in Resources */,
+				6FEBE1BB1773916D0091BE0F /* FBUserSettingsViewResources.bundle in Resources */,
+				6FEBE1DE17739F210091BE0F /* QCLoginViewController.xib in Resources */,
+				6FEBE1E31773A4230091BE0F /* menu_up@2x.png in Resources */,
+				6FEBE1E41773A4230091BE0F /* menu_up.png in Resources */,
+				6FEBE1E51773A4230091BE0F /* menu_down@2x.png in Resources */,
+				6FEBE1E61773A4230091BE0F /* menu_down.png in Resources */,
+				6FEBE1EB1773A4C30091BE0F /* login-button-small-pressed.png in Resources */,
+				6FEBE1EC1773A4C30091BE0F /* login-button-small-pressed@2x.png in Resources */,
+				6FEBE1ED1773A4C30091BE0F /* login-button-small.png in Resources */,
+				6FEBE1EE1773A4C30091BE0F /* login-button-small@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +312,7 @@
 				6FEBE19617738D160091BE0F /* QCAppDelegate.m in Sources */,
 				6FEBE19F17738D160091BE0F /* QCFirstViewController.m in Sources */,
 				6FEBE1A617738D160091BE0F /* QCSecondViewController.m in Sources */,
+				6FEBE1DD17739F210091BE0F /* QCLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +405,10 @@
 		6FEBE1B417738D160091BE0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HotOrNot2/HotOrNot2-Prefix.pch";
 				INFOPLIST_FILE = "HotOrNot2/HotOrNot2-Info.plist";
@@ -306,6 +420,10 @@
 		6FEBE1B517738D160091BE0F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HotOrNot2/HotOrNot2-Prefix.pch";
 				INFOPLIST_FILE = "HotOrNot2/HotOrNot2-Info.plist";

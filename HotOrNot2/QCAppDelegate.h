@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QCLoginViewController.h"
 
 @interface QCAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 

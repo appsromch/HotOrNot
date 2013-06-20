@@ -27,6 +27,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateSelected];
+//    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +42,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)loginButtonPressed:(UIButton *)sender {
+}
 @end

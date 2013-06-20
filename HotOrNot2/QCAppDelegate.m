@@ -7,6 +7,7 @@
 //
 
 #import "QCAppDelegate.h"
+#import <Parse/Parse.h>
 
 #import "QCFirstViewController.h"
 
@@ -18,11 +19,17 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[QCFirstViewController alloc] initWithNibName:@"QCFirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[QCSecondViewController alloc] initWithNibName:@"QCSecondViewController" bundle:nil];
-    self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[viewController1, viewController2];
-    self.window.rootViewController = self.tabBarController;
+    [Parse setApplicationId:@"01grXaJ0mYySD7L7ceDdDOxanuLEL9jDaryxNarl"
+                  clientKey:@"6j959ZxoKWxClVNeKvRfBZhK3FDzkauk52agxs7i"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    QCLoginViewController *loginVC = [[QCLoginViewController alloc] initWithNibName:nil bundle:nil];
+    
+//    UIViewController *viewController1 = [[QCFirstViewController alloc] initWithNibName:@"QCFirstViewController" bundle:nil];
+//    UIViewController *viewController2 = [[QCSecondViewController alloc] initWithNibName:@"QCSecondViewController" bundle:nil];
+//    self.tabBarController = [[UITabBarController alloc] init];
+//    self.tabBarController.viewControllers = @[viewController1, viewController2];
+    self.window.rootViewController = loginVC;
     [self.window makeKeyAndVisible];
     return YES;
 }
