@@ -13,7 +13,6 @@
 		6FEBE19017738D160091BE0F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE18E17738D160091BE0F /* InfoPlist.strings */; };
 		6FEBE19217738D160091BE0F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE19117738D160091BE0F /* main.m */; };
 		6FEBE19617738D160091BE0F /* QCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE19517738D160091BE0F /* QCAppDelegate.m */; };
-		6FEBE19817738D160091BE0F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE19717738D160091BE0F /* Default.png */; };
 		6FEBE19A17738D160091BE0F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE19917738D160091BE0F /* Default@2x.png */; };
 		6FEBE19C17738D160091BE0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE19B17738D160091BE0F /* Default-568h@2x.png */; };
 		6FEBE19F17738D160091BE0F /* QCFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE19E17738D160091BE0F /* QCFirstViewController.m */; };
@@ -51,6 +50,19 @@
 		6FEBE1EC1773A4C30091BE0F /* login-button-small-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1E81773A4C30091BE0F /* login-button-small-pressed@2x.png */; };
 		6FEBE1ED1773A4C30091BE0F /* login-button-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1E91773A4C30091BE0F /* login-button-small.png */; };
 		6FEBE1EE1773A4C30091BE0F /* login-button-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1EA1773A4C30091BE0F /* login-button-small@2x.png */; };
+		6FEBE20A1774A3F90091BE0F /* location_Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE2041774A3F90091BE0F /* location_Button@2x.png */; };
+		6FEBE20B1774A3F90091BE0F /* location_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE2051774A3F90091BE0F /* location_Button.png */; };
+		6FEBE20C1774A3F90091BE0F /* location_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE2061774A3F90091BE0F /* location_arrow@2x.png */; };
+		6FEBE20D1774A3F90091BE0F /* location_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE2071774A3F90091BE0F /* location_arrow.png */; };
+		6FEBE20E1774A3F90091BE0F /* QTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE2081774A3F90091BE0F /* QTLocation.m */; };
+		6FEBE2101774A60D0091BE0F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE20F1774A60D0091BE0F /* MapKit.framework */; };
+		6FEBE2141774CF940091BE0F /* QCCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE2131774CF940091BE0F /* QCCustomCell.m */; };
+		6FEBE2161774CFE20091BE0F /* QCCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE2151774CFE10091BE0F /* QCCustomCell.xib */; };
+		6FEBE21B1774D19A0091BE0F /* QCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE2191774D19A0091BE0F /* QCDetailViewController.m */; };
+		6FEBE21C1774D19A0091BE0F /* QCDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE21A1774D19A0091BE0F /* QCDetailViewController.xib */; };
+		6FEBE21E1774DB160091BE0F /* loading.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE21D1774DB160091BE0F /* loading.jpeg */; };
+		6FEBE2201774F2580091BE0F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE21F1774F2570091BE0F /* Default.png */; };
+		6FEBE2221774F3430091BE0F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE2211774F3430091BE0F /* Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +76,6 @@
 		6FEBE19317738D160091BE0F /* HotOrNot2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HotOrNot2-Prefix.pch"; sourceTree = "<group>"; };
 		6FEBE19417738D160091BE0F /* QCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCAppDelegate.h; sourceTree = "<group>"; };
 		6FEBE19517738D160091BE0F /* QCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCAppDelegate.m; sourceTree = "<group>"; };
-		6FEBE19717738D160091BE0F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6FEBE19917738D160091BE0F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6FEBE19B17738D160091BE0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6FEBE19D17738D160091BE0F /* QCFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCFirstViewController.h; sourceTree = "<group>"; };
@@ -105,6 +116,22 @@
 		6FEBE1E81773A4C30091BE0F /* login-button-small-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small-pressed@2x.png"; sourceTree = "<group>"; };
 		6FEBE1E91773A4C30091BE0F /* login-button-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small.png"; sourceTree = "<group>"; };
 		6FEBE1EA1773A4C30091BE0F /* login-button-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-button-small@2x.png"; sourceTree = "<group>"; };
+		6FEBE2041774A3F90091BE0F /* location_Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location_Button@2x.png"; sourceTree = "<group>"; };
+		6FEBE2051774A3F90091BE0F /* location_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_Button.png; sourceTree = "<group>"; };
+		6FEBE2061774A3F90091BE0F /* location_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location_arrow@2x.png"; sourceTree = "<group>"; };
+		6FEBE2071774A3F90091BE0F /* location_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location_arrow.png; sourceTree = "<group>"; };
+		6FEBE2081774A3F90091BE0F /* QTLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTLocation.m; sourceTree = "<group>"; };
+		6FEBE2091774A3F90091BE0F /* QTLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTLocation.h; sourceTree = "<group>"; };
+		6FEBE20F1774A60D0091BE0F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6FEBE2121774CF940091BE0F /* QCCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCCustomCell.h; sourceTree = "<group>"; };
+		6FEBE2131774CF940091BE0F /* QCCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCCustomCell.m; sourceTree = "<group>"; };
+		6FEBE2151774CFE10091BE0F /* QCCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCCustomCell.xib; sourceTree = "<group>"; };
+		6FEBE2181774D19A0091BE0F /* QCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCDetailViewController.h; sourceTree = "<group>"; };
+		6FEBE2191774D19A0091BE0F /* QCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCDetailViewController.m; sourceTree = "<group>"; };
+		6FEBE21A1774D19A0091BE0F /* QCDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCDetailViewController.xib; sourceTree = "<group>"; };
+		6FEBE21D1774DB160091BE0F /* loading.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loading.jpeg; sourceTree = "<group>"; };
+		6FEBE21F1774F2570091BE0F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		6FEBE2211774F3430091BE0F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FEBE2101774A60D0091BE0F /* MapKit.framework in Frameworks */,
 				6FEBE1D917739AD80091BE0F /* SystemConfiguration.framework in Frameworks */,
 				6FEBE1D717739ACE0091BE0F /* StoreKit.framework in Frameworks */,
 				6FEBE1D3177399110091BE0F /* QuartzCore.framework in Frameworks */,
@@ -139,6 +167,7 @@
 		6FEBE17917738D160091BE0F = {
 			isa = PBXGroup;
 			children = (
+				6FEBE2211774F3430091BE0F /* Icon.png */,
 				6FEBE18B17738D160091BE0F /* HotOrNot2 */,
 				6FEBE18417738D160091BE0F /* Frameworks */,
 				6FEBE18317738D160091BE0F /* Products */,
@@ -156,6 +185,7 @@
 		6FEBE18417738D160091BE0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FEBE20F1774A60D0091BE0F /* MapKit.framework */,
 				6FEBE1D817739AD80091BE0F /* SystemConfiguration.framework */,
 				6FEBE1D617739ACE0091BE0F /* StoreKit.framework */,
 				6FEBE1D2177399110091BE0F /* QuartzCore.framework */,
@@ -190,14 +220,16 @@
 				6FEBE1DB17739F210091BE0F /* QCLoginViewController.m */,
 				6FEBE1DC17739F210091BE0F /* QCLoginViewController.xib */,
 				6FEBE19E17738D160091BE0F /* QCFirstViewController.m */,
+				6FEBE1AB17738D160091BE0F /* QCFirstViewController.xib */,
 				6FEBE1A017738D160091BE0F /* first.png */,
 				6FEBE1A217738D160091BE0F /* first@2x.png */,
 				6FEBE1A417738D160091BE0F /* QCSecondViewController.h */,
 				6FEBE1A517738D160091BE0F /* QCSecondViewController.m */,
+				6FEBE1AE17738D160091BE0F /* QCSecondViewController.xib */,
 				6FEBE1A717738D160091BE0F /* second.png */,
 				6FEBE1A917738D160091BE0F /* second@2x.png */,
-				6FEBE1AB17738D160091BE0F /* QCFirstViewController.xib */,
-				6FEBE1AE17738D160091BE0F /* QCSecondViewController.xib */,
+				6FEBE2171774D1470091BE0F /* DetailViewController */,
+				6FEBE2111774CF610091BE0F /* CustomCell */,
 				6FEBE18C17738D160091BE0F /* Supporting Files */,
 			);
 			path = HotOrNot2;
@@ -206,6 +238,14 @@
 		6FEBE18C17738D160091BE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6FEBE21F1774F2570091BE0F /* Default.png */,
+				6FEBE2041774A3F90091BE0F /* location_Button@2x.png */,
+				6FEBE21D1774DB160091BE0F /* loading.jpeg */,
+				6FEBE2051774A3F90091BE0F /* location_Button.png */,
+				6FEBE2061774A3F90091BE0F /* location_arrow@2x.png */,
+				6FEBE2071774A3F90091BE0F /* location_arrow.png */,
+				6FEBE2081774A3F90091BE0F /* QTLocation.m */,
+				6FEBE2091774A3F90091BE0F /* QTLocation.h */,
 				6FEBE1E71773A4C30091BE0F /* login-button-small-pressed.png */,
 				6FEBE1E81773A4C30091BE0F /* login-button-small-pressed@2x.png */,
 				6FEBE1E91773A4C30091BE0F /* login-button-small.png */,
@@ -218,11 +258,30 @@
 				6FEBE18E17738D160091BE0F /* InfoPlist.strings */,
 				6FEBE19117738D160091BE0F /* main.m */,
 				6FEBE19317738D160091BE0F /* HotOrNot2-Prefix.pch */,
-				6FEBE19717738D160091BE0F /* Default.png */,
 				6FEBE19917738D160091BE0F /* Default@2x.png */,
 				6FEBE19B17738D160091BE0F /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6FEBE2111774CF610091BE0F /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				6FEBE2121774CF940091BE0F /* QCCustomCell.h */,
+				6FEBE2131774CF940091BE0F /* QCCustomCell.m */,
+				6FEBE2151774CFE10091BE0F /* QCCustomCell.xib */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		6FEBE2171774D1470091BE0F /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6FEBE2181774D19A0091BE0F /* QCDetailViewController.h */,
+				6FEBE2191774D19A0091BE0F /* QCDetailViewController.m */,
+				6FEBE21A1774D19A0091BE0F /* QCDetailViewController.xib */,
+			);
+			name = DetailViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +337,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FEBE19017738D160091BE0F /* InfoPlist.strings in Resources */,
-				6FEBE19817738D160091BE0F /* Default.png in Resources */,
 				6FEBE19A17738D160091BE0F /* Default@2x.png in Resources */,
 				6FEBE19C17738D160091BE0F /* Default-568h@2x.png in Resources */,
 				6FEBE1A117738D160091BE0F /* first.png in Resources */,
@@ -298,6 +356,15 @@
 				6FEBE1EC1773A4C30091BE0F /* login-button-small-pressed@2x.png in Resources */,
 				6FEBE1ED1773A4C30091BE0F /* login-button-small.png in Resources */,
 				6FEBE1EE1773A4C30091BE0F /* login-button-small@2x.png in Resources */,
+				6FEBE20A1774A3F90091BE0F /* location_Button@2x.png in Resources */,
+				6FEBE20B1774A3F90091BE0F /* location_Button.png in Resources */,
+				6FEBE20C1774A3F90091BE0F /* location_arrow@2x.png in Resources */,
+				6FEBE20D1774A3F90091BE0F /* location_arrow.png in Resources */,
+				6FEBE2161774CFE20091BE0F /* QCCustomCell.xib in Resources */,
+				6FEBE21C1774D19A0091BE0F /* QCDetailViewController.xib in Resources */,
+				6FEBE21E1774DB160091BE0F /* loading.jpeg in Resources */,
+				6FEBE2201774F2580091BE0F /* Default.png in Resources */,
+				6FEBE2221774F3430091BE0F /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +380,9 @@
 				6FEBE19F17738D160091BE0F /* QCFirstViewController.m in Sources */,
 				6FEBE1A617738D160091BE0F /* QCSecondViewController.m in Sources */,
 				6FEBE1DD17739F210091BE0F /* QCLoginViewController.m in Sources */,
+				6FEBE20E1774A3F90091BE0F /* QTLocation.m in Sources */,
+				6FEBE2141774CF940091BE0F /* QCCustomCell.m in Sources */,
+				6FEBE21B1774D19A0091BE0F /* QCDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +521,7 @@
 				6FEBE1B517738D160091BE0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

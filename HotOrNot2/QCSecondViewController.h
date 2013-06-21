@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QTLocation.h"
+#import <Parse/Parse.h>
+#import "QCDetailViewController.h"
+#import "QCCustomCell.h"
 
-@interface QCSecondViewController : UIViewController
+@interface QCSecondViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) NSArray *users;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

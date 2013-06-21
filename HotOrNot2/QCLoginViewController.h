@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "QCFirstViewController.h"
+#import "QCSecondViewController.h"
 
 @interface QCLoginViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
+
+@property (nonatomic) BOOL userSignIn;
+
 - (IBAction)loginButtonPressed:(UIButton *)sender;
 
 @end
