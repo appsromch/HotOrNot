@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "QTLocation.h"
 
-@interface QCFirstViewController : UIViewController
+@interface ProfileViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *headerImageView;
 @property (nonatomic, strong) NSMutableData *imageData;

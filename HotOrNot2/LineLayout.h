@@ -93,7 +93,8 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "QCCollectionViewFlowLayout.h"
 
-@interface LineLayout : UICollectionViewFlowLayout
+@interface LineLayout : QCCollectionViewFlowLayout
 
 @end

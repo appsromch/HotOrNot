@@ -96,6 +96,6 @@
 
 @interface Cell : UICollectionViewCell
 
-@property (strong, nonatomic) UILabel* label;
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
 @end

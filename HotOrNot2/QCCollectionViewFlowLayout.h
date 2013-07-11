@@ -10,4 +10,7 @@
 
 @interface QCCollectionViewFlowLayout : UICollectionViewFlowLayout
 
+-(id)init;
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect;
+
 @end

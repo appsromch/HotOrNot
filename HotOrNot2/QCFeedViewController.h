@@ -12,9 +12,8 @@
 #import "QCDetailViewController.h"
 #import "QCCustomCell.h"
 
-@interface QCSecondViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface QCFeedViewController : UICollectionViewController
 
-@property (strong, nonatomic) NSArray *users;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *photos;
 
 @end

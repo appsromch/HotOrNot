@@ -9,9 +9,9 @@
 #import "QCAppDelegate.h"
 #import <Parse/Parse.h>
 
-#import "QCFirstViewController.h"
+#import "ProfileViewController.h"
 
-#import "QCSecondViewController.h"
+#import "QCFeedViewController.h"
 
 @implementation QCAppDelegate
 
@@ -19,8 +19,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    [Parse setApplicationId:@"01grXaJ0mYySD7L7ceDdDOxanuLEL9jDaryxNarl"
-                  clientKey:@"6j959ZxoKWxClVNeKvRfBZhK3FDzkauk52agxs7i"];
+    [Parse setApplicationId:@"ELQApEBuR2KC2dJzfzAN5TEhBdQSMpgD7H0lRBo2" clientKey:@"JNuRPPbCZgxzYBhhZBARalfstu4pxQgk3c142z85"];
+    
     [PFFacebookUtils initializeFacebook];
     QCLoginViewController *loginVC = [[QCLoginViewController alloc] initWithNibName:nil bundle:nil];
    
@@ -75,5 +75,21 @@
 {
 }
 */
+
+
+-(void)createAndPresentTabBarController
+{
+    UIViewController *viewController1 = [[ProfileViewController alloc] initWithNibName:@"QCFirstViewController" bundle:nil];
+    LineLayout* lineLayout = [[LineLayout alloc] init];
+    QCFeedViewController *viewController2 = [[QCFeedViewController alloc] initWithCollectionViewLayout:lineLayout];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController2];
+    QCLeaderBoardViewController *leaderBoardViewController = [[QCLeaderBoardViewController alloc] initWithNibName:nil bundle:nil];
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = @[navController, viewController1, leaderBoardViewController];
+    
+    self.window.rootViewController = self.tabBarController;
+    [self.window makeKeyAndVisible];
+
+}
 
 @end

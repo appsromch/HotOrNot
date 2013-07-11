@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 self.edu. All rights reserved.
 //
 
-#import "QCFirstViewController.h"
+#import "ProfileViewController.h"
 
-@interface QCFirstViewController ()
+@interface ProfileViewController ()
 
 @end
 
-@implementation QCFirstViewController
+@implementation ProfileViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,51 +28,7 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view, typically from a nib.
-    // Send request to Facebook
-    FBRequest *request = [FBRequest requestForMe];
-    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        // handle response
-        if (!error) {
-            // Parse the data received
-            
-            NSDictionary *userData = (NSDictionary *)result;
-            NSLog(@"&&& %@", userData);
-            NSString *facebookID = userData[@"id"];
-            NSLog(@"&&& %@", facebookID);
-            
-            NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
-            NSMutableDictionary *userProfile = [NSMutableDictionary dictionaryWithCapacity:7];
-            if (facebookID) {
-                userProfile[@"facebookId"] = facebookID;
-            }
-            if (userData[@"name"]) {
-                userProfile[@"name"] = userData[@"name"];
-            }
-            if (userData[@"location"][@"name"]) {
-                userProfile[@"location"] = userData[@"location"][@"name"];
-            }
-            if (userData[@"gender"]) {
-                userProfile[@"gender"] = userData[@"gender"];
-            }
-            if (userData[@"birthday"]) {
-                userProfile[@"birthday"] = userData[@"birthday"];
-            }
-            if (userData[@"relationship_status"]) {
-                userProfile[@"relationship"] = userData[@"relationship_status"];
-            }
-            if ([pictureURL absoluteString]) {
-                userProfile[@"pictureURL"] = [pictureURL absoluteString];
-            }
-            [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
-            [[PFUser currentUser] saveInBackground];
-        } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
-                    isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
-            NSLog(@"The facebook session was invalidated");
-            [self logoutButtonTouchHandler:nil];
-        } else {
-            NSLog(@"Some other error: %@", error);
-        }
-    }];
+   
     [self startPhotoDownload];
     
     self.nameLabel.text = [[PFUser currentUser] objectForKey:@"profile"][@"name"];
@@ -88,69 +44,43 @@
 }
 
 - (void)didReceiveMemoryWarning
-
 {
-    
     [super didReceiveMemoryWarning];
-    
     // Dispose of any resources that can be recreated.
-    
 }
 
 #pragma mark - NSURLConnectionDataDelegate
 
 /* Callback delegate methods used for downloading the user's profile picture */
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{    
     // As chuncks of the image are received, we build our data file
-    
     [self.imageData appendData:data];
-    
 }
-
-
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
     // All data has been downloaded, now we can set the image in the header image view
     
-    NSLog(@"**** connectionDidFinishLoading");
-    
     self.headerImageView.image = [UIImage imageWithData:self.imageData];
-    
-    
-    
-    // Add a nice corner radius to the image
-    
-    //    self.headerImageView.layer.cornerRadius = 8.0f;
-    
-    //    self.headerImageView.layer.masksToBounds = YES;
-    
+    self.headerImageView.layer.cornerRadius = 8.0f;
+    self.headerImageView.layer.masksToBounds = YES;
 }
-
-
-
-
 
 #pragma mark - Logout
 
-
-
-- (void)logoutButtonTouchHandler:(id)sender {
-    
+- (void)logoutButtonTouchHandler:(id)sender
+{    
     // Logout user, this automatically clears the cache
-    
     [PFUser logOut];
-    
 }
 
 #pragma mark - Start Photo Download
 
--(void)startPhotoDownload {
-    
+-(void)startPhotoDownload
+{    
     self.imageData = [[NSMutableData alloc] init]; // the data will be loaded in here
-    NSLog(@"%@", [[PFUser currentUser] objectForKey:@"profile"][@"pictureURL"]);
     if ([[PFUser currentUser] objectForKey:@"profile"][@"pictureURL"]) {
         NSURL *pictureURL = [NSURL URLWithString:[[PFUser currentUser] objectForKey:@"profile"][@"pictureURL"]];
 
@@ -163,8 +93,6 @@
         }
     }    
 }
-
-
 
 - (IBAction)centerMapButtonPressed:(UIButton *)sender
 {

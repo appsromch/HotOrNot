@@ -12,9 +12,14 @@
 @interface QCDetailViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) PFUser *user;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIButton *dislikeButton;
 
 @property (strong, nonatomic) UIImage *imageToBePassed;
+@property (strong, nonatomic) PFObject *pfPhotoObject;
+@property (nonatomic) BOOL isLikedByCurrentUser;
+
+- (IBAction)likebuttonPressed:(UIButton *)sender;
+- (IBAction)dislikeButtonPressed:(UIButton *)sender;
 
 @end

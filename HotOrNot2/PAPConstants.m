@@ -53,6 +53,7 @@ NSString *const kPAPActivityPhotoKey       = @"photo";
 
 // Type values
 NSString *const kPAPActivityTypeLike       = @"like";
+NSString *const kPAPActivityTypeDislike    = @"dislike";
 NSString *const kPAPActivityTypeFollow     = @"follow";
 NSString *const kPAPActivityTypeComment    = @"comment";
 NSString *const kPAPActivityTypeJoined     = @"joined";
