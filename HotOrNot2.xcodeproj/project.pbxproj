@@ -66,6 +66,8 @@
 		6FA94EE6178F230F00BE7EB7 /* send-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FA94EE4178F230F00BE7EB7 /* send-highlighted@2x.png */; };
 		6FA94EE9178F232A00BE7EB7 /* messageSent.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6FA94EE7178F232A00BE7EB7 /* messageSent.aiff */; };
 		6FA94EEA178F232A00BE7EB7 /* messageReceived.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6FA94EE8178F232A00BE7EB7 /* messageReceived.aiff */; };
+		6FA94EF4178F6C7B00BE7EB7 /* QCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA94EF2178F6C7B00BE7EB7 /* QCSettingsViewController.m */; };
+		6FA94EF5178F6C7B00BE7EB7 /* QCSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FA94EF3178F6C7B00BE7EB7 /* QCSettingsViewController.xib */; };
 		6FEBE18617738D160091BE0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE18517738D160091BE0F /* UIKit.framework */; };
 		6FEBE18817738D160091BE0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE18717738D160091BE0F /* Foundation.framework */; };
 		6FEBE18A17738D160091BE0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE18917738D160091BE0F /* CoreGraphics.framework */; };
@@ -216,6 +218,9 @@
 		6FA94EE4178F230F00BE7EB7 /* send-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "send-highlighted@2x.png"; sourceTree = "<group>"; };
 		6FA94EE7178F232A00BE7EB7 /* messageSent.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = messageSent.aiff; sourceTree = "<group>"; };
 		6FA94EE8178F232A00BE7EB7 /* messageReceived.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = messageReceived.aiff; sourceTree = "<group>"; };
+		6FA94EF1178F6C7B00BE7EB7 /* QCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCSettingsViewController.h; sourceTree = "<group>"; };
+		6FA94EF2178F6C7B00BE7EB7 /* QCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCSettingsViewController.m; sourceTree = "<group>"; };
+		6FA94EF3178F6C7B00BE7EB7 /* QCSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCSettingsViewController.xib; sourceTree = "<group>"; };
 		6FEBE18217738D160091BE0F /* HotOrNot2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotOrNot2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FEBE18517738D160091BE0F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6FEBE18717738D160091BE0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -575,6 +580,16 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		6FA94EF0178F6C5000BE7EB7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6FA94EF1178F6C7B00BE7EB7 /* QCSettingsViewController.h */,
+				6FA94EF2178F6C7B00BE7EB7 /* QCSettingsViewController.m */,
+				6FA94EF3178F6C7B00BE7EB7 /* QCSettingsViewController.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		6FEBE17917738D160091BE0F = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +641,7 @@
 			children = (
 				6FA94E24178CC87B00BE7EB7 /* Initialization */,
 				6FA94E23178CC87300BE7EB7 /* Feed */,
+				6FA94EF0178F6C5000BE7EB7 /* Settings */,
 				6FA94E25178CC88900BE7EB7 /* Profile */,
 				6FA94DFA178C97AC00BE7EB7 /* CollectionView */,
 				6FEBE2171774D1470091BE0F /* DetailViewController */,
@@ -778,6 +794,7 @@
 				6FA94EE6178F230F00BE7EB7 /* send-highlighted@2x.png in Resources */,
 				6FA94EE9178F232A00BE7EB7 /* messageSent.aiff in Resources */,
 				6FA94EEA178F232A00BE7EB7 /* messageReceived.aiff in Resources */,
+				6FA94EF5178F6C7B00BE7EB7 /* QCSettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,6 +844,7 @@
 				6FA94EB5178F22E300BE7EB7 /* UIButton+JSMessagesView.m in Sources */,
 				6FA94EB6178F22E300BE7EB7 /* UIColor+JSMessagesView.m in Sources */,
 				6FA94EB7178F22E300BE7EB7 /* UIView+AnimationOptionsForCurve.m in Sources */,
+				6FA94EF4178F6C7B00BE7EB7 /* QCSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

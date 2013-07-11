@@ -12,6 +12,8 @@
 #import "QCDetailViewController.h"
 #import "QCCustomCell.h"
 #import "QCAvaliableChatsViewController.h"
+#import "ProfileViewController.h"
+#import "QCSettingsViewController.h"
 
 @interface QCFeedViewController : UICollectionViewController
 

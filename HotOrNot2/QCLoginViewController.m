@@ -76,8 +76,15 @@
             }
         } else if (user.isNew) {
             
+ 
+            NSLog(@"User with facebook signed up and logged in!");
+            [(QCAppDelegate*)[[UIApplication sharedApplication] delegate] createAndPresentTabBarController];
+        } else {
+            
+            NSLog(@"else statement");
+            
             [self updateUserInformation];
-                        
+            
             if (self.imageData == nil){
                 PFUser *user = [PFUser currentUser];
                 self.imageData = [[NSMutableData alloc] init];
@@ -90,9 +97,6 @@
                     NSLog(@"Failed to download picture");
                 }
             }
-            NSLog(@"User with facebook signed up and logged in!");
-            [(QCAppDelegate*)[[UIApplication sharedApplication] delegate] createAndPresentTabBarController];
-        } else {
             
             NSLog(@"User with facebook logged in!");
             [(QCAppDelegate*)[[UIApplication sharedApplication] delegate] createAndPresentTabBarController];

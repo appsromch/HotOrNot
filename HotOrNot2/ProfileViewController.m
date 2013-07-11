@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "QCSettingsViewController.h"
 
 @interface ProfileViewController ()
 
@@ -23,12 +24,21 @@
     }
     return self;
 }
+
+-(void)setupBarButtonItem
+{
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(settingsBarButtonItemPressed:)];
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     // Do any additional setup after loading the view, typically from a nib.
    
+    [self setupBarButtonItem];
+    
     [self startPhotoDownload];
     
     self.nameLabel.text = [[PFUser currentUser] objectForKey:@"profile"][@"name"];
@@ -111,5 +121,11 @@
         MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(center, currentLocation.region.radius, currentLocation.region.radius)];
         [self.mapView setRegion:adjustedRegion animated:NO];
     }
+}
+
+-(void)settingsBarButtonItemPressed:(id)sender
+{
+    QCSettingsViewController *settingsViewController = [[QCSettingsViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:settingsViewController animated:YES];
 }
 @end

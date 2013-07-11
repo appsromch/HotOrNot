@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "QTLocation.h"
+@class QCSettingsViewController;
 
 @interface ProfileViewController : UIViewController
 

@@ -31,6 +31,10 @@
     self.tableView.dataSource = self;
     
     PFQuery *query = [self queryForChats];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+    {
+        NSLog(@"%@", objects);
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,8 +66,8 @@
     [self.navigationController pushViewController:chatViewController animated:YES];
 }
 
-- (PFQuery *)queryForChats {
-    
+- (PFQuery *)queryForChats
+{    
     PFQuery *queryMessageForUser = [PFQuery queryWithClassName:kPAPActivityClassKey];
     [queryMessageForUser whereKey:kPAPActivityToUserKey equalTo:[PFUser currentUser]];
     [queryMessageForUser whereKey:kPAPActivityTypeKey equalTo:kPAPActivityTypeChat];

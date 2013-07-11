@@ -79,13 +79,14 @@
 
 -(void)createAndPresentTabBarController
 {
-    UIViewController *viewController1 = [[ProfileViewController alloc] initWithNibName:@"QCFirstViewController" bundle:nil];
     LineLayout* lineLayout = [[LineLayout alloc] init];
     QCFeedViewController *viewController2 = [[QCFeedViewController alloc] initWithCollectionViewLayout:lineLayout];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController2];
     QCLeaderBoardViewController *leaderBoardViewController = [[QCLeaderBoardViewController alloc] initWithNibName:nil bundle:nil];
+    ProfileViewController *profileViewController = [[ProfileViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:profileViewController];
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[navController, viewController1, leaderBoardViewController];
+    self.tabBarController.viewControllers = @[navController, leaderBoardViewController, navigationController];
     
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];

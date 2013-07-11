@@ -77,7 +77,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
 {
     return self.photos.count;
@@ -111,6 +110,12 @@
 {
     QCAvaliableChatsViewController *avaliableChatsViewController = [[QCAvaliableChatsViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:avaliableChatsViewController animated:YES];
+}
+
+-(void)settingsButtonPressed:(id)sender
+{
+    ProfileViewController *profileVC = [[ProfileViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:profileVC animated:YES];
 }
 
 //#pragma mark - UITableViewDataSourceMethod
