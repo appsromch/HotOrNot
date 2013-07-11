@@ -23,10 +23,18 @@
     return self;
 }
 
+-(void)setupBarButtonItems
+{
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStyleBordered target:self action:@selector(chatBarButtonItemPressed:)];
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self setupBarButtonItems];
     
     self.navigationItem.title = @"Feed";
     self.title = NSLocalizedString(@"Feed", @"Feed Of Photos");
@@ -97,7 +105,13 @@
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
+#pragma mark - Methods
 
+-(void)chatBarButtonItemPressed:(id)sender
+{
+    QCAvaliableChatsViewController *avaliableChatsViewController = [[QCAvaliableChatsViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:avaliableChatsViewController animated:YES];
+}
 
 //#pragma mark - UITableViewDataSourceMethod
 //

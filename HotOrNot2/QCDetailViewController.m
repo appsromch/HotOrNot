@@ -105,8 +105,8 @@
 
 - (IBAction)dislikeButtonPressed:(UIButton *)sender
 {
-    
-    
+    [self dislike];
+    NSLog(@"dislike button");
 }
 
 #pragma mark - Helper
@@ -127,6 +127,30 @@
         [PAPUtility unlikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
             self.isLikedByCurrentUser = YES;
             self.likeButton.enabled = YES;
+            NSLog(@"dislike Photo");
+        }];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)dislike {
+    self.dislikeButton.enabled = NO;
+    // Add the current user as a liker of the photo in PAPCache
+//    [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
+    
+    self.isDislikedByCurrentUser = YES;
+    
+    if (self.isDislikedByCurrentUser) {
+    
+        [PAPUtility dislikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
+            self.isDislikedByCurrentUser = NO;
+            self.dislikeButton.enabled = YES;
+            NSLog(@"dislike Photo dislikePhotoInBackground");
+        }];
+    } else {
+        [PAPUtility undislikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
+            self.isDislikedByCurrentUser = YES;
+            self.dislikeButton.enabled = YES;
             NSLog(@"dislike Photo");
         }];
     }

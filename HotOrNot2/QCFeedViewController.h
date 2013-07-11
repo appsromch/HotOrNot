@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "QCDetailViewController.h"
 #import "QCCustomCell.h"
+#import "QCAvaliableChatsViewController.h"
 
 @interface QCFeedViewController : UICollectionViewController
 

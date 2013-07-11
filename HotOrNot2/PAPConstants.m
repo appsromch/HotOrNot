@@ -56,6 +56,7 @@ NSString *const kPAPActivityTypeLike       = @"like";
 NSString *const kPAPActivityTypeDislike    = @"dislike";
 NSString *const kPAPActivityTypeFollow     = @"follow";
 NSString *const kPAPActivityTypeComment    = @"comment";
+NSString *const kPAPActivityTypeChat       = @"chat";
 NSString *const kPAPActivityTypeJoined     = @"joined";
 
 #pragma mark - User Class

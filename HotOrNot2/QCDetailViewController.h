@@ -18,6 +18,7 @@
 @property (strong, nonatomic) UIImage *imageToBePassed;
 @property (strong, nonatomic) PFObject *pfPhotoObject;
 @property (nonatomic) BOOL isLikedByCurrentUser;
+@property (nonatomic) BOOL isDislikedByCurrentUser;
 
 - (IBAction)likebuttonPressed:(UIButton *)sender;
 - (IBAction)dislikeButtonPressed:(UIButton *)sender;
