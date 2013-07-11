@@ -87,7 +87,6 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:profileViewController];
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[navController, leaderBoardViewController, navigationController];
-    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
 
