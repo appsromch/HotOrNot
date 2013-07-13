@@ -189,13 +189,13 @@
         NSArray *likes = [queryExistingLikesForPhoto findObjects];
         if (likes.count == 0) {
             NSLog(@"*** if %@ %i", likes, likes.count);
-            [likeActivity setObject:@1 forKey:@"numberOfLikes"];
+            [photo setObject:@1 forKey:@"numberOfLikes"];
         }
         else {
             NSLog(@"*** else %@ %i", likes, likes.count);
 
             NSNumber *number = [NSNumber numberWithInt:likes.count + 1];
-            [likeActivity setObject:number forKey:@"numberOfLikes"];
+            [photo setObject:number forKey:@"numberOfLikes"];
         }
         
         
