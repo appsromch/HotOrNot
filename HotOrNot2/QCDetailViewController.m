@@ -33,7 +33,7 @@
     // Do any additional setup after loading the view from its nib.
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerTapped:)];
     [self.imageView addGestureRecognizer:tapGestureRecognizer];
-        
+    
     UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelBarButtonItemPressed:)];
     self.navigationItem.leftBarButtonItem = cancelBarButtonItem;
     
@@ -60,21 +60,21 @@
                     }
                 }
             }
-                        
+            
             self.likeButton.enabled = YES;
-
-//            NSDictionary *attributesForPhoto = [[PAPCache sharedCache] attributesForPhoto:self.pfPhotoObject];
-//            if (attributesForPhoto)
-//            {
-//                NSArray *likes = attributesForPhoto[@"likers"];
-//                self.isLikedByCurrentUser = YES;
-//                for (int x = 0; x < likes.count; x ++) {
-//                    PFUser *user = likes[x];
-//                    if ([user[@"profile"][@"facebookId"] isEqual:[PFUser currentUser][@"profile"][@"facebookId"]]) {
-//                        self.isLikedByCurrentUser = NO;
-//                    }
-//                }
-//            }
+            
+            //            NSDictionary *attributesForPhoto = [[PAPCache sharedCache] attributesForPhoto:self.pfPhotoObject];
+            //            if (attributesForPhoto)
+            //            {
+            //                NSArray *likes = attributesForPhoto[@"likers"];
+            //                self.isLikedByCurrentUser = YES;
+            //                for (int x = 0; x < likes.count; x ++) {
+            //                    PFUser *user = likes[x];
+            //                    if ([user[@"profile"][@"facebookId"] isEqual:[PFUser currentUser][@"profile"][@"facebookId"]]) {
+            //                        self.isLikedByCurrentUser = NO;
+            //                    }
+            //                }
+            //            }
         }
     }];
 }
@@ -110,36 +110,77 @@
 #pragma mark - Helper
 
 -(void)like
-{    
+{
     self.likeButton.enabled = NO;
-    // Add the current user as a liker of the photo in PAPCache
-    [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
+    PFUser *user = self.pfPhotoObject[@"user"];
+    
+    if ([user isEqual:[PFUser currentUser]]) {
         
-    if (self.isLikedByCurrentUser) {
-        [PAPUtility likePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
-            self.isLikedByCurrentUser = NO;
-            self.likeButton.enabled = YES;
-            NSLog(@"like Photo");
-        }];
-    } else {
-        [PAPUtility unlikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
-            self.isLikedByCurrentUser = YES;
-            self.likeButton.enabled = YES;
-            NSLog(@"dislike Photo");
-        }];
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    else {
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
+        [query whereKey:@"type" equalTo:@"like"];
+        [query whereKey:@"photo" equalTo:self.pfPhotoObject];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                if (objects.count == 0)
+                {
+                    // Add the current user as a liker of the photo in PAPCache
+                    [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
+                    
+                    if (self.isLikedByCurrentUser) {
+                        [PAPUtility likePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
+                            self.isLikedByCurrentUser = NO;
+                            self.likeButton.enabled = YES;
+                            NSLog(@"like Photo");
+                            
+                            PFQuery *queryForLike = [PFQuery queryWithClassName:@"like"];
+                            [queryForLike whereKey:@"user" equalTo:user];
+                            [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                                if (!error) {
+                                    for (PFObject *activity in objects) {
+                                        NSLog(@"^^^Activity: %@", activity);
+                                        if ([[activity objectForKey:@"user"] isEqual:[PFUser currentUser]]) {
+                                            //check chats here
+                                            NSLog(@"^^^User liked me");
+                                        }
+                                    }
+                                }
+                            }];
+                        }];
+                    } else {
+                        [PAPUtility unlikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
+                            self.isLikedByCurrentUser = YES;
+                            self.likeButton.enabled = YES;
+                            NSLog(@"dislike Photo");
+                        }];
+                    }
+                    
+                    
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+                else
+                {
+                    NSLog(@"user has already liked photo");
+                }
+            }
+        }];
+
+    }
+    
 }
 
 -(void)dislike {
     self.dislikeButton.enabled = NO;
     // Add the current user as a liker of the photo in PAPCache
-//    [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
+    //    [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
     
     self.isDislikedByCurrentUser = YES;
     
     if (self.isDislikedByCurrentUser) {
-    
+        
         [PAPUtility dislikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
             self.isDislikedByCurrentUser = NO;
             self.dislikeButton.enabled = YES;
