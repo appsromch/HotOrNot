@@ -40,18 +40,19 @@
     self.likeButton.enabled = NO;
     PFQuery *queryForLike = [self queryForLike:self.pfPhotoObject];
     [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSLog(@"%@", objects);
         if (!error) {
             NSMutableArray *likers = [NSMutableArray array];
-            NSMutableArray *commenters = [NSMutableArray array];
             
-            self.isLikedByCurrentUser = NO;
+            self.isLikedByCurrentUser = YES;
             
             for (PFObject *activity in objects) {
                 if ([[activity objectForKey:kPAPActivityTypeKey] isEqualToString:kPAPActivityTypeLike] && [activity objectForKey:kPAPActivityFromUserKey]) {
                     [likers addObject:[activity objectForKey:kPAPActivityFromUserKey]];
                 } else if ([[activity objectForKey:kPAPActivityTypeKey] isEqualToString:kPAPActivityTypeComment] && [activity objectForKey:kPAPActivityFromUserKey]) {
-                    [commenters addObject:[activity objectForKey:kPAPActivityFromUserKey]];
                 }
+                
+                NSLog(@"%@",[[activity objectForKey:kPAPActivityFromUserKey] objectId] );
                 
                 if ([[[activity objectForKey:kPAPActivityFromUserKey] objectId] isEqualToString:[[PFUser currentUser] objectId]]) {
                     if ([[activity objectForKey:kPAPActivityTypeKey] isEqualToString:kPAPActivityTypeLike]) {
@@ -59,9 +60,7 @@
                     }
                 }
             }
-            
-            [[PAPCache sharedCache] setAttributesForPhoto:self.pfPhotoObject likers:likers commenters:commenters likedByCurrentUser:self.isLikedByCurrentUser];
-            
+                        
             self.likeButton.enabled = YES;
 
 //            NSDictionary *attributesForPhoto = [[PAPCache sharedCache] attributesForPhoto:self.pfPhotoObject];
@@ -94,7 +93,6 @@
 -(void)tapGestureRecognizerTapped:(id)sender
 {
     [self like];
-
 }
 
 - (IBAction)likebuttonPressed:(UIButton *)sender

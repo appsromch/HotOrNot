@@ -193,20 +193,23 @@
             }
 
             if (succeeded && ![[[photo objectForKey:kPAPPhotoUserKey] objectId] isEqualToString:[[PFUser currentUser] objectId]]) {
-                NSString *privateChannelName = [[photo objectForKey:kPAPPhotoUserKey] objectForKey:kPAPUserPrivateChannelKey];
-                if (privateChannelName && privateChannelName.length != 0) {
-                    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          [NSString stringWithFormat:@"%@ likes your photo.", [PAPUtility firstNameForDisplayName:[[PFUser currentUser] objectForKey:kPAPUserDisplayNameKey]]], kAPNSAlertKey,
-                                          kPAPPushPayloadPayloadTypeActivityKey, kPAPPushPayloadPayloadTypeKey,
-                                          kPAPPushPayloadActivityLikeKey, kPAPPushPayloadActivityTypeKey,
-                                          [[PFUser currentUser] objectId], kPAPPushPayloadFromUserObjectIdKey,
-                                          [photo objectId], kPAPPushPayloadPhotoObjectIdKey,
-                                          nil];
-                    PFPush *push = [[PFPush alloc] init];
-                    [push setChannel:privateChannelName];
-                    [push setData:data];
-                    [push sendPushInBackground];
-                }
+                
+                NSLog(@"%@", photo);
+                
+//                NSString *privateChannelName = [[photo objectForKey:kPAPPhotoUserKey] objectForKey:kPAPUserPrivateChannelKey];
+//                if (privateChannelName && privateChannelName.length != 0) {
+//                    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                          [NSString stringWithFormat:@"%@ likes your photo.", [PAPUtility firstNameForDisplayName:[[PFUser currentUser] objectForKey:kPAPUserDisplayNameKey]]], kAPNSAlertKey,
+//                                          kPAPPushPayloadPayloadTypeActivityKey, kPAPPushPayloadPayloadTypeKey,
+//                                          kPAPPushPayloadActivityLikeKey, kPAPPushPayloadActivityTypeKey,
+//                                          [[PFUser currentUser] objectId], kPAPPushPayloadFromUserObjectIdKey,
+//                                          [photo objectId], kPAPPushPayloadPhotoObjectIdKey,
+//                                          nil];
+//                    PFPush *push = [[PFPush alloc] init];
+//                    [push setChannel:privateChannelName];
+//                    [push setData:data];
+//                    [push sendPushInBackground];
+//                }
             }
            
             // refresh cache
