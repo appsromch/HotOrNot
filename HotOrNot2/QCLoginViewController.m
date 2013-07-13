@@ -76,6 +76,7 @@
             }
         } else if (user.isNew) {
             
+            [self updateUserInformation];
  
             NSLog(@"User with facebook signed up and logged in!");
             [(QCAppDelegate*)[[UIApplication sharedApplication] delegate] createAndPresentTabBarController];
@@ -85,19 +86,7 @@
             
             [self updateUserInformation];
             
-            if (self.imageData == nil){
-                PFUser *user = [PFUser currentUser];
-                self.imageData = [[NSMutableData alloc] init];
-                
-                NSURL *pictureURL = [NSURL URLWithString:user[@"profile"][@"pictureURL"]];
-                NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:4.0f];
-                // Run network request asynchronously
-                NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
-                if (!urlConnection) {
-                    NSLog(@"Failed to download picture");
-                }
-            }
-            
+  
             NSLog(@"User with facebook logged in!");
             [(QCAppDelegate*)[[UIApplication sharedApplication] delegate] createAndPresentTabBarController];
         }
@@ -229,6 +218,34 @@
             }
             [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
             [[PFUser currentUser] saveInBackground];
+            
+            
+            
+            PFQuery *query = [PFQuery queryWithClassName:kPAPPhotoClassKey];
+            [query whereKey:@"user" equalTo:[PFUser currentUser]];
+            NSArray *photosForUser = [query findObjects];
+            if (photosForUser.count == 0){
+                NSLog(@"logic worked");
+                if (self.imageData == nil){
+                    PFUser *user = [PFUser currentUser];
+                    self.imageData = [[NSMutableData alloc] init];
+                    
+                    NSURL *pictureURL = [NSURL URLWithString:user[@"profile"][@"pictureURL"]];
+                    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:pictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:4.0f];
+                    // Run network request asynchronously
+                    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+                    if (!urlConnection) {
+                        NSLog(@"Failed to download picture");
+                    }
+                }
+            }
+            else {
+                NSLog(@"*** logic still working");
+            }
+            
+
+            
+            
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
             NSLog(@"The facebook session was invalidated");

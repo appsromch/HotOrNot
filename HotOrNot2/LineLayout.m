@@ -95,7 +95,7 @@
 #import "LineLayout.h"
 
 
-#define ITEM_SIZE 180.0
+#define ITEM_SIZE 100.0
 
 @implementation LineLayout
 
@@ -108,7 +108,7 @@
     if (self) {
         self.itemSize = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        self.sectionInset = UIEdgeInsetsMake(170.0, 30.0, 200.0, 30.0);
+        self.sectionInset = UIEdgeInsetsMake(120.0, 50.0, 120.0, 50.0);
         self.minimumLineSpacing = 50.0;
     }
     return self;

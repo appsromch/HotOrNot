@@ -43,6 +43,7 @@
     //setup for collection View
     [self.collectionView registerClass:[Cell class] forCellWithReuseIdentifier:@"MY_CELL"];
     
+    [self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     //code necessary to make our find contingent based on distance.
     
