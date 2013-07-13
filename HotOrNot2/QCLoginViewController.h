@@ -14,7 +14,7 @@
 #import "QCLeaderBoardViewController.h"
 
 @interface QCLoginViewController : UIViewController
-
+//login change
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
 
