@@ -14,7 +14,7 @@
 #import "QCFeedViewController.h"
 
 @implementation QCAppDelegate
-
+//adding a line to app delegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
