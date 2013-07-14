@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 #import "QCAvaliableChatsViewController.h"
 
-@interface QCDetailViewController : UIViewController
+@interface QCDetailViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;

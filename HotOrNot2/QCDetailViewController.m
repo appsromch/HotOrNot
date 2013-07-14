@@ -55,7 +55,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.photos = objects;
         if (self.photos.count > 0)
-        self.pfPhotoObject = self.photos[self.currentIndex];
+            self.pfPhotoObject = self.photos[self.currentIndex];
         
         if (!error && self.photos.count > 0){
             
@@ -158,8 +158,8 @@
         
     }
     else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No more avaliable photos" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
-        [alertView show];
+        //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No more avaliable photos" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+        //        [alertView show];
         NSLog(@"there are not more photos");
     }
     
@@ -203,68 +203,75 @@
 
 -(void)like
 {
-    //    self.likeButton.enabled = NO;
     PFUser *user = self.pfPhotoObject[@"user"];
     
-    NSLog(@"%@ %@", self.pfPhotoObject, self.pfPhotoObject[@"numberOfLikes"]);
-    
-    if ([user isEqual:[PFUser currentUser]]) {
+    if ([user[@"username"] isEqual:[PFUser currentUser][@"username"]]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This is your photo" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles: nil];
         [alertView show];
     }
     else {
         
-        PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
-        [query whereKey:@"type" equalTo:@"like"];
-        [query whereKey:@"photo" equalTo:self.pfPhotoObject];
-        [query includeKey:@"fromUser"];
-        [query includeKey:@"toUser"];
+        // Add the current user as a liker of the photo in PAPCache
+        [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
         
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                // Add the current user as a liker of the photo in PAPCache
-                [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
+        if (!self.isLikedByCurrentUser) {
+            [PAPUtility likePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
                 
-                if (!self.isLikedByCurrentUser) {
-                    [PAPUtility likePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
-                        
-                        self.isLikedByCurrentUser = NO;
-                        self.likeButton.enabled = YES;
-                        NSLog(@"like Photo");
-                        
-                        PFObject *photo = self.pfPhotoObject;
-                        
-                        NSNumber *number = photo[@"numberOfLikes"];
-                        NSLog(@"%@", number);
-                        if (number == 0) {
-                            [self.pfPhotoObject setObject:@1 forKey:@"numberOfLikes"];
-                        }
-                        else {
-                            int x = [number integerValue] + 1;
-                            NSNumber *number = [NSNumber numberWithInt:x];
-                            [photo setObject:number forKey:@"numberOfLikes"];
-                        }
-                        
-                        [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                            NSLog(@"photo save successful");
-                            [self setupNextPhoto];
-                        }];
-                        self.likeButton.enabled = YES;
-                    }];
-                } else {
-                    NSLog(@"user has already liked Photo");
-                    //                        [PAPUtility unlikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
-                    //                            self.isLikedByCurrentUser = YES;
-                    //                            self.likeButton.enabled = YES;
-                    //                            NSLog(@"dislike Photo");
-                    //                        }];
-                    [self setupNextPhoto];
-
+                self.isLikedByCurrentUser = NO;
+                self.likeButton.enabled = YES;
+                NSLog(@"like Photo");
+                
+                PFObject *photo = self.pfPhotoObject;
+                
+                NSNumber *number = photo[@"numberOfLikes"];
+                NSLog(@"%@", number);
+                if (number == 0) {
+                    [self.pfPhotoObject setObject:@1 forKey:@"numberOfLikes"];
+                }
+                else {
+                    int x = [number integerValue] + 1;
+                    NSNumber *number = [NSNumber numberWithInt:x];
+                    [photo setObject:number forKey:@"numberOfLikes"];
                 }
                 
+                [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    NSLog(@"photo save successful");
+                    [self setupNextPhoto];
+                }];
                 
-            }
-        }];
+                self.likeButton.enabled = YES;
+                            
+                PFUser *currentUser = [PFUser currentUser];
+                NSLog(@"currentUser %@", currentUser);
+                PFUser *toUser = self.pfPhotoObject[@"user"];
+                NSLog(@"toUser %@", toUser);
+                PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
+                [query whereKey:@"fromUser" equalTo:toUser];
+                [query whereKey:@"toUser" equalTo:currentUser];
+                [query whereKey:@"type" equalTo:@"like"];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    NSLog(@"!@#$ %@", objects);
+                    PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
+                    [chatroom setObject:currentUser[@"username"] forKey:@"username1"];
+                    [chatroom setObject:toUser[@"username"] forKey:@"username2"];
+                    [chatroom setObject:currentUser[@"profile"][@"name"] forKey:@"name1"];
+                    [chatroom setObject:toUser[@"profile"][@"name"] forKey:@"name2"];
+                    [chatroom saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        NSLog(@"chatroom object saved");
+                    }];
+                }];
+
+            }];
+        } else {
+            NSLog(@"user has already liked Photo");
+            //                        [PAPUtility unlikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
+            //                            self.isLikedByCurrentUser = YES;
+            //                            self.likeButton.enabled = YES;
+            //                            NSLog(@"dislike Photo");
+            //                        }];
+            [self setupNextPhoto];
+            
+        }
         
     }
     
@@ -315,6 +322,11 @@
 {
     QCAvaliableChatsViewController *avaliableChatsViewController = [[QCAvaliableChatsViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:avaliableChatsViewController animated:YES];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self setupNextPhoto];
 }
 
 @end
