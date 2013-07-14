@@ -15,11 +15,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *headerImageView;
 @property (nonatomic, strong) NSMutableData *imageData;
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *birthdayLabel;
+@property (strong, nonatomic) IBOutlet UILabel *ageLabel;
 @property (strong, nonatomic) IBOutlet UILabel *locationLabel;
-
-- (IBAction)centerMapButtonPressed:(UIButton *)sender;
-
+@property (strong, nonatomic) IBOutlet UILabel *interestedInLabel;
 @end

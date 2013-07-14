@@ -59,7 +59,7 @@
 - (IBAction)loginButtonPressed:(UIButton *)sender
 {
     // Set permissions required from the facebook user account
-    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
+    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location", @"user_relationship_details"];
     
     // Login PFUser using facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
@@ -122,11 +122,10 @@
             
             PFObject *photo = [PFObject objectWithClassName:kPAPPhotoClassKey];
             [photo setObject:[PFUser currentUser] forKey:kPAPPhotoUserKey];
-            NSLog(@"**** self.photoFile Login %@", self.photoFile);
-            
             [photo setObject:self.photoFile forKey:kPAPPhotoPictureKey];
             [photo setObject:@0 forKey:@"numberOfLikes"];
             [photo setObject:@0 forKey:@"numberOfDislikes"];
+
             
             // photos are public, but may only be modified by the user who uploaded them
 //            PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
@@ -205,6 +204,9 @@
             if (userData[@"name"]) {
                 userProfile[@"name"] = userData[@"name"];
             }
+            if (userData[@"first_name"]) {
+                userProfile[@"first_name"] = userData[@"first_name"];
+            }
             if (userData[@"location"][@"name"]) {
                 userProfile[@"location"] = userData[@"location"][@"name"];
             }
@@ -217,11 +219,17 @@
             if (userData[@"relationship_status"]) {
                 userProfile[@"relationship"] = userData[@"relationship_status"];
             }
+            if (userData[@"interested_in"]) {
+                userProfile[@"interested_in"] = userData[@"interested_in"];
+            }
             if ([pictureURL absoluteString]) {
                 userProfile[@"pictureURL"] = [pictureURL absoluteString];
             }
+            
             [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
             [[PFUser currentUser] saveInBackground];
+            
+            
             
             PFQuery *query = [PFQuery queryWithClassName:kPAPPhotoClassKey];
             [query whereKey:@"user" equalTo:[PFUser currentUser]];
@@ -244,6 +252,9 @@
             else {
                 NSLog(@"*** logic still working");
             }
+            
+
+            
             
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session

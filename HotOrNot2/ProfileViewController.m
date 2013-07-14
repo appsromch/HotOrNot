@@ -41,16 +41,37 @@
     
     [self startPhotoDownload];
     
-    self.nameLabel.text = [[PFUser currentUser] objectForKey:@"profile"][@"name"];
-    self.locationLabel.text = [[PFUser currentUser] objectForKey:@"profile"][@"location"];
-    self.birthdayLabel.text = [[PFUser currentUser] objectForKey:@"profile"][@"birthday"];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_profile2"]]];
     
-    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"location"]);
-    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"gender"]);
-    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"birthday"]);
-    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"relationship"]);
-    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"name"]);
-    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"pictureURL"]);
+    NSString *uppercaseName = [[[PFUser currentUser] objectForKey:@"profile"][@"first_name"] uppercaseString];
+    
+    self.nameLabel.text = uppercaseName;
+    self.locationLabel.text = [[PFUser currentUser] objectForKey:@"profile"][@"location"];
+
+    
+    // Code to create age label
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    NSDate *date = [formatter dateFromString:[[PFUser currentUser] objectForKey:@"profile"][@"birthday"]];
+    NSDate *now = [NSDate date];
+    NSTimeInterval seconds = [now timeIntervalSinceDate: date];
+    NSInteger ageInt = seconds / 31536000;
+    NSString *ageStr = [[NSString stringWithFormat:@"%i", (int)ageInt] stringByAppendingString:@" years old"];
+    self.ageLabel.text = ageStr;
+    
+    
+    // Code to retrieve interested in from fb
+    NSArray *interestedIn = [[NSArray alloc] initWithArray:[[PFUser currentUser] objectForKey:@"profile"][@"interested_in"]];
+    NSString  *interestedInAtIndex = [interestedIn objectAtIndex:0];
+     NSString *upperCaseInterestedIn = [interestedInAtIndex stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[interestedInAtIndex  substringToIndex:1] capitalizedString]];
+    NSString *firstInterestedIn = [@"Preference: " stringByAppendingString:upperCaseInterestedIn];
+    self.interestedInLabel.text = firstInterestedIn;
+    
+//    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"location"]);
+//    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"gender"]);
+//    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"relationship"]);
+//    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"name"]);
+//    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"pictureURL"]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,24 +125,24 @@
     }    
 }
 
-- (IBAction)centerMapButtonPressed:(UIButton *)sender
-{
-    NSLog(@"centerMapbuttonPressed");
-    [[QTLocation sharedInstance] startLocationManagerWithCompletion:^(BOOL foundLocation) {
-        [self centerMapWithLocation:[QTLocation sharedInstance].placemark];
-    }];
-}
--(void)centerMapWithLocation:(CLPlacemark *)currentLocation{
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(currentLocation.location.coordinate.latitude, currentLocation.location.coordinate.longitude);
-    if (currentLocation.region.radius < 100) {
-        MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(center, 400, 370)];
-        [self.mapView setRegion:adjustedRegion animated:NO];
-    }
-    else{
-        MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(center, currentLocation.region.radius, currentLocation.region.radius)];
-        [self.mapView setRegion:adjustedRegion animated:NO];
-    }
-}
+//- (IBAction)centerMapButtonPressed:(UIButton *)sender
+//{
+//    NSLog(@"centerMapbuttonPressed");
+//    [[QTLocation sharedInstance] startLocationManagerWithCompletion:^(BOOL foundLocation) {
+//        [self centerMapWithLocation:[QTLocation sharedInstance].placemark];
+//    }];
+//}
+//-(void)centerMapWithLocation:(CLPlacemark *)currentLocation{
+//    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(currentLocation.location.coordinate.latitude, currentLocation.location.coordinate.longitude);
+//    if (currentLocation.region.radius < 100) {
+//        MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(center, 400, 370)];
+//        [self.mapView setRegion:adjustedRegion animated:NO];
+//    }
+//    else{
+//        MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:MKCoordinateRegionMakeWithDistance(center, currentLocation.region.radius, currentLocation.region.radius)];
+//        [self.mapView setRegion:adjustedRegion animated:NO];
+//    }
+//}
 
 -(void)settingsBarButtonItemPressed:(id)sender
 {

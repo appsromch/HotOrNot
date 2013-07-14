@@ -76,13 +76,11 @@
 		6FEBE19617738D160091BE0F /* QCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE19517738D160091BE0F /* QCAppDelegate.m */; };
 		6FEBE19A17738D160091BE0F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE19917738D160091BE0F /* Default@2x.png */; };
 		6FEBE19C17738D160091BE0F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE19B17738D160091BE0F /* Default-568h@2x.png */; };
-		6FEBE19F17738D160091BE0F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE19E17738D160091BE0F /* ProfileViewController.m */; };
 		6FEBE1A117738D160091BE0F /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1A017738D160091BE0F /* first.png */; };
 		6FEBE1A317738D160091BE0F /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1A217738D160091BE0F /* first@2x.png */; };
 		6FEBE1A617738D160091BE0F /* QCFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE1A517738D160091BE0F /* QCFeedViewController.m */; };
 		6FEBE1A817738D160091BE0F /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1A717738D160091BE0F /* second.png */; };
 		6FEBE1AA17738D160091BE0F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1A917738D160091BE0F /* second@2x.png */; };
-		6FEBE1AD17738D160091BE0F /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1AB17738D160091BE0F /* ProfileViewController.xib */; };
 		6FEBE1B017738D160091BE0F /* QCFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1AE17738D160091BE0F /* QCFeedViewController.xib */; };
 		6FEBE1B7177390EB0091BE0F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1B6177390EB0091BE0F /* FacebookSDK.framework */; };
 		6FEBE1BA1773916D0091BE0F /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1B81773916D0091BE0F /* FacebookSDKResources.bundle */; };
@@ -101,7 +99,6 @@
 		6FEBE1D3177399110091BE0F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1D2177399110091BE0F /* QuartzCore.framework */; };
 		6FEBE1D717739ACE0091BE0F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1D617739ACE0091BE0F /* StoreKit.framework */; };
 		6FEBE1D917739AD80091BE0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE1D817739AD80091BE0F /* SystemConfiguration.framework */; };
-		6FEBE1DD17739F210091BE0F /* QCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE1DB17739F210091BE0F /* QCLoginViewController.m */; };
 		6FEBE1DE17739F210091BE0F /* QCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1DC17739F210091BE0F /* QCLoginViewController.xib */; };
 		6FEBE1E31773A4230091BE0F /* menu_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1DF1773A4230091BE0F /* menu_up@2x.png */; };
 		6FEBE1E41773A4230091BE0F /* menu_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE1E01773A4230091BE0F /* menu_up.png */; };
@@ -123,6 +120,9 @@
 		6FEBE21E1774DB160091BE0F /* loading.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE21D1774DB160091BE0F /* loading.jpeg */; };
 		6FEBE2201774F2580091BE0F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE21F1774F2570091BE0F /* Default.png */; };
 		6FEBE2221774F3430091BE0F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE2211774F3430091BE0F /* Icon.png */; };
+		A33EEF0817936BC9006611CC /* QCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A33EEF0317936BC9006611CC /* QCLoginViewController.m */; };
+		A33EEF0917936BC9006611CC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A33EEF0517936BC9006611CC /* ProfileViewController.m */; };
+		A33EEF0A17936BC9006611CC /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A33EEF0717936BC9006611CC /* ProfileViewController.xib */; };
 		C9D1EE62179363B200923744 /* QCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D1EE5D179363B200923744 /* QCChatViewController.m */; };
 		C9D1EE63179363B200923744 /* QCAvaliableChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D1EE5F179363B200923744 /* QCAvaliableChatsViewController.m */; };
 		C9D1EE64179363B200923744 /* QCAvaliableChatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D1EE60179363B200923744 /* QCAvaliableChatsViewController.xib */; };
@@ -235,15 +235,12 @@
 		6FEBE19517738D160091BE0F /* QCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCAppDelegate.m; sourceTree = "<group>"; };
 		6FEBE19917738D160091BE0F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6FEBE19B17738D160091BE0F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		6FEBE19D17738D160091BE0F /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		6FEBE19E17738D160091BE0F /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		6FEBE1A017738D160091BE0F /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		6FEBE1A217738D160091BE0F /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		6FEBE1A417738D160091BE0F /* QCFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCFeedViewController.h; sourceTree = "<group>"; };
 		6FEBE1A517738D160091BE0F /* QCFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCFeedViewController.m; sourceTree = "<group>"; };
 		6FEBE1A717738D160091BE0F /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		6FEBE1A917738D160091BE0F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		6FEBE1AC17738D160091BE0F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ProfileViewController.xib; sourceTree = "<group>"; };
 		6FEBE1AF17738D160091BE0F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/QCFeedViewController.xib; sourceTree = "<group>"; };
 		6FEBE1B6177390EB0091BE0F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		6FEBE1B81773916D0091BE0F /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
@@ -262,8 +259,6 @@
 		6FEBE1D2177399110091BE0F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6FEBE1D617739ACE0091BE0F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		6FEBE1D817739AD80091BE0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		6FEBE1DA17739F210091BE0F /* QCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLoginViewController.h; sourceTree = "<group>"; };
-		6FEBE1DB17739F210091BE0F /* QCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLoginViewController.m; sourceTree = "<group>"; };
 		6FEBE1DC17739F210091BE0F /* QCLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLoginViewController.xib; sourceTree = "<group>"; };
 		6FEBE1DF1773A4230091BE0F /* menu_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_up@2x.png"; sourceTree = "<group>"; };
 		6FEBE1E01773A4230091BE0F /* menu_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_up.png; sourceTree = "<group>"; };
@@ -287,6 +282,11 @@
 		6FEBE21D1774DB160091BE0F /* loading.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loading.jpeg; sourceTree = "<group>"; };
 		6FEBE21F1774F2570091BE0F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6FEBE2211774F3430091BE0F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A33EEF0317936BC9006611CC /* QCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLoginViewController.m; sourceTree = "<group>"; };
+		A33EEF0417936BC9006611CC /* QCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLoginViewController.h; sourceTree = "<group>"; };
+		A33EEF0517936BC9006611CC /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		A33EEF0617936BC9006611CC /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		A33EEF0717936BC9006611CC /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		C9D1EE5D179363B200923744 /* QCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCChatViewController.m; sourceTree = "<group>"; };
 		C9D1EE5E179363B200923744 /* QCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCChatViewController.h; sourceTree = "<group>"; };
 		C9D1EE5F179363B200923744 /* QCAvaliableChatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCAvaliableChatsViewController.m; sourceTree = "<group>"; };
@@ -463,10 +463,10 @@
 		6FA94E24178CC87B00BE7EB7 /* Initialization */ = {
 			isa = PBXGroup;
 			children = (
+				A33EEF0317936BC9006611CC /* QCLoginViewController.m */,
+				A33EEF0417936BC9006611CC /* QCLoginViewController.h */,
 				6FEBE19417738D160091BE0F /* QCAppDelegate.h */,
 				6FEBE19517738D160091BE0F /* QCAppDelegate.m */,
-				6FEBE1DA17739F210091BE0F /* QCLoginViewController.h */,
-				6FEBE1DB17739F210091BE0F /* QCLoginViewController.m */,
 				6FEBE1DC17739F210091BE0F /* QCLoginViewController.xib */,
 			);
 			name = Initialization;
@@ -475,9 +475,9 @@
 		6FA94E25178CC88900BE7EB7 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				6FEBE19D17738D160091BE0F /* ProfileViewController.h */,
-				6FEBE19E17738D160091BE0F /* ProfileViewController.m */,
-				6FEBE1AB17738D160091BE0F /* ProfileViewController.xib */,
+				A33EEF0517936BC9006611CC /* ProfileViewController.m */,
+				A33EEF0617936BC9006611CC /* ProfileViewController.h */,
+				A33EEF0717936BC9006611CC /* ProfileViewController.xib */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -744,7 +744,6 @@
 				6FEBE1A317738D160091BE0F /* first@2x.png in Resources */,
 				6FEBE1A817738D160091BE0F /* second.png in Resources */,
 				6FEBE1AA17738D160091BE0F /* second@2x.png in Resources */,
-				6FEBE1AD17738D160091BE0F /* ProfileViewController.xib in Resources */,
 				6FEBE1B017738D160091BE0F /* QCFeedViewController.xib in Resources */,
 				6FEBE1BA1773916D0091BE0F /* FacebookSDKResources.bundle in Resources */,
 				6FEBE1BB1773916D0091BE0F /* FBUserSettingsViewResources.bundle in Resources */,
@@ -796,6 +795,7 @@
 				5990EB3517935260005F354C /* QCLeaderBoardViewController.xib in Resources */,
 				5990EB3617935260005F354C /* QCLeaderBoardCell.xib in Resources */,
 				C9D1EE64179363B200923744 /* QCAvaliableChatsViewController.xib in Resources */,
+				A33EEF0A17936BC9006611CC /* ProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,9 +808,7 @@
 			files = (
 				6FEBE19217738D160091BE0F /* main.m in Sources */,
 				6FEBE19617738D160091BE0F /* QCAppDelegate.m in Sources */,
-				6FEBE19F17738D160091BE0F /* ProfileViewController.m in Sources */,
 				6FEBE1A617738D160091BE0F /* QCFeedViewController.m in Sources */,
-				6FEBE1DD17739F210091BE0F /* QCLoginViewController.m in Sources */,
 				6FEBE20E1774A3F90091BE0F /* QTLocation.m in Sources */,
 				6FEBE2141774CF940091BE0F /* QCCustomCell.m in Sources */,
 				6FA94DEF178C8ABF00BE7EB7 /* AFHTTPClient.m in Sources */,
@@ -847,6 +845,8 @@
 				C9D1EE62179363B200923744 /* QCChatViewController.m in Sources */,
 				C9D1EE63179363B200923744 /* QCAvaliableChatsViewController.m in Sources */,
 				6FCDB51A17936801005F238E /* QCDetailViewController.m in Sources */,
+				A33EEF0817936BC9006611CC /* QCLoginViewController.m in Sources */,
+				A33EEF0917936BC9006611CC /* ProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,14 +859,6 @@
 				6FEBE18F17738D160091BE0F /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6FEBE1AB17738D160091BE0F /* ProfileViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6FEBE1AC17738D160091BE0F /* en */,
-			);
-			name = ProfileViewController.xib;
 			sourceTree = "<group>";
 		};
 		6FEBE1AE17738D160091BE0F /* QCFeedViewController.xib */ = {
