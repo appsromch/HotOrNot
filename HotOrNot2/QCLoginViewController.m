@@ -122,10 +122,11 @@
             
             PFObject *photo = [PFObject objectWithClassName:kPAPPhotoClassKey];
             [photo setObject:[PFUser currentUser] forKey:kPAPPhotoUserKey];
+            NSLog(@"**** self.photoFile Login %@", self.photoFile);
+            
             [photo setObject:self.photoFile forKey:kPAPPhotoPictureKey];
             [photo setObject:@0 forKey:@"numberOfLikes"];
             [photo setObject:@0 forKey:@"numberOfDislikes"];
-
             
             // photos are public, but may only be modified by the user who uploaded them
 //            PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
@@ -221,8 +222,6 @@
             }
             [[PFUser currentUser] setObject:userProfile forKey:@"profile"];
             [[PFUser currentUser] saveInBackground];
-            
-            
             
             PFQuery *query = [PFQuery queryWithClassName:kPAPPhotoClassKey];
             [query whereKey:@"user" equalTo:[PFUser currentUser]];

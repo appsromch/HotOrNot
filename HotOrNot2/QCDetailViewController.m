@@ -48,66 +48,59 @@
     self.likeButton.enabled = NO;
     
     self.currentIndex = 0;
+    NSLog(@"%@", self.pfPhotoObject);
     
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error){
-            self.photos = objects;
+        self.photos = objects;
+        self.pfPhotoObject = self.photos[self.currentIndex];
+        
+        if (!error && self.photos.count > 0){
             
-            self.pfPhotoObject = self.photos[self.currentIndex];
+            NSLog(@"self.photos %@", self.photos);
             
             PFFile *file = self.pfPhotoObject[@"image"];
+            NSLog(@"file %@", file);
             self.imageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
             [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                 UIImage *image = [UIImage imageWithData:data];
                 self.imageView.image = image;
             }];
             
+            self.isLikedByCurrentUser = YES;
             PFQuery *queryForLike = [PFQuery queryWithClassName:@"Activity"];
             [queryForLike whereKey:@"type" equalTo:@"like"];
-            [queryForLike whereKey:@"user" equalTo:self.pfPhotoObject[@"user"]];
+            [queryForLike whereKey:@"photo" equalTo:self.pfPhotoObject];
             [queryForLike includeKey:@"fromUser"];
             [queryForLike includeKey:@"toUser"];
             
             [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                NSLog(@"********* %@", objects);
                 if (!error) {
+                    self.isLikedByCurrentUser = NO;
                     
-                    self.isLikedByCurrentUser = YES;
-                    PFQuery *queryForLike = [PFQuery queryWithClassName:@"Activity"];
-                    [queryForLike whereKey:@"type" equalTo:@"like"];
-                    [queryForLike whereKey:@"photo" equalTo:self.pfPhotoObject];
-                    [queryForLike includeKey:@"fromUser"];
-                    [queryForLike includeKey:@"toUser"];
-                    
-                    [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                        NSLog(@"********* %@", objects);
-                        if (!error) {
-                            self.isLikedByCurrentUser = NO;
-                            
-                            if (objects.count == 0)
-                            {
-                                self.isLikedByCurrentUser = NO;
+                    if (objects.count == 0)
+                    {
+                        NSLog(@"count == 0");
+                        self.isLikedByCurrentUser = NO;
+                    }
+                    else {
+                        for (int x = 0; x < objects.count; x ++) {
+                            PFObject *object = objects[x];
+                            NSLog(@"%@ %@",object[@"fromUser"], [PFUser currentUser] );
+                            if ([object[@"fromUser"][@"username"] isEqual:[PFUser currentUser][@"username"]]){
+                                self.isLikedByCurrentUser = YES;
                             }
-                            else {
-                                for (int x = 0; x < objects.count; x ++) {
-                                    PFObject *object = objects[x];
-                                    NSLog(@"%@ %@",object[@"fromUser"], [PFUser currentUser] );
-                                    if ([object[@"fromUser"][@"username"] isEqual:[PFUser currentUser][@"username"]]){
-                                        self.isLikedByCurrentUser = YES;
-                                    }
-                                }
-                            }
-                            self.isLikedByCurrentUser ? NSLog(@"YES") : NSLog(@"NO");
-                            
-                            self.likeButton.enabled = YES;
                         }
-                    }];
+                    }
+                    self.isLikedByCurrentUser ? NSLog(@"YES") : NSLog(@"NO");
                     
                     self.likeButton.enabled = YES;
                 }
             }];
             
+            self.likeButton.enabled = YES;
         }
     }];
 }
@@ -115,16 +108,53 @@
 -(void)setupNextPhoto
 {
     int maxPhotos = self.photos.count;
-
-    if (self.currentIndex ++ < maxPhotos){
+    
+    if (self.currentIndex < maxPhotos -1){
+        
+        self.likeButton.enabled = NO;
+        
         self.currentIndex ++;
+        NSLog(@"%i", self.currentIndex);
         self.pfPhotoObject = self.photos[self.currentIndex];
+        
         PFFile *file = self.pfPhotoObject[@"image"];
         self.imageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
         [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             UIImage *image = [UIImage imageWithData:data];
             self.imageView.image = image;
+            
+            self.isLikedByCurrentUser = YES;
+            PFQuery *queryForLike = [PFQuery queryWithClassName:@"Activity"];
+            [queryForLike whereKey:@"type" equalTo:@"like"];
+            [queryForLike whereKey:@"photo" equalTo:self.pfPhotoObject];
+            [queryForLike includeKey:@"fromUser"];
+            [queryForLike includeKey:@"toUser"];
+            
+            [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                NSLog(@"********* %@", objects);
+                if (!error) {
+                    self.isLikedByCurrentUser = NO;
+                    
+                    if (objects.count == 0)
+                    {
+                        self.isLikedByCurrentUser = NO;
+                    }
+                    else {
+                        for (int x = 0; x < objects.count; x ++) {
+                            PFObject *object = objects[x];
+                            NSLog(@"%@ %@",object[@"fromUser"], [PFUser currentUser] );
+                            if ([object[@"fromUser"][@"username"] isEqual:[PFUser currentUser][@"username"]]){
+                                self.isLikedByCurrentUser = YES;
+                            }
+                        }
+                    }
+                    self.isLikedByCurrentUser ? NSLog(@"YES") : NSLog(@"NO");
+                    self.likeButton.enabled = YES;
+                }
+            }];
+            self.likeButton.enabled = YES;
         }];
+        
     }
     else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No more avaliable photos" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
@@ -136,11 +166,7 @@
 
 -(void)setupPreviousPhoto
 {
-    
     self.currentIndex --;
-    
-    
-    
 }
 
 
@@ -176,7 +202,7 @@
 
 -(void)like
 {
-//    self.likeButton.enabled = NO;
+    //    self.likeButton.enabled = NO;
     PFUser *user = self.pfPhotoObject[@"user"];
     
     if ([user isEqual:[PFUser currentUser]]) {
@@ -196,8 +222,9 @@
                 // Add the current user as a liker of the photo in PAPCache
                 [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
                 
-                if (self.isLikedByCurrentUser) {
+                if (!self.isLikedByCurrentUser) {
                     [PAPUtility likePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
+                        
                         self.isLikedByCurrentUser = NO;
                         self.likeButton.enabled = YES;
                         NSLog(@"like Photo");
@@ -219,23 +246,7 @@
                         }];
                         
                         self.likeButton.enabled = YES;
-
                         
-                        //logic to determine if two users like each other
-                        //                            PFQuery *queryForLike = [PFQuery queryWithClassName:@"Activity"];
-                        //
-                        //                            [queryForLike whereKey:@"user" equalTo:user];
-                        //                            [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                        //                                if (!error) {
-                        //                                    for (PFObject *activity in objects) {
-                        //                                        NSLog(@"^^^Activity: %@", activity);
-                        //                                        if ([[activity objectForKey:@"user"] isEqual:[PFUser currentUser]]) {
-                        //                                            //check chats here
-                        //                                            NSLog(@"^^^User liked me");
-                        //                                        }
-                        //                                    }
-                        //                                }
-                        //                            }];
                     }];
                 } else {
                     NSLog(@"user has already liked Photo");
@@ -247,7 +258,7 @@
                 }
                 
                 
-            [self setupNextPhoto];
+                [self setupNextPhoto];
             }
         }];
         
