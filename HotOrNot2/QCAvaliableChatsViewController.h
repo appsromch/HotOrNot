@@ -12,6 +12,6 @@
 @interface QCAvaliableChatsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) NSMutableArray *availableChatRoomsArray;
+@property (strong, nonatomic) NSMutableArray *availableChatRoomsArray;
 
 @end

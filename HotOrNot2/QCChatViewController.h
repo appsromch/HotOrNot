@@ -16,7 +16,4 @@
 
 @property (strong, nonatomic) PFObject *chatroom;
 
-@property (strong, nonatomic) PFUser *currentUser;
-@property (strong, nonatomic) PFUser *withUser;
-
 @end

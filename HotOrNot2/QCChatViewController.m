@@ -32,46 +32,39 @@
     self.title = @"Messages";
     
     _messages = [[NSMutableArray alloc]init];
+    _timestamps = [[NSMutableArray alloc]init];
     PFQuery *queryForChatRoom = [PFQuery queryWithClassName:@"ChatRoom"];
+    [queryForChatRoom includeKey:@"chats"];
     [queryForChatRoom findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
      {
-         for (PFObject *object in objects) {
-             if ([[object objectForKey:@"user1"] isEqual:[PFUser currentUser]] &&
-                 [[object objectForKey:@"user2"] isEqual:[PFUser currentUser]]) {
-                 [_messages addObjectsFromArray:[object objectForKey:@"chats"]];
-                 NSLog(@"^^^ChatRoom: %@", object);                 
+         if (!error) {
+             NSLog(@"^^^ChatRoom Objects: %@", objects);
+             if (objects.count > 0) {
+                 for (PFObject *object in objects) {
+                     if ([[object objectForKey:@"username1"] isEqualToString:[PFUser currentUser].username] &&
+                         [[object objectForKey:@"username2"] isEqualToString:[PFUser currentUser].username]) {
+                         _chatroom = object;
+                         NSLog(@"^^^ChatRoom Added: %@", _chatroom);
+                         //get chat objects and create messages for them
+                         NSArray *chats = [object objectForKey:@"chats"];
+                         for (PFObject *object in chats) {
+                             NSLog(@"^^^Chat: %@", object);
+                             [_messages addObject:[object objectForKey:@"text"]];
+                             [_timestamps addObject:[NSDate distantPast]];
+                         }
+                         NSLog(@"Messages: %@", _messages);
+                     }
+                     NSLog(@"^^^ChatRoom username1: %@", [object objectForKey:@"username1"]);
+                     NSLog(@"^^^ChatRoom username2: %@", [object objectForKey:@"username2"]);
+                 }
+                 NSLog(@"^^^currentUser username: %@", [PFUser currentUser].username);
+                 NSLog(@"^^^currentUser name: %@", [[PFUser currentUser] objectForKey:@"profile"][@"name"]);
              }
-             NSLog(@"^^^ChatRoom user1: %@", [object objectForKey:@"user1"]);
-             NSLog(@"^^^ChatRoom user2: %@", [object objectForKey:@"user2"]);
          }
-         NSLog(@"^^^currentUser: %@", [PFUser currentUser]);
-
+         //reload tableView when block has evaluated
+         [self finishSend];
      }];
-//    PFQuery *queryForChat = [PFQuery queryWithClassName:@"Chat"];
-//    [queryForChat findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-//     {
-//         for (PFObject *object in objects) {
-//             NSLog(@"^^^Chat: %@", [object objectForKey:@"text"]);
-//             [_messages addObject:[object objectForKey:@"text"]];
-//         }
-//         [self.tableView reloadData];
-//     }];
-
-
-    
-//    self.messages = [[NSMutableArray alloc] initWithObjects:
-//                     @"Testing some messages here.",
-//                     @"This work is based on Sam Soffes' SSMessagesViewController.",
-//                     @"This is a complete re-write and refactoring.",
-//                     @"It's easy to implement. Sound effects and images included. Animations are smooth and messages can be of arbitrary size!",
-//                     nil];
-    
-    self.timestamps = [[NSMutableArray alloc] initWithObjects:
-                       [NSDate distantPast],
-                       [NSDate distantPast],
-                       [NSDate distantPast],
-                       [NSDate date],
-                       nil];    
+        
     [self.tableView reloadData];
 
 }
@@ -86,10 +79,11 @@
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
     PFObject *chat = [PFObject objectWithClassName:@"Chat"];
-    [chat setObject:[PFUser currentUser] forKey:@"user1"];
-    [chat setObject:[PFUser currentUser] forKey:@"user2"];
+    [chat setObject:[PFUser currentUser].username forKey:@"username1"];
+    [chat setObject:[PFUser currentUser].username forKey:@"username2"];
     [chat setObject:text forKey:@"text"];
-    [chat setObject:_chatroom forKey:@"chatroom"];
+    [chat saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    }];
     
     [self.messages addObject:text];
     
@@ -103,11 +97,6 @@
     [self finishSend];
     
     if (text.length != 0) {
-        // Create the comment activity object
-        PFObject *chat = [PFObject objectWithClassName:@"Chat"];
-        [chat setValue:text forKey:@"text"]; // Set comment text
-        [chat setValue:[PFUser currentUser] forKey:@"user1"]; // Set toUser
-        [chat setValue:[PFUser currentUser] forKey:@"user2"]; // Set fromUser
         
         // Set the proper ACLs
 //        PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
@@ -127,8 +116,7 @@
                 [self.navigationController popViewControllerAnimated:YES];
             }
             else {                
-                // Reload the table to display the new comment
-                
+                // Reload the table to display the new message
                 PFQuery *query = [self queryForFromUsersTable];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 //                    NSLog(@"*** objects %@", objects);

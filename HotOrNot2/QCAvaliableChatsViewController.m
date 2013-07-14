@@ -30,43 +30,28 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    PFObject *chat = [PFObject objectWithClassName:@"Chat"];
-    [chat setObject:[PFUser currentUser] forKey:@"user1"];
-    [chat setObject:[PFUser currentUser] forKey:@"user2"];
-    [chat setObject:@"Entered Text 1" forKey:@"text"];
+//    [self createFakeChats];
+    _availableChatRoomsArray = [[NSMutableArray alloc] init];
+    [self updateAvailableChatRooms];
+}
 
-    PFObject *chat2 = [PFObject objectWithClassName:@"Chat"];
-    [chat2 setObject:[PFUser currentUser] forKey:@"user1"];
-    [chat2 setObject:[PFUser currentUser] forKey:@"user2"];
-    [chat2 setObject:@"Entered Text 2" forKey:@"text"];
+-(void)viewDidAppear:(BOOL)animated {
+    [self updateAvailableChatRooms];
+}
 
-    PFObject *chat3 = [PFObject objectWithClassName:@"Chat"];
-    [chat3 setObject:[PFUser currentUser] forKey:@"user1"];
-    [chat3 setObject:[PFUser currentUser] forKey:@"user2"];
-    [chat3 setObject:@"Entered Text 3" forKey:@"text"];
-    
-    NSMutableArray *chatsArray = [[NSMutableArray alloc] initWithObjects:chat, chat2, chat3, nil];
-    
-    PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
-    [chatroom setObject:[PFUser currentUser] forKey:@"user1"];
-    [chatroom setObject:[PFUser currentUser] forKey:@"user2"];
-    [chatroom setObject:chatsArray forKey:@"chats"];
-    
-    [chat setObject:chatroom forKey:@"chatroom"];
-    [chat2 setObject:chatroom forKey:@"chatroom"];
-    [chat3 setObject:chatroom forKey:@"chatroom"];
-    
-    // save
-    [chatroom saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-
+-(void)updateAvailableChatRooms {
+    PFQuery *query = [PFQuery queryWithClassName:@"ChatRoom"];
+    [query whereKey:@"username1" equalTo:[PFUser currentUser].username];
+    PFQuery *queryInverse = [PFQuery queryWithClassName:@"ChatRoom"];
+    [queryInverse whereKey:@"username2" equalTo:[PFUser currentUser].username];
+    PFQuery *queryCombined = [PFQuery orQueryWithSubqueries:@[query, queryInverse]];
+    [queryCombined findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            [_availableChatRoomsArray removeAllObjects];
+            [_availableChatRoomsArray addObjectsFromArray:objects];
+            [_tableView reloadData];
+        }
     }];
-    
-//    PFQuery *query = [self queryForChats];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-//    {
-//        NSLog(@"%@", objects);
-//        [_availableChatRoomsArray addObjectsFromArray:objects];
-//    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,16 +64,23 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return _availableChatRoomsArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"^^^cellForRowAtIndexPath called");
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell.textLabel.text = @"Hello";
-    
-    
-    
+    PFObject *chatroom = [_availableChatRoomsArray objectAtIndex:indexPath.row];
+    NSLog(@"^^^Chatroom for cell: %@", chatroom);
+    if ([[chatroom objectForKey:@"username1"] isEqual:[PFUser currentUser].username]) {
+        cell.textLabel.text = [chatroom objectForKey:@"name1"];
+        NSLog(@"^^^Name1 displayed");
+    }
+    else {
+        cell.textLabel.text = [chatroom objectForKey:@"name2"];
+        NSLog(@"^^^Name2 displayed");
+    }
     return cell;
 }
 
@@ -123,5 +115,56 @@
 ////    
 ////    return chatquery;
 //}
+
+# pragma mark - creating fake chats
+
+- (void) createFakeChats {
+    
+    PFObject *chat = [PFObject objectWithClassName:@"Chat"];
+    [chat setObject:[PFUser currentUser].username forKey:@"username1"];
+    [chat setObject:[PFUser currentUser].username forKey:@"username2"];
+    [chat setObject:@"Entered Text 1" forKey:@"text"];
+    
+    PFObject *chat2 = [PFObject objectWithClassName:@"Chat"];
+    [chat2 setObject:[PFUser currentUser].username forKey:@"username1"];
+    [chat2 setObject:[PFUser currentUser].username forKey:@"username2"];
+    [chat2 setObject:@"Entered Text 2" forKey:@"text"];
+    
+    PFObject *chat3 = [PFObject objectWithClassName:@"Chat"];
+    [chat3 setObject:[PFUser currentUser].username forKey:@"username1"];
+    [chat3 setObject:[PFUser currentUser].username forKey:@"username2"];
+    [chat3 setObject:@"Entered Text 3" forKey:@"text"];
+    
+    NSMutableArray *chatsArray = [[NSMutableArray alloc] init];
+
+    [chat saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        [chat2 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            [chat3 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                PFQuery *query = [PFQuery queryWithClassName:@"Chat"];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    if (!error) {
+                        for (PFObject *object in objects) {
+                            NSLog(@"^^^Object: %@", object);
+                            [chatsArray addObject:object];
+                        }
+                    }
+                    NSLog(@"^^^Chats Array: %@", chatsArray);
+                    
+                    PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
+                    [chatroom setObject:[PFUser currentUser].username forKey:@"username1"];
+                    [chatroom setObject:[PFUser currentUser].username forKey:@"username2"];
+                    [chatroom setObject:chatsArray forKey:@"chats"];
+                    [chatroom setObject:[[PFUser currentUser] objectForKey:@"profile"][@"name"] forKey:@"name1"];
+                    [chatroom setObject:[[PFUser currentUser] objectForKey:@"profile"][@"name"] forKey:@"name2"];
+                    [chatroom saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                        NSLog(@"^^^ChatRoom saved: %@", chatroom);
+                    }];
+                }];
+            }];
+        }];
+    }];
+}
+
+
 
 @end
