@@ -18,5 +18,9 @@
 @property (strong, nonatomic) NSString *whichTableView;
 - (NSArray*) leaderboardArray;
 @property (strong, nonatomic) NSArray *photos;
+@property (strong, nonatomic) IBOutlet UIButton *likeButton;
+@property (strong, nonatomic) IBOutlet UIButton *dislikeButton;
+@property (strong, nonatomic) IBOutlet UIButton *likerButton;
+@property (strong, nonatomic) IBOutlet UIButton *dislikerButton;
 
 @end

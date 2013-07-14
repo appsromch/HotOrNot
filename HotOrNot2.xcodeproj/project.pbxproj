@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5990EB3317935260005F354C /* QCLeaderBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5990EB2E17935260005F354C /* QCLeaderBoardCell.m */; };
-		5990EB3417935260005F354C /* QCLeaderBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5990EB2F17935260005F354C /* QCLeaderBoardViewController.m */; };
-		5990EB3517935260005F354C /* QCLeaderBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5990EB3117935260005F354C /* QCLeaderBoardViewController.xib */; };
-		5990EB3617935260005F354C /* QCLeaderBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5990EB3217935260005F354C /* QCLeaderBoardCell.xib */; };
+		5990EBA217937179005F354C /* QCLeaderBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5990EB9C17937179005F354C /* QCLeaderBoardCell.m */; };
+		5990EBA317937179005F354C /* QCLeaderBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5990EB9D17937179005F354C /* QCLeaderBoardCell.xib */; };
+		5990EBA417937179005F354C /* QCLeaderBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5990EB9F17937179005F354C /* QCLeaderBoardViewController.xib */; };
+		5990EBA517937179005F354C /* QCLeaderBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5990EBA017937179005F354C /* QCLeaderBoardViewController.m */; };
 		6FA94DEF178C8ABF00BE7EB7 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA94DDD178C8ABF00BE7EB7 /* AFHTTPClient.m */; };
 		6FA94DF0178C8ABF00BE7EB7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA94DDF178C8ABF00BE7EB7 /* AFHTTPRequestOperation.m */; };
 		6FA94DF1178C8ABF00BE7EB7 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA94DE1178C8ABF00BE7EB7 /* AFImageRequestOperation.m */; };
@@ -129,12 +129,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5990EB2D17935260005F354C /* QCLeaderBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLeaderBoardViewController.h; sourceTree = "<group>"; };
-		5990EB2E17935260005F354C /* QCLeaderBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLeaderBoardCell.m; sourceTree = "<group>"; };
-		5990EB2F17935260005F354C /* QCLeaderBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLeaderBoardViewController.m; sourceTree = "<group>"; };
-		5990EB3017935260005F354C /* QCLeaderBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLeaderBoardCell.h; sourceTree = "<group>"; };
-		5990EB3117935260005F354C /* QCLeaderBoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLeaderBoardViewController.xib; sourceTree = "<group>"; };
-		5990EB3217935260005F354C /* QCLeaderBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLeaderBoardCell.xib; sourceTree = "<group>"; };
+		5990EB9C17937179005F354C /* QCLeaderBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLeaderBoardCell.m; sourceTree = "<group>"; };
+		5990EB9D17937179005F354C /* QCLeaderBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLeaderBoardCell.xib; sourceTree = "<group>"; };
+		5990EB9E17937179005F354C /* QCLeaderBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLeaderBoardCell.h; sourceTree = "<group>"; };
+		5990EB9F17937179005F354C /* QCLeaderBoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLeaderBoardViewController.xib; sourceTree = "<group>"; };
+		5990EBA017937179005F354C /* QCLeaderBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLeaderBoardViewController.m; sourceTree = "<group>"; };
+		5990EBA117937179005F354C /* QCLeaderBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLeaderBoardViewController.h; sourceTree = "<group>"; };
 		6FA94DDC178C8ABF00BE7EB7 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6FA94DDD178C8ABF00BE7EB7 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		6FA94DDE178C8ABF00BE7EB7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -485,12 +485,12 @@
 		6FA94E87178DDA1500BE7EB7 /* Leadboard */ = {
 			isa = PBXGroup;
 			children = (
-				5990EB2D17935260005F354C /* QCLeaderBoardViewController.h */,
-				5990EB2E17935260005F354C /* QCLeaderBoardCell.m */,
-				5990EB2F17935260005F354C /* QCLeaderBoardViewController.m */,
-				5990EB3017935260005F354C /* QCLeaderBoardCell.h */,
-				5990EB3117935260005F354C /* QCLeaderBoardViewController.xib */,
-				5990EB3217935260005F354C /* QCLeaderBoardCell.xib */,
+				5990EB9C17937179005F354C /* QCLeaderBoardCell.m */,
+				5990EB9D17937179005F354C /* QCLeaderBoardCell.xib */,
+				5990EB9E17937179005F354C /* QCLeaderBoardCell.h */,
+				5990EB9F17937179005F354C /* QCLeaderBoardViewController.xib */,
+				5990EBA017937179005F354C /* QCLeaderBoardViewController.m */,
+				5990EBA117937179005F354C /* QCLeaderBoardViewController.h */,
 			);
 			name = Leadboard;
 			sourceTree = "<group>";
@@ -792,10 +792,10 @@
 				6FA94EE9178F232A00BE7EB7 /* messageSent.aiff in Resources */,
 				6FA94EEA178F232A00BE7EB7 /* messageReceived.aiff in Resources */,
 				6FA94EF5178F6C7B00BE7EB7 /* QCSettingsViewController.xib in Resources */,
-				5990EB3517935260005F354C /* QCLeaderBoardViewController.xib in Resources */,
-				5990EB3617935260005F354C /* QCLeaderBoardCell.xib in Resources */,
 				C9D1EE64179363B200923744 /* QCAvaliableChatsViewController.xib in Resources */,
 				A33EEF0A17936BC9006611CC /* ProfileViewController.xib in Resources */,
+				5990EBA317937179005F354C /* QCLeaderBoardCell.xib in Resources */,
+				5990EBA417937179005F354C /* QCLeaderBoardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,13 +840,13 @@
 				6FA94EB6178F22E300BE7EB7 /* UIColor+JSMessagesView.m in Sources */,
 				6FA94EB7178F22E300BE7EB7 /* UIView+AnimationOptionsForCurve.m in Sources */,
 				6FA94EF4178F6C7B00BE7EB7 /* QCSettingsViewController.m in Sources */,
-				5990EB3317935260005F354C /* QCLeaderBoardCell.m in Sources */,
-				5990EB3417935260005F354C /* QCLeaderBoardViewController.m in Sources */,
 				C9D1EE62179363B200923744 /* QCChatViewController.m in Sources */,
 				C9D1EE63179363B200923744 /* QCAvaliableChatsViewController.m in Sources */,
 				6FCDB51A17936801005F238E /* QCDetailViewController.m in Sources */,
 				A33EEF0817936BC9006611CC /* QCLoginViewController.m in Sources */,
 				A33EEF0917936BC9006611CC /* ProfileViewController.m in Sources */,
+				5990EBA217937179005F354C /* QCLeaderBoardCell.m in Sources */,
+				5990EBA517937179005F354C /* QCLeaderBoardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

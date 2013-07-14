@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UILabel *numberOfLikesLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *numberImageView;
 
 @end

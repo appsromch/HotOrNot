@@ -29,22 +29,32 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
-    if ([self.whichTableView isEqualToString:@"topLike"])
-    {
+//    UINavigationBar *naviBarObj = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+//    [self.view addSubview:naviBarObj];
+    
+    self.leaderBoardTableView.backgroundColor = [UIColor clearColor];
+    
         PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
         [query includeKey:@"user"];
         [query orderByDescending:@"numberOfLikes"];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            NSLog(@"%@", objects);
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+        {
             if (!error)
             {
                 self.photos = objects;
                 [self.leaderBoardTableView reloadData];
             }
         }];
-    }
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed: @"bg_leaderboard"]]];
+    
+    [self.likeButton setBackgroundImage:[UIImage imageNamed:@"toplikes_button2"] forState:UIControlStateNormal];
+    [self.dislikeButton setBackgroundImage:[UIImage imageNamed:@"top_dislikes_button-01"] forState:UIControlStateNormal];
+    [self.likerButton setBackgroundImage:[UIImage imageNamed:@"liker_button-01"] forState:UIControlStateNormal];
+    [self.dislikerButton setBackgroundImage:[UIImage imageNamed:@"disliker_button"] forState:UIControlStateNormal];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -75,10 +85,10 @@
     cell.numberOfLikesLabel.text = [NSString stringWithFormat:@"%@",number];
     
     PFFile *file = photo[@"image"];
-    cell.imageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
+    cell.photoImageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         UIImage *image = [UIImage imageWithData:data];
-        cell.imageView.image = image;
+        cell.photoImageView.image = image;
     }];
     
     return cell;
@@ -88,7 +98,6 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
-    [query includeKey:@"image"];
     [query orderByDescending:@"numberOfLikes"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
     {
@@ -113,7 +122,6 @@
             [self.leaderBoardTableView reloadData];
         }
     }];
-    
 }
 
 - (IBAction)topLikerButtonPressed:(id)sender
@@ -122,29 +130,27 @@
     [query includeKey:@"user"];
     [query orderByDescending:@"numberOfLikes"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-    {
-        if (!error)
-        {
-            self.photos = objects;
-            [self.leaderBoardTableView reloadData];
-        }
-    }];
+     {
+         if (!error)
+         {
+             self.photos = objects;
+             [self.leaderBoardTableView reloadData];
+         }
+     }];
 }
-
 - (IBAction)topDislikerButtonPressed:(id)sender
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
- 
-    [query orderByDescending:@"numberOfLikes"];
+    [query orderByDescending:@"numberOfDislikes"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-    {
-        if (!error)
-        {
-            self.photos = objects;
-            [self.leaderBoardTableView reloadData];
-        }
-    }];
+     {
+         if (!error)
+         {
+             self.photos = objects;
+             [self.leaderBoardTableView reloadData];
+         }
+     }];
 }
 
 @end
