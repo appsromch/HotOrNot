@@ -110,9 +110,9 @@
         [chat setValue:[PFUser currentUser] forKey:@"user2"]; // Set fromUser
         
         // Set the proper ACLs
-        PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-        [ACL setPublicReadAccess:YES];
-        chat.ACL = ACL;
+//        PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//        [ACL setPublicReadAccess:YES];
+//        chat.ACL = ACL;
         
         [chat saveEventually:^(BOOL succeeded, NSError *error) {
 

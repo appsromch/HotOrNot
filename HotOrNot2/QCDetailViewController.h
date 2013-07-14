@@ -21,6 +21,9 @@
 @property (nonatomic) BOOL isLikedByCurrentUser;
 @property (nonatomic) BOOL isDislikedByCurrentUser;
 
+@property (strong, nonatomic) NSArray *photos;
+@property (nonatomic) int currentIndex;
+
 - (IBAction)likebuttonPressed:(UIButton *)sender;
 - (IBAction)dislikeButtonPressed:(UIButton *)sender;
 
