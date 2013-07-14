@@ -17,6 +17,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *leaderBoardTableView;
 @property (strong, nonatomic) NSString *whichTableView;
 - (NSArray*) leaderboardArray;
-
+@property (strong, nonatomic) NSArray *photos;
 
 @end

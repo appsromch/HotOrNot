@@ -29,6 +29,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    if ([self.whichTableView isEqualToString:@"topLike"])
+    {
+        PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+        [query includeKey:@"user"];
+        [query orderByDescending:@"numberOfLikes"];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            NSLog(@"%@", objects);
+            if (!error)
+            {
+                self.photos = objects;
+                [self.leaderBoardTableView reloadData];
+            }
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,7 +53,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.photos.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -46,64 +61,90 @@
     static NSString *cellIdentifier = @"QCLeaderBoardCell";
     
     QCLeaderBoardCell *cell = (QCLeaderBoardCell *) [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
     if (cell == nil)
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"QCLeaderBoardCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-        
-        [self leaderboardArray];
-        
+        cell = [nib objectAtIndex:0];        
     }
-    return cell;
-}
+    
+    PFObject *photo = [self.photos objectAtIndex:indexPath.row];
+    NSNumber *number = photo[@"numberOfLikes"];
 
-- (NSArray*) leaderboardArray
-{
-   NSArray *leaderboardArray = [[NSArray alloc]init];
+    cell.nameLabel.text = [photo[@"user"]objectForKey:@"profile"][@"name"];
+    cell.addressLabel.text = [photo[@"user"] objectForKey:@"profile"][@"location"];
+    cell.numberOfLikesLabel.text = [NSString stringWithFormat:@"%@",number];
     
-    if ([self.whichTableView isEqualToString:@"topLike"])
-    {
-        NSLog(@"topLikeArray");
-    }
-    else if ([self.whichTableView isEqualToString:@"topDislike"])
-    {
-        NSLog(@"topDislike");
-    }
-    else if ([self.whichTableView isEqualToString:@"topliker"])
-    {
-        NSLog(@"topDisliker");
-    }
-    else if ([self.whichTableView isEqualToString: @"topDisliker"])
-    {
-        NSLog(@"topDisliker");
-    }
+    PFFile *file = photo[@"image"];
+    cell.imageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        UIImage *image = [UIImage imageWithData:data];
+        cell.imageView.image = image;
+    }];
     
-    return leaderboardArray;
+    return cell;
 }
 
 - (IBAction)topLikeButtonPressed:(id)sender
 {
-    self.whichTableView = @"topLike";
-    [self.leaderBoardTableView reloadData];
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    [query includeKey:@"user"];
+    [query includeKey:@"image"];
+    [query orderByDescending:@"numberOfLikes"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+    {
+        if (!error)
+        {
+            self.photos = objects;
+            [self.leaderBoardTableView reloadData];
+        }
+    }];
 }
 
 - (IBAction)topDislikesButtonPressed:(id)sender
 {
-    self.whichTableView = @"topDislike";
-    [self.leaderBoardTableView reloadData];
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    [query includeKey:@"user"];
+    [query orderByDescending:@"numberOfDislikes"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+    {
+        if (!error)
+        {
+            self.photos = objects;
+            [self.leaderBoardTableView reloadData];
+        }
+    }];
+    
 }
 
 - (IBAction)topLikerButtonPressed:(id)sender
 {
-    self.whichTableView = @"topLiker";
-    [self.leaderBoardTableView reloadData];
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    [query includeKey:@"user"];
+    [query orderByDescending:@"numberOfLikes"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+    {
+        if (!error)
+        {
+            self.photos = objects;
+            [self.leaderBoardTableView reloadData];
+        }
+    }];
 }
 
 - (IBAction)topDislikerButtonPressed:(id)sender
 {
-    self.whichTableView = @"topDisliker";
-    [self.leaderBoardTableView reloadData];
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    [query includeKey:@"user"];
+ 
+    [query orderByDescending:@"numberOfLikes"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+    {
+        if (!error)
+        {
+            self.photos = objects;
+            [self.leaderBoardTableView reloadData];
+        }
+    }];
 }
 
 @end

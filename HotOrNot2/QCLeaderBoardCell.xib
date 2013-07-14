@@ -43,7 +43,7 @@
 							<object class="IBUILabel" id="310328237">
 								<reference key="NSNextResponder" ref="599102795"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{114, 20}, {64, 21}}</string>
+								<string key="NSFrame">{{114, 20}, {119, 21}}</string>
 								<reference key="NSSuperview" ref="599102795"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="142227515"/>
@@ -78,7 +78,7 @@
 							<object class="IBUILabel" id="483347638">
 								<reference key="NSNextResponder" ref="599102795"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{110, 62}, {73, 21}}</string>
+								<string key="NSFrame">{{110, 62}, {123, 21}}</string>
 								<reference key="NSSuperview" ref="599102795"/>
 								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -91,14 +91,21 @@
 								<reference key="IBUITextColor" ref="55896523"/>
 								<reference key="IBUIHighlightedColor" ref="804236506"/>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<reference key="IBUIFontDescription" ref="476361372"/>
-								<reference key="IBUIFont" ref="736043430"/>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<int key="type">1</int>
+									<double key="pointSize">13</double>
+								</object>
+								<object class="NSFont" key="IBUIFont">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">13</double>
+									<int key="NSfFlags">16</int>
+								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
 							<object class="IBUILabel" id="142227515">
 								<reference key="NSNextResponder" ref="599102795"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{218, 31}, {82, 42}}</string>
+								<string key="NSFrame">{{241, 31}, {59, 42}}</string>
 								<reference key="NSSuperview" ref="599102795"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="483347638"/>
