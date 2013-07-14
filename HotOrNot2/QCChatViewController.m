@@ -28,31 +28,52 @@
     [super viewDidLoad];
     self.delegate = self;
     self.dataSource = self;
-    
-    
-    //setup users
-    self.currentUser = [PFUser currentUser];
-    self.withUser = [PFUser currentUser];
-    
+        
     self.title = @"Messages";
     
-    self.messages = [[NSMutableArray alloc] initWithObjects:
-                     @"Testing some messages here.",
-                     @"This work is based on Sam Soffes' SSMessagesViewController.",
-                     @"This is a complete re-write and refactoring.",
-                     @"It's easy to implement. Sound effects and images included. Animations are smooth and messages can be of arbitrary size!",
-                     nil];
+    _messages = [[NSMutableArray alloc]init];
+    PFQuery *queryForChatRoom = [PFQuery queryWithClassName:@"ChatRoom"];
+    [queryForChatRoom findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+     {
+         for (PFObject *object in objects) {
+             if ([[object objectForKey:@"user1"] isEqual:[PFUser currentUser]] &&
+                 [[object objectForKey:@"user2"] isEqual:[PFUser currentUser]]) {
+                 [_messages addObjectsFromArray:[object objectForKey:@"chats"]];
+                 NSLog(@"^^^ChatRoom: %@", object);                 
+             }
+             NSLog(@"^^^ChatRoom user1: %@", [object objectForKey:@"user1"]);
+             NSLog(@"^^^ChatRoom user2: %@", [object objectForKey:@"user2"]);
+         }
+         NSLog(@"^^^currentUser: %@", [PFUser currentUser]);
+
+     }];
+//    PFQuery *queryForChat = [PFQuery queryWithClassName:@"Chat"];
+//    [queryForChat findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+//     {
+//         for (PFObject *object in objects) {
+//             NSLog(@"^^^Chat: %@", [object objectForKey:@"text"]);
+//             [_messages addObject:[object objectForKey:@"text"]];
+//         }
+//         [self.tableView reloadData];
+//     }];
+
+
+    
+//    self.messages = [[NSMutableArray alloc] initWithObjects:
+//                     @"Testing some messages here.",
+//                     @"This work is based on Sam Soffes' SSMessagesViewController.",
+//                     @"This is a complete re-write and refactoring.",
+//                     @"It's easy to implement. Sound effects and images included. Animations are smooth and messages can be of arbitrary size!",
+//                     nil];
     
     self.timestamps = [[NSMutableArray alloc] initWithObjects:
                        [NSDate distantPast],
                        [NSDate distantPast],
                        [NSDate distantPast],
                        [NSDate date],
-                       nil];
-    PFQuery *query = [self queryForFromUsersTable];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"%@", objects);
-    }];
+                       nil];    
+    [self.tableView reloadData];
+
 }
 
 #pragma mark - Table view data source
@@ -64,6 +85,12 @@
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
+    PFObject *chat = [PFObject objectWithClassName:@"Chat"];
+    [chat setObject:[PFUser currentUser] forKey:@"user1"];
+    [chat setObject:[PFUser currentUser] forKey:@"user2"];
+    [chat setObject:text forKey:@"text"];
+    [chat setObject:_chatroom forKey:@"chatroom"];
+    
     [self.messages addObject:text];
     
     [self.timestamps addObject:[NSDate date]];
@@ -77,16 +104,15 @@
     
     if (text.length != 0) {
         // Create the comment activity object
-        PFObject *chat = [PFObject objectWithClassName:kPAPActivityClassKey];
-        [chat setValue:text forKey:kPAPActivityContentKey]; // Set comment text
-        [chat setValue:self.withUser forKey:kPAPActivityToUserKey]; // Set toUser
-        [chat setValue:self.currentUser forKey:kPAPActivityFromUserKey]; // Set fromUser
-        [chat setValue:kPAPActivityTypeChat forKey:kPAPActivityTypeKey];
+        PFObject *chat = [PFObject objectWithClassName:@"Chat"];
+        [chat setValue:text forKey:@"text"]; // Set comment text
+        [chat setValue:[PFUser currentUser] forKey:@"user1"]; // Set toUser
+        [chat setValue:[PFUser currentUser] forKey:@"user2"]; // Set fromUser
         
         // Set the proper ACLs
-//        PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-//        [ACL setPublicReadAccess:YES];
-//        chat.ACL = ACL;
+        PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+        [ACL setPublicReadAccess:YES];
+        chat.ACL = ACL;
         
         [chat saveEventually:^(BOOL succeeded, NSError *error) {
 
@@ -105,9 +131,9 @@
                 
                 PFQuery *query = [self queryForFromUsersTable];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                    NSLog(@"*** objects %@", objects);
+//                    NSLog(@"*** objects %@", objects);
 //                    self.objects = objects;
-//                    [self.tableView reloadData];
+                    [self.tableView reloadData];
                 }];
             }
         }];
@@ -138,27 +164,13 @@
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.timestamps objectAtIndex:indexPath.row];
+//    return [self.timestamps objectAtIndex:indexPath.row];
+    return  nil;
 }
 
 #pragma mark - Query
 
 - (PFQuery *)queryForFromUsersTable {
-    
-    PFQuery *queryMessageForUser = [PFQuery queryWithClassName:kPAPActivityClassKey];
-    [queryMessageForUser whereKey:kPAPActivityToUserKey equalTo:self.withUser];
-    [queryMessageForUser whereKey:kPAPActivityFromUserKey equalTo:self.currentUser];
-    [queryMessageForUser whereKey:kPAPActivityTypeKey equalTo:kPAPActivityTypeChat];
-
-    PFQuery *queryMessageSentToUser = [PFQuery queryWithClassName:kPAPActivityClassKey];
-    [queryMessageSentToUser whereKey:kPAPActivityToUserKey equalTo:self.withUser];
-    [queryMessageSentToUser whereKey:kPAPActivityFromUserKey equalTo:self.withUser];
-    [queryMessageSentToUser whereKey:kPAPActivityTypeKey equalTo:kPAPActivityTypeChat];
-    
-    PFQuery *chatquery = [PFQuery orQueryWithSubqueries:[NSArray arrayWithObjects:queryMessageForUser, queryMessageSentToUser, nil]];
-    
-    [chatquery orderByAscending:@"createdAt"];
-    
-    return chatquery;
+    return nil;
 }
 @end
