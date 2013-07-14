@@ -123,11 +123,14 @@
             PFObject *photo = [PFObject objectWithClassName:kPAPPhotoClassKey];
             [photo setObject:[PFUser currentUser] forKey:kPAPPhotoUserKey];
             [photo setObject:self.photoFile forKey:kPAPPhotoPictureKey];
+            [photo setObject:@0 forKey:@"numberOfLikes"];
+            [photo setObject:@0 forKey:@"numberOfDislikes"];
+
             
             // photos are public, but may only be modified by the user who uploaded them
-            PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
-            [photoACL setPublicReadAccess:YES];
-            photo.ACL = photoACL;
+//            PFACL *photoACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//            [photoACL setPublicReadAccess:YES];
+//            photo.ACL = photoACL;
             
             // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
             self.photoPostBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{

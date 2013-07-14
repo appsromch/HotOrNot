@@ -64,6 +64,7 @@
     
     
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error){
             self.photos = objects;

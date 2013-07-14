@@ -38,7 +38,12 @@
     self.navigationItem.leftBarButtonItem = cancelBarButtonItem;
     
     self.likeButton.enabled = NO;
-    PFQuery *queryForLike = [self queryForLike:self.pfPhotoObject];
+    PFQuery *queryForLike = [PFQuery queryWithClassName:@"Activity"];
+    [queryForLike whereKey:@"type" equalTo:@"like"];
+    [queryForLike whereKey:@"user" equalTo:self.pfPhotoObject[@"user"]];
+    [queryForLike includeKey:@"fromUser"];
+    [queryForLike includeKey:@"toUser"];
+
     [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSLog(@"%@", objects);
         if (!error) {
@@ -115,13 +120,17 @@
     PFUser *user = self.pfPhotoObject[@"user"];
     
     if ([user isEqual:[PFUser currentUser]]) {
-        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This is your photo" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles: nil];
+        [alertView show];
     }
     else {
         
         PFQuery *query = [PFQuery queryWithClassName:@"Activity"];
         [query whereKey:@"type" equalTo:@"like"];
         [query whereKey:@"photo" equalTo:self.pfPhotoObject];
+        [query includeKey:@"fromUser"];
+        [query includeKey:@"toUser"];
+        
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 if (objects.count == 0)
@@ -135,19 +144,37 @@
                             self.likeButton.enabled = YES;
                             NSLog(@"like Photo");
                             
-                            PFQuery *queryForLike = [PFQuery queryWithClassName:@"like"];
-                            [queryForLike whereKey:@"user" equalTo:user];
-                            [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                                if (!error) {
-                                    for (PFObject *activity in objects) {
-                                        NSLog(@"^^^Activity: %@", activity);
-                                        if ([[activity objectForKey:@"user"] isEqual:[PFUser currentUser]]) {
-                                            //check chats here
-                                            NSLog(@"^^^User liked me");
-                                        }
-                                    }
-                                }
+                            PFObject *photo = self.pfPhotoObject;
+                            
+                            NSNumber *number = photo[@"numberOfLikes"];
+                            if (number == 0) {
+                                [self.pfPhotoObject setObject:@1 forKey:@"numberOfLikes"];
+                            }
+                            else {
+                                int x = [number integerValue] + 1;
+                                NSNumber *number = [NSNumber numberWithInt:x];
+                                [photo setObject:number forKey:@"numberOfLikes"];
+                            }
+                            
+                            [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                NSLog(@"photo save successful");
                             }];
+                            
+                            //logic to determine if two users like each other
+//                            PFQuery *queryForLike = [PFQuery queryWithClassName:@"Activity"];
+//
+//                            [queryForLike whereKey:@"user" equalTo:user];
+//                            [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//                                if (!error) {
+//                                    for (PFObject *activity in objects) {
+//                                        NSLog(@"^^^Activity: %@", activity);
+//                                        if ([[activity objectForKey:@"user"] isEqual:[PFUser currentUser]]) {
+//                                            //check chats here
+//                                            NSLog(@"^^^User liked me");
+//                                        }
+//                                    }
+//                                }
+//                            }];
                         }];
                     } else {
                         [PAPUtility unlikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
@@ -184,6 +211,23 @@
         [PAPUtility dislikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
             self.isDislikedByCurrentUser = NO;
             self.dislikeButton.enabled = YES;
+            
+            PFObject *photo = self.pfPhotoObject;
+            
+            NSNumber *number = photo[@"numberOfDislikes"];
+            if (number == 0) {
+                [self.pfPhotoObject setObject:@1 forKey:@"numberOfDislikes"];
+            }
+            else {
+                int x = [number integerValue] + 1;
+                NSNumber *number = [NSNumber numberWithInt:x];
+                [photo setObject:number forKey:@"numberOfDislikes"];
+            }
+            
+            [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                NSLog(@"photo save successful");
+            }];
+            
             NSLog(@"dislike Photo dislikePhotoInBackground");
         }];
     } else {
@@ -194,14 +238,6 @@
         }];
     }
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - Query
-
--(PFQuery *)queryForLike:(PFObject *)photoPFObject
-{
-    PFQuery *query = [PAPUtility queryForActivitiesOnPhoto:photoPFObject cachePolicy:kPFCachePolicyNetworkOnly];
-    return query;
 }
 
 @end

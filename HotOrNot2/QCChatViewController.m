@@ -84,9 +84,9 @@
         [chat setValue:kPAPActivityTypeChat forKey:kPAPActivityTypeKey];
         
         // Set the proper ACLs
-        PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-        [ACL setPublicReadAccess:YES];
-        chat.ACL = ACL;
+//        PFACL *ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//        [ACL setPublicReadAccess:YES];
+//        chat.ACL = ACL;
         
         [chat saveEventually:^(BOOL succeeded, NSError *error) {
 

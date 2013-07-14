@@ -34,9 +34,9 @@
         [dislikeActivity setObject:[photo objectForKey:kPAPPhotoUserKey] forKey:kPAPActivityToUserKey];
         [dislikeActivity setObject:photo forKey:kPAPActivityPhotoKey];
         
-        PFACL *likeACL = [PFACL ACLWithUser:[PFUser currentUser]];
-        [likeACL setPublicReadAccess:YES];
-        dislikeActivity.ACL = likeACL;
+//        PFACL *likeACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//        [likeACL setPublicReadAccess:YES];
+//        dislikeActivity.ACL = likeACL;
         
         [dislikeActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (completionBlock) {
@@ -183,19 +183,9 @@
         [likeActivity setObject:[photo objectForKey:kPAPPhotoUserKey] forKey:kPAPActivityToUserKey];
         [likeActivity setObject:photo forKey:kPAPActivityPhotoKey];
         
-        NSNumber *number = photo[@"numberOfLikes"];
-        if (number == 0) {
-            [photo setObject:@1 forKey:@"numberOfLikes"];
-        }
-        else {
-            int x = [number integerValue] + 1;
-            NSNumber *number = [NSNumber numberWithInt:x];
-            [photo setObject:number forKey:@"numberOfLikes"];
-        }
-        
-        PFACL *likeACL = [PFACL ACLWithUser:[PFUser currentUser]];
-        [likeACL setPublicReadAccess:YES];
-        likeActivity.ACL = likeACL;
+//        PFACL *likeACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//        [likeACL setPublicReadAccess:YES];
+//        likeActivity.ACL = likeACL;
 
         [likeActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (completionBlock) {
@@ -425,9 +415,9 @@
     [followActivity setObject:user forKey:kPAPActivityToUserKey];
     [followActivity setObject:kPAPActivityTypeFollow forKey:kPAPActivityTypeKey];
     
-    PFACL *followACL = [PFACL ACLWithUser:[PFUser currentUser]];
-    [followACL setPublicReadAccess:YES];
-    followActivity.ACL = followACL;
+//    PFACL *followACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//    [followACL setPublicReadAccess:YES];
+//    followActivity.ACL = followACL;
     
     [followActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (completionBlock) {
@@ -451,9 +441,9 @@
     [followActivity setObject:user forKey:kPAPActivityToUserKey];
     [followActivity setObject:kPAPActivityTypeFollow forKey:kPAPActivityTypeKey];
     
-    PFACL *followACL = [PFACL ACLWithUser:[PFUser currentUser]];
-    [followACL setPublicReadAccess:YES];
-    followActivity.ACL = followACL;
+//    PFACL *followACL = [PFACL ACLWithUser:[PFUser currentUser]];
+//    [followACL setPublicReadAccess:YES];
+//    followActivity.ACL = followACL;
     
     [followActivity saveEventually:completionBlock];
     [[PAPCache sharedCache] setFollowStatus:YES user:user];
