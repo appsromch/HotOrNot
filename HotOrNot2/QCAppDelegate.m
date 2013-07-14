@@ -11,7 +11,7 @@
 
 #import "ProfileViewController.h"
 
-#import "QCFeedViewController.h"
+#import "QCDetailViewController.h"
 
 @implementation QCAppDelegate
 //adding a line to app delegate
@@ -79,8 +79,7 @@
 
 -(void)createAndPresentTabBarController
 {
-    LineLayout* lineLayout = [[LineLayout alloc] init];
-    QCFeedViewController *viewController2 = [[QCFeedViewController alloc] initWithCollectionViewLayout:lineLayout];
+    QCDetailViewController *viewController2 = [[QCDetailViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController2];
     QCLeaderBoardViewController *leaderBoardViewController = [[QCLeaderBoardViewController alloc] initWithNibName:nil bundle:nil];
     ProfileViewController *profileViewController = [[ProfileViewController alloc] initWithNibName:nil bundle:nil];

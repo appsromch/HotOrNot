@@ -23,9 +23,17 @@
     return self;
 }
 
+-(void)setupBarButtonItems
+{
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStyleBordered target:self action:@selector(chatBarButtonItemPressed:)];
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setupBarButtonItems];
     
     self.navigationItem.title = @"Like!";
     self.imageView.image = self.imageToBePassed;
@@ -253,6 +261,12 @@
         }];
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)chatBarButtonItemPressed:(id)sender
+{
+    QCAvaliableChatsViewController *avaliableChatsViewController = [[QCAvaliableChatsViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:avaliableChatsViewController animated:YES];
 }
 
 @end
