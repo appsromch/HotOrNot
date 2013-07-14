@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QCLeaderBoardCell.h"
 
 @interface QCLeaderBoardViewController : UIViewController
+- (IBAction)topLikeButtonPressed:(id)sender;
+- (IBAction)topDislikesButtonPressed:(id)sender;
+- (IBAction)topLikerButtonPressed:(id)sender;
+- (IBAction)topDislikerButtonPressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *leaderBoardTableView;
+@property (strong, nonatomic) NSString *whichTableView;
+- (NSArray*) leaderboardArray;
+
 
 @end
