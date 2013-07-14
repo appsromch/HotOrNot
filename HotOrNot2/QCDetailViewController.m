@@ -54,6 +54,7 @@
     [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.photos = objects;
+        if (self.photos.count > 0)
         self.pfPhotoObject = self.photos[self.currentIndex];
         
         if (!error && self.photos.count > 0){
@@ -205,6 +206,8 @@
     //    self.likeButton.enabled = NO;
     PFUser *user = self.pfPhotoObject[@"user"];
     
+    NSLog(@"%@ %@", self.pfPhotoObject, self.pfPhotoObject[@"numberOfLikes"]);
+    
     if ([user isEqual:[PFUser currentUser]]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This is your photo" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles: nil];
         [alertView show];
@@ -232,6 +235,7 @@
                         PFObject *photo = self.pfPhotoObject;
                         
                         NSNumber *number = photo[@"numberOfLikes"];
+                        NSLog(@"%@", number);
                         if (number == 0) {
                             [self.pfPhotoObject setObject:@1 forKey:@"numberOfLikes"];
                         }
@@ -243,10 +247,9 @@
                         
                         [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                             NSLog(@"photo save successful");
+                            [self setupNextPhoto];
                         }];
-                        
                         self.likeButton.enabled = YES;
-                        
                     }];
                 } else {
                     NSLog(@"user has already liked Photo");
@@ -255,10 +258,11 @@
                     //                            self.likeButton.enabled = YES;
                     //                            NSLog(@"dislike Photo");
                     //                        }];
+                    [self setupNextPhoto];
+
                 }
                 
                 
-                [self setupNextPhoto];
             }
         }];
         

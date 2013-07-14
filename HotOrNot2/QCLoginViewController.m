@@ -245,9 +245,6 @@
                 NSLog(@"*** logic still working");
             }
             
-
-            
-            
         } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
                     isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
             NSLog(@"The facebook session was invalidated");
