@@ -47,24 +47,39 @@
     [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSLog(@"%@", objects);
         if (!error) {
-            NSMutableArray *likers = [NSMutableArray array];
             
             self.isLikedByCurrentUser = YES;
             
-            for (PFObject *activity in objects) {
-                if ([[activity objectForKey:kPAPActivityTypeKey] isEqualToString:kPAPActivityTypeLike] && [activity objectForKey:kPAPActivityFromUserKey]) {
-                    [likers addObject:[activity objectForKey:kPAPActivityFromUserKey]];
-                } else if ([[activity objectForKey:kPAPActivityTypeKey] isEqualToString:kPAPActivityTypeComment] && [activity objectForKey:kPAPActivityFromUserKey]) {
-                }
-                
-                NSLog(@"%@",[[activity objectForKey:kPAPActivityFromUserKey] objectId] );
-                
-                if ([[[activity objectForKey:kPAPActivityFromUserKey] objectId] isEqualToString:[[PFUser currentUser] objectId]]) {
-                    if ([[activity objectForKey:kPAPActivityTypeKey] isEqualToString:kPAPActivityTypeLike]) {
-                        self.isLikedByCurrentUser = YES;
+            PFQuery *queryForLike = [PFQuery queryWithClassName:@"Activity"];
+            [queryForLike whereKey:@"type" equalTo:@"like"];
+            [queryForLike whereKey:@"photo" equalTo:self.pfPhotoObject];
+            [queryForLike includeKey:@"fromUser"];
+            [queryForLike includeKey:@"toUser"];
+            
+            [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                NSLog(@"********* %@", objects);
+                if (!error) {
+                    
+                    self.isLikedByCurrentUser = NO;
+                    
+                    if (objects.count == 0)
+                    {
+                        self.isLikedByCurrentUser = NO;
                     }
+                    else {
+                        for (int x = 0; x < objects.count; x ++) {
+                            PFObject *object = objects[x];
+                            NSLog(@"%@ %@",object[@"fromUser"], [PFUser currentUser] );
+                            if ([object[@"fromUser"][@"username"] isEqual:[PFUser currentUser][@"username"]]){
+                                self.isLikedByCurrentUser = YES;
+                            }
+                        }
+                    }
+                    self.isLikedByCurrentUser ? NSLog(@"YES") : NSLog(@"NO");
+                    
+                    self.likeButton.enabled = YES;
                 }
-            }
+            }];
             
             self.likeButton.enabled = YES;
             
