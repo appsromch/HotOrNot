@@ -123,9 +123,9 @@
 		A33EEF0817936BC9006611CC /* QCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A33EEF0317936BC9006611CC /* QCLoginViewController.m */; };
 		A33EEF0917936BC9006611CC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A33EEF0517936BC9006611CC /* ProfileViewController.m */; };
 		A33EEF0A17936BC9006611CC /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A33EEF0717936BC9006611CC /* ProfileViewController.xib */; };
-		C9D1EE62179363B200923744 /* QCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D1EE5D179363B200923744 /* QCChatViewController.m */; };
-		C9D1EE63179363B200923744 /* QCAvaliableChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D1EE5F179363B200923744 /* QCAvaliableChatsViewController.m */; };
-		C9D1EE64179363B200923744 /* QCAvaliableChatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D1EE60179363B200923744 /* QCAvaliableChatsViewController.xib */; };
+		C9B5FA95179374F80079D2C0 /* QCAvaliableChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B5FA92179374F80079D2C0 /* QCAvaliableChatsViewController.m */; };
+		C9B5FA96179374F80079D2C0 /* QCAvaliableChatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B5FA93179374F80079D2C0 /* QCAvaliableChatsViewController.xib */; };
+		C9B5FA97179374F80079D2C0 /* QCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B5FA94179374F80079D2C0 /* QCChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -287,11 +287,11 @@
 		A33EEF0517936BC9006611CC /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		A33EEF0617936BC9006611CC /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		A33EEF0717936BC9006611CC /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
-		C9D1EE5D179363B200923744 /* QCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCChatViewController.m; sourceTree = "<group>"; };
-		C9D1EE5E179363B200923744 /* QCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCChatViewController.h; sourceTree = "<group>"; };
-		C9D1EE5F179363B200923744 /* QCAvaliableChatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCAvaliableChatsViewController.m; sourceTree = "<group>"; };
-		C9D1EE60179363B200923744 /* QCAvaliableChatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCAvaliableChatsViewController.xib; sourceTree = "<group>"; };
-		C9D1EE61179363B200923744 /* QCAvaliableChatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCAvaliableChatsViewController.h; sourceTree = "<group>"; };
+		C9B5FA90179374F80079D2C0 /* QCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCChatViewController.h; sourceTree = "<group>"; };
+		C9B5FA91179374F80079D2C0 /* QCAvaliableChatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCAvaliableChatsViewController.h; sourceTree = "<group>"; };
+		C9B5FA92179374F80079D2C0 /* QCAvaliableChatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCAvaliableChatsViewController.m; sourceTree = "<group>"; };
+		C9B5FA93179374F80079D2C0 /* QCAvaliableChatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCAvaliableChatsViewController.xib; sourceTree = "<group>"; };
+		C9B5FA94179374F80079D2C0 /* QCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,11 +498,11 @@
 		6FA94E8D178F222F00BE7EB7 /* ListOfAvaliableChatsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C9D1EE5D179363B200923744 /* QCChatViewController.m */,
-				C9D1EE5E179363B200923744 /* QCChatViewController.h */,
-				C9D1EE5F179363B200923744 /* QCAvaliableChatsViewController.m */,
-				C9D1EE60179363B200923744 /* QCAvaliableChatsViewController.xib */,
-				C9D1EE61179363B200923744 /* QCAvaliableChatsViewController.h */,
+				C9B5FA90179374F80079D2C0 /* QCChatViewController.h */,
+				C9B5FA91179374F80079D2C0 /* QCAvaliableChatsViewController.h */,
+				C9B5FA92179374F80079D2C0 /* QCAvaliableChatsViewController.m */,
+				C9B5FA93179374F80079D2C0 /* QCAvaliableChatsViewController.xib */,
+				C9B5FA94179374F80079D2C0 /* QCChatViewController.m */,
 			);
 			name = ListOfAvaliableChatsViewController;
 			sourceTree = "<group>";
@@ -792,10 +792,10 @@
 				6FA94EE9178F232A00BE7EB7 /* messageSent.aiff in Resources */,
 				6FA94EEA178F232A00BE7EB7 /* messageReceived.aiff in Resources */,
 				6FA94EF5178F6C7B00BE7EB7 /* QCSettingsViewController.xib in Resources */,
-				C9D1EE64179363B200923744 /* QCAvaliableChatsViewController.xib in Resources */,
 				A33EEF0A17936BC9006611CC /* ProfileViewController.xib in Resources */,
 				5990EBA317937179005F354C /* QCLeaderBoardCell.xib in Resources */,
 				5990EBA417937179005F354C /* QCLeaderBoardViewController.xib in Resources */,
+				C9B5FA96179374F80079D2C0 /* QCAvaliableChatsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,13 +840,13 @@
 				6FA94EB6178F22E300BE7EB7 /* UIColor+JSMessagesView.m in Sources */,
 				6FA94EB7178F22E300BE7EB7 /* UIView+AnimationOptionsForCurve.m in Sources */,
 				6FA94EF4178F6C7B00BE7EB7 /* QCSettingsViewController.m in Sources */,
-				C9D1EE62179363B200923744 /* QCChatViewController.m in Sources */,
-				C9D1EE63179363B200923744 /* QCAvaliableChatsViewController.m in Sources */,
 				6FCDB51A17936801005F238E /* QCDetailViewController.m in Sources */,
 				A33EEF0817936BC9006611CC /* QCLoginViewController.m in Sources */,
 				A33EEF0917936BC9006611CC /* ProfileViewController.m in Sources */,
 				5990EBA217937179005F354C /* QCLeaderBoardCell.m in Sources */,
 				5990EBA517937179005F354C /* QCLeaderBoardViewController.m in Sources */,
+				C9B5FA95179374F80079D2C0 /* QCAvaliableChatsViewController.m in Sources */,
+				C9B5FA97179374F80079D2C0 /* QCChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
