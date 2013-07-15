@@ -31,10 +31,11 @@
     // Do any additional setup after loading the view from its nib.
     
     //up and down state button
-    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login-button-small.png"] forState:UIControlStateNormal];
-    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateHighlighted];
-    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login-button-small-pressed.png"] forState:UIControlStateSelected];
-
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"fb_login"] forState:UIControlStateNormal];
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"fb_login_pressed"] forState:UIControlStateHighlighted];
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"fb_login_pressed"] forState:UIControlStateSelected];
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed: @"default"]]];
     self.title = @"Facebook Profile";
 }
 
