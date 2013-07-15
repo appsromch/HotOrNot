@@ -81,11 +81,28 @@
 {
     QCDetailViewController *viewController2 = [[QCDetailViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController2];
+    [[UINavigationBar appearance]setBackgroundImage:[UIImage imageNamed:@"textured_nav"] forBarMetrics:UIBarMetricsDefault];
     QCLeaderBoardViewController *leaderBoardViewController = [[QCLeaderBoardViewController alloc] initWithNibName:nil bundle:nil];
     ProfileViewController *profileViewController = [[ProfileViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:profileViewController];
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[navController, leaderBoardViewController, navigationController];
+    UIImage *tabbg = [UIImage imageNamed:@"tabbar_bg.png"];
+    [self.tabBarController.tabBar setBackgroundImage:tabbg];
+    [self.tabBarController.tabBar setTintColor:[UIColor whiteColor]];
+    [self.tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+     //     UITextAttributeTextColor: [UIColor greenColor],
+     // UITextAttributeTextShadowColor: [UIColor redColor],
+     //UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
+                                     UITextAttributeFont: [UIFont fontWithName:@"DevanagariSangamMN-Bold" size:20.0f]
+     //UITextAttributeFont: [UIFont fontWithName:@"Noteworthy" size:19.0f]
+     
+     }];
+
+    
+    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
 

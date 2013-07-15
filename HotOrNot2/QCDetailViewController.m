@@ -18,7 +18,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = NSLocalizedString(@"Feed", @"FirstComment");
+        self.tabBarItem.image = [UIImage imageNamed:@"tab_feed"];
+        
+            [[UINavigationBar appearance]setBackgroundImage:[UIImage imageNamed:@"textured_nav"] forBarMetrics:UIBarMetricsDefault];
     }
     return self;
 }
@@ -26,6 +29,7 @@
 -(void)setupBarButtonItems
 {
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStyleBordered target:self action:@selector(chatBarButtonItemPressed:)];
+    [self.navigationItem.rightBarButtonItem setBackButtonBackgroundImage:[UIImage imageNamed:@"chat_icon"] forState:UIControlStateApplication barMetrics:UIBarMetricsDefault];
     self.navigationItem.rightBarButtonItem = barButtonItem;
 }
 
@@ -38,7 +42,11 @@
     [self setupBarButtonItems];
     
     self.navigationItem.title = @"Like!";
+    
+
+    
     self.imageView.image = self.imageToBePassed;
+    
     [self.imageView setUserInteractionEnabled:YES];
     // Do any additional setup after loading the view from its nib.
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerTapped:)];
@@ -62,7 +70,7 @@
         if (!error && self.photos.count > 0){
             
             NSLog(@"self.photos %@", self.photos);
-            
+        
             self.nameLabel.text = self.pfPhotoObject[@"user"][@"profile"][@"name"];
             
             PFFile *file = self.pfPhotoObject[@"image"];

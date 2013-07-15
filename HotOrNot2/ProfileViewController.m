@@ -19,8 +19,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"User Profile", @"FirstComment");
-        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        self.title = NSLocalizedString(@"Profile", @"FirstComment");
+        self.tabBarItem.image = [UIImage imageNamed:@"tab_profile"];
+        
     }
     return self;
 }
