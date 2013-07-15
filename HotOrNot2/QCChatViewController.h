@@ -14,7 +14,6 @@
 @property (strong, nonatomic) NSMutableArray *messages;
 @property (strong, nonatomic) NSMutableArray *timestamps;
 
-@property (strong, nonatomic) PFUser *currentUser;
-@property (strong, nonatomic) PFUser *withUser;
+@property (strong, nonatomic) PFObject *chatroom;
 
 @end
