@@ -20,7 +20,9 @@
 @property (strong, nonatomic) PFObject *pfPhotoObject;
 @property (nonatomic) BOOL isLikedByCurrentUser;
 @property (nonatomic) BOOL isDislikedByCurrentUser;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 
+@property (strong, nonatomic) IBOutlet UIImageView *nameImageView;
 @property (strong, nonatomic) NSArray *photos;
 @property (nonatomic) int currentIndex;
 

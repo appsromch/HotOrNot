@@ -67,7 +67,6 @@
 		6FA94EEA178F232A00BE7EB7 /* messageReceived.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 6FA94EE8178F232A00BE7EB7 /* messageReceived.aiff */; };
 		6FA94EF4178F6C7B00BE7EB7 /* QCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA94EF2178F6C7B00BE7EB7 /* QCSettingsViewController.m */; };
 		6FA94EF5178F6C7B00BE7EB7 /* QCSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FA94EF3178F6C7B00BE7EB7 /* QCSettingsViewController.xib */; };
-		6FCDB51A17936801005F238E /* QCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FCDB51917936801005F238E /* QCDetailViewController.m */; };
 		6FEBE18617738D160091BE0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE18517738D160091BE0F /* UIKit.framework */; };
 		6FEBE18817738D160091BE0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE18717738D160091BE0F /* Foundation.framework */; };
 		6FEBE18A17738D160091BE0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE18917738D160091BE0F /* CoreGraphics.framework */; };
@@ -116,13 +115,14 @@
 		6FEBE2101774A60D0091BE0F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FEBE20F1774A60D0091BE0F /* MapKit.framework */; };
 		6FEBE2141774CF940091BE0F /* QCCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FEBE2131774CF940091BE0F /* QCCustomCell.m */; };
 		6FEBE2161774CFE20091BE0F /* QCCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE2151774CFE10091BE0F /* QCCustomCell.xib */; };
-		6FEBE21C1774D19A0091BE0F /* QCDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE21A1774D19A0091BE0F /* QCDetailViewController.xib */; };
 		6FEBE21E1774DB160091BE0F /* loading.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE21D1774DB160091BE0F /* loading.jpeg */; };
 		6FEBE2201774F2580091BE0F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE21F1774F2570091BE0F /* Default.png */; };
 		6FEBE2221774F3430091BE0F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FEBE2211774F3430091BE0F /* Icon.png */; };
 		A33EEF0817936BC9006611CC /* QCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A33EEF0317936BC9006611CC /* QCLoginViewController.m */; };
 		A33EEF0917936BC9006611CC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A33EEF0517936BC9006611CC /* ProfileViewController.m */; };
 		A33EEF0A17936BC9006611CC /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A33EEF0717936BC9006611CC /* ProfileViewController.xib */; };
+		A3A85BEB179376B900A4FD0D /* QCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A85BE8179376B900A4FD0D /* QCDetailViewController.m */; };
+		A3A85BEC179376B900A4FD0D /* QCDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A85BEA179376B900A4FD0D /* QCDetailViewController.xib */; };
 		C9B5FA95179374F80079D2C0 /* QCAvaliableChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B5FA92179374F80079D2C0 /* QCAvaliableChatsViewController.m */; };
 		C9B5FA96179374F80079D2C0 /* QCAvaliableChatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B5FA93179374F80079D2C0 /* QCAvaliableChatsViewController.xib */; };
 		C9B5FA97179374F80079D2C0 /* QCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B5FA94179374F80079D2C0 /* QCChatViewController.m */; };
@@ -221,8 +221,6 @@
 		6FA94EF1178F6C7B00BE7EB7 /* QCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCSettingsViewController.h; sourceTree = "<group>"; };
 		6FA94EF2178F6C7B00BE7EB7 /* QCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCSettingsViewController.m; sourceTree = "<group>"; };
 		6FA94EF3178F6C7B00BE7EB7 /* QCSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCSettingsViewController.xib; sourceTree = "<group>"; };
-		6FCDB51817936801005F238E /* QCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCDetailViewController.h; sourceTree = "<group>"; };
-		6FCDB51917936801005F238E /* QCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCDetailViewController.m; sourceTree = "<group>"; };
 		6FEBE18217738D160091BE0F /* HotOrNot2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotOrNot2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FEBE18517738D160091BE0F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6FEBE18717738D160091BE0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -278,7 +276,6 @@
 		6FEBE2121774CF940091BE0F /* QCCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCCustomCell.h; sourceTree = "<group>"; };
 		6FEBE2131774CF940091BE0F /* QCCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCCustomCell.m; sourceTree = "<group>"; };
 		6FEBE2151774CFE10091BE0F /* QCCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCCustomCell.xib; sourceTree = "<group>"; };
-		6FEBE21A1774D19A0091BE0F /* QCDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCDetailViewController.xib; sourceTree = "<group>"; };
 		6FEBE21D1774DB160091BE0F /* loading.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loading.jpeg; sourceTree = "<group>"; };
 		6FEBE21F1774F2570091BE0F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6FEBE2211774F3430091BE0F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -287,6 +284,9 @@
 		A33EEF0517936BC9006611CC /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		A33EEF0617936BC9006611CC /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		A33EEF0717936BC9006611CC /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		A3A85BE8179376B900A4FD0D /* QCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCDetailViewController.m; sourceTree = "<group>"; };
+		A3A85BE9179376B900A4FD0D /* QCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCDetailViewController.h; sourceTree = "<group>"; };
+		A3A85BEA179376B900A4FD0D /* QCDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCDetailViewController.xib; sourceTree = "<group>"; };
 		C9B5FA90179374F80079D2C0 /* QCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCChatViewController.h; sourceTree = "<group>"; };
 		C9B5FA91179374F80079D2C0 /* QCAvaliableChatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCAvaliableChatsViewController.h; sourceTree = "<group>"; };
 		C9B5FA92179374F80079D2C0 /* QCAvaliableChatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCAvaliableChatsViewController.m; sourceTree = "<group>"; };
@@ -678,9 +678,9 @@
 		6FEBE2171774D1470091BE0F /* DetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6FEBE21A1774D19A0091BE0F /* QCDetailViewController.xib */,
-				6FCDB51817936801005F238E /* QCDetailViewController.h */,
-				6FCDB51917936801005F238E /* QCDetailViewController.m */,
+				A3A85BE8179376B900A4FD0D /* QCDetailViewController.m */,
+				A3A85BE9179376B900A4FD0D /* QCDetailViewController.h */,
+				A3A85BEA179376B900A4FD0D /* QCDetailViewController.xib */,
 			);
 			name = DetailViewController;
 			sourceTree = "<group>";
@@ -761,7 +761,6 @@
 				6FEBE20C1774A3F90091BE0F /* location_arrow@2x.png in Resources */,
 				6FEBE20D1774A3F90091BE0F /* location_arrow.png in Resources */,
 				6FEBE2161774CFE20091BE0F /* QCCustomCell.xib in Resources */,
-				6FEBE21C1774D19A0091BE0F /* QCDetailViewController.xib in Resources */,
 				6FEBE21E1774DB160091BE0F /* loading.jpeg in Resources */,
 				6FEBE2201774F2580091BE0F /* Default.png in Resources */,
 				6FEBE2221774F3430091BE0F /* Icon.png in Resources */,
@@ -796,6 +795,7 @@
 				5990EBA317937179005F354C /* QCLeaderBoardCell.xib in Resources */,
 				5990EBA417937179005F354C /* QCLeaderBoardViewController.xib in Resources */,
 				C9B5FA96179374F80079D2C0 /* QCAvaliableChatsViewController.xib in Resources */,
+				A3A85BEC179376B900A4FD0D /* QCDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,13 +840,13 @@
 				6FA94EB6178F22E300BE7EB7 /* UIColor+JSMessagesView.m in Sources */,
 				6FA94EB7178F22E300BE7EB7 /* UIView+AnimationOptionsForCurve.m in Sources */,
 				6FA94EF4178F6C7B00BE7EB7 /* QCSettingsViewController.m in Sources */,
-				6FCDB51A17936801005F238E /* QCDetailViewController.m in Sources */,
 				A33EEF0817936BC9006611CC /* QCLoginViewController.m in Sources */,
 				A33EEF0917936BC9006611CC /* ProfileViewController.m in Sources */,
 				5990EBA217937179005F354C /* QCLeaderBoardCell.m in Sources */,
 				5990EBA517937179005F354C /* QCLeaderBoardViewController.m in Sources */,
 				C9B5FA95179374F80079D2C0 /* QCAvaliableChatsViewController.m in Sources */,
 				C9B5FA97179374F80079D2C0 /* QCChatViewController.m in Sources */,
+				A3A85BEB179376B900A4FD0D /* QCDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

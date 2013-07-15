@@ -33,6 +33,8 @@
 {
     [super viewDidLoad];
     
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
+    
     [self setupBarButtonItems];
     
     self.navigationItem.title = @"Like!";
@@ -60,6 +62,8 @@
         if (!error && self.photos.count > 0){
             
             NSLog(@"self.photos %@", self.photos);
+            
+            self.nameLabel.text = self.pfPhotoObject[@"user"][@"profile"][@"name"];
             
             PFFile *file = self.pfPhotoObject[@"image"];
             NSLog(@"file %@", file);
@@ -104,6 +108,7 @@
             self.likeButton.enabled = YES;
         }
     }];
+
 }
 
 -(void)setupNextPhoto
