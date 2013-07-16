@@ -296,7 +296,7 @@
                 [query whereKey:@"type" equalTo:@"like"];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (!error) {
-                        if (objects > 0) {
+                        if (objects.count > 0) {
                             NSLog(@"!@#$ %@", objects);
                             PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
                             [chatroom setObject:currentUser[@"username"] forKey:@"username1"];
