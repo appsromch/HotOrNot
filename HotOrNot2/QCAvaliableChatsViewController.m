@@ -48,6 +48,7 @@
     [queryInverse whereKey:@"username2" equalTo:[PFUser currentUser].username];
     PFQuery *queryCombined = [PFQuery orQueryWithSubqueries:@[query, queryInverse]];
     [queryCombined includeKey:@"chats"];
+    [queryCombined includeKey:@"Chat"];
     [queryCombined findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             [_availableChatRoomsArray removeAllObjects];

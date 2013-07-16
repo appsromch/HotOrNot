@@ -64,14 +64,7 @@
 //         [self finishSend];
 //     }];
     
-    NSArray *chatObjects = [_chatroom objectForKey:@"chats"];
-    NSLog(@"^^^chat objects: %@", chatObjects);
-    for (PFObject *object in chatObjects) {
-        [_messages addObject:[object objectForKey:@"text"]];
-        NSLog(@"^^^chat object createdAt: %@", [object objectForKey:@"createdAt"]);
-//        [_timestamps addObject:[object objectForKey:@"createdAt"]];
-    }
-    
+    [self updateChatRoom];
     [self.tableView reloadData];
 
 }
@@ -102,6 +95,17 @@
         [chat setObject:toUsername forKey:@"toUsername"];
         [chat setObject:text forKey:@"text"];
         [chat saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [self updateChatRoom];
+        }];
+        NSMutableArray *updatedMutableChats = [[NSMutableArray alloc] initWithArray:[_chatroom objectForKey:@"chats"]];
+        [updatedMutableChats addObject:chat];
+        NSArray * updatedChats = [updatedMutableChats copy];
+        NSLog(@"^^^updatedChats: %@", updatedChats);
+        [_chatroom setObject:updatedChats forKey:@"chats"];
+        [_chatroom saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                NSLog(@"_chatroom updated");
+            }
         }];
         
         [self.messages addObject:text];
@@ -145,20 +149,23 @@
 
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *chats = [_chatroom objectForKey:@"chats"];
-    if (indexPath.row < chats.count) {
-        NSLog(@"_messages.count: %i", _messages.count);
-        PFObject *chat = chats[indexPath.row];
-        if ([[chat objectForKey:@"toUsername"] isEqualToString:[PFUser currentUser].username]) {
-            return JSBubbleMessageStyleIncomingDefault;
-        }
-        else {
-            return JSBubbleMessageStyleOutgoingDefault;
-        }
-    }
-    else {
-        return JSBubbleMessageStyleOutgoingDefault;
-    }
+//    NSArray *chats = [_chatroom objectForKey:@"chats"];
+//    if (indexPath.row < chats.count) {
+//        NSLog(@"_messages.count: %i", _messages.count);
+//        NSLog(@"indexPath.row:, %i", indexPath.row);
+//        NSLog(@"chats.count:, %i", indexPath.row);
+//        PFObject *chat = chats[indexPath.row];
+//        if ([[chat objectForKey:@"toUsername"] isEqualToString:[PFUser currentUser].username]) {
+//            return JSBubbleMessageStyleIncomingDefault;
+//        }
+//        else {
+//            return JSBubbleMessageStyleOutgoingDefault;
+//        }
+//    }
+//    else {
+//        return JSBubbleMessageStyleOutgoingDefault;
+//    }
+    return JSBubbleMessageStyleOutgoingDefault;
 //    return (indexPath.row % 2) ? JSBubbleMessageStyleIncomingDefault : JSBubbleMessageStyleOutgoingDefault;
 }
 
@@ -183,6 +190,41 @@
 {
 //    return [self.timestamps objectAtIndex:indexPath.row];
     return  nil;
+}
+
+#pragma mark - Update _chatroom
+
+-(void) updateChatRoom {
+    PFQuery *queryForChatRoom  = [PFQuery queryWithClassName:@"ChatRoom"];
+//    [queryForChatRoom includeKey:@"chats"];
+    [queryForChatRoom whereKey:@"username1" equalTo:[_chatroom objectForKey:@"username1"]];
+    [queryForChatRoom whereKey:@"username2" equalTo:[_chatroom objectForKey:@"username2"]];
+    [queryForChatRoom findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count > 0) {
+                _chatroom = objects[0];
+                NSLog(@"^^^Updated _chatroom: %@", _chatroom);
+            }
+        }
+    }];
+//    NSArray *chatObjects = [_chatroom objectForKey:@"chats"];
+//    NSLog(@"^^^chat objects: %@", chatObjects);
+//    if (chatObjects.count > 0) {
+//        for (PFObject *object in chatObjects) {
+//            PFQuery *queryForChat = [PFQuery queryWithClassName:@"Chat"];
+//            [queryForChat includeKey:@"text"];
+//            [queryForChat select:<#(id)#>]
+//            [queryForChat whereKey:@"fromUsername" equalTo:[object objectForKey:@"fromUsername"]];
+//            [queryForChat whereKey:@"toUsername" equalTo:[object objectForKey:@"toUsername"]];
+//            [queryForChatRoom findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//                if (!error) {
+//                    [_messages addObject:[objects[0] objectForKey:@"text"]];
+//                    NSLog(@"^^^chat object createdAt: %@", [objects[0] objectForKey:@"createdAt"]);
+//                    //          [_timestamps addObject:[object objectForKey:@"createdAt"]];
+//                }
+//            }];
+//        }
+//    }
 }
 
 #pragma mark - Query
