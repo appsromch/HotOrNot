@@ -47,6 +47,7 @@
     PFQuery *queryInverse = [PFQuery queryWithClassName:@"ChatRoom"];
     [queryInverse whereKey:@"username2" equalTo:[PFUser currentUser].username];
     PFQuery *queryCombined = [PFQuery orQueryWithSubqueries:@[query, queryInverse]];
+    [queryCombined includeKey:@"chats"];
     [queryCombined findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             [_availableChatRoomsArray removeAllObjects];
@@ -128,33 +129,36 @@
 - (void) createFakeChats {
     
     PFObject *chat = [PFObject objectWithClassName:@"Chat"];
-    [chat setObject:[PFUser currentUser].username forKey:@"username1"];
-    [chat setObject:[PFUser currentUser].username forKey:@"username2"];
+    [chat setObject:[PFUser currentUser].username forKey:@"fromUsername"];
+    [chat setObject:[PFUser currentUser].username forKey:@"toUsername"];
     [chat setObject:@"Entered Text 1" forKey:@"text"];
     
     PFObject *chat2 = [PFObject objectWithClassName:@"Chat"];
-    [chat2 setObject:[PFUser currentUser].username forKey:@"username1"];
-    [chat2 setObject:[PFUser currentUser].username forKey:@"username2"];
+    [chat2 setObject:[PFUser currentUser].username forKey:@"fromUsername"];
+    [chat2 setObject:[PFUser currentUser].username forKey:@"toUsername"];
     [chat2 setObject:@"Entered Text 2" forKey:@"text"];
     
     PFObject *chat3 = [PFObject objectWithClassName:@"Chat"];
-    [chat3 setObject:[PFUser currentUser].username forKey:@"username1"];
-    [chat3 setObject:[PFUser currentUser].username forKey:@"username2"];
+    [chat3 setObject:[PFUser currentUser].username forKey:@"fromUsername"];
+    [chat3 setObject:[PFUser currentUser].username forKey:@"toUsername"];
     [chat3 setObject:@"Entered Text 3" forKey:@"text"];
     
-    NSMutableArray *chatsArray = [[NSMutableArray alloc] init];
+    NSMutableArray *chatsMutableArray = [[NSMutableArray alloc] init];
 
     [chat saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         [chat2 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             [chat3 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
                 PFQuery *query = [PFQuery queryWithClassName:@"Chat"];
+                [query whereKey:@"fromUsername" equalTo:[PFUser currentUser].username];
+                [query whereKey:@"toUsername" equalTo:[PFUser currentUser].username];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (!error) {
                         for (PFObject *object in objects) {
                             NSLog(@"^^^Object: %@", object);
-                            [chatsArray addObject:object];
+                            [chatsMutableArray addObject:object];
                         }
                     }
+                    NSArray *chatsArray = [chatsMutableArray copy];
                     NSLog(@"^^^Chats Array: %@", chatsArray);
                     
                     PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
