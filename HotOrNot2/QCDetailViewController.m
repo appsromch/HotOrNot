@@ -295,15 +295,19 @@
                 [query whereKey:@"toUser" equalTo:currentUser];
                 [query whereKey:@"type" equalTo:@"like"];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                    NSLog(@"!@#$ %@", objects);
-                    PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
-                    [chatroom setObject:currentUser[@"username"] forKey:@"username1"];
-                    [chatroom setObject:toUser[@"username"] forKey:@"username2"];
-                    [chatroom setObject:currentUser[@"profile"][@"name"] forKey:@"name1"];
-                    [chatroom setObject:toUser[@"profile"][@"name"] forKey:@"name2"];
-                    [chatroom saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                        NSLog(@"chatroom object saved");
-                    }];
+                    if (!error) {
+                        if (objects > 0) {
+                            NSLog(@"!@#$ %@", objects);
+                            PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
+                            [chatroom setObject:currentUser[@"username"] forKey:@"username1"];
+                            [chatroom setObject:toUser[@"username"] forKey:@"username2"];
+                            [chatroom setObject:currentUser[@"profile"][@"name"] forKey:@"name1"];
+                            [chatroom setObject:toUser[@"profile"][@"name"] forKey:@"name2"];
+                            [chatroom saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                NSLog(@"chatroom object saved");
+                            }];
+                        }
+                    }
                 }];
 
             }];

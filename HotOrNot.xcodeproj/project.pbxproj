@@ -654,11 +654,11 @@
 		6FA94E8D178F222F00BE7EB7 /* ListOfAvaliableChatsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C9B5FAA6179377310079D2C0 /* QCAvaliableChatsViewController.xib */,
 				C9B5FAA7179377310079D2C0 /* QCAvaliableChatsViewController.h */,
 				C9B5FAA8179377310079D2C0 /* QCAvaliableChatsViewController.m */,
-				C9B5FAA9179377310079D2C0 /* QCChatViewController.m */,
+				C9B5FAA6179377310079D2C0 /* QCAvaliableChatsViewController.xib */,
 				C9B5FAAA179377310079D2C0 /* QCChatViewController.h */,
+				C9B5FAA9179377310079D2C0 /* QCChatViewController.m */,
 			);
 			name = ListOfAvaliableChatsViewController;
 			sourceTree = "<group>";

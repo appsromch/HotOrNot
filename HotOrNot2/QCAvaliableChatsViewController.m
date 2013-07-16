@@ -35,9 +35,6 @@
     [self updateAvailableChatRooms];
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
-    NSLog(@"^^^ self.view: %@", self.view);
-    NSLog(@"^^^background color is to be set to image: %@", [UIImage imageNamed:@"bg"]);
-    NSLog(@"^^^background view color: %@", self.view.backgroundColor);
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -45,7 +42,6 @@
 }
 
 -(void)updateAvailableChatRooms {
-    //pull chats from chatroom
     PFQuery *query = [PFQuery queryWithClassName:@"ChatRoom"];
     [query whereKey:@"username1" equalTo:[PFUser currentUser].username];
     PFQuery *queryInverse = [PFQuery queryWithClassName:@"ChatRoom"];
@@ -56,6 +52,7 @@
             [_availableChatRoomsArray removeAllObjects];
             [_availableChatRoomsArray addObjectsFromArray:objects];
             [_tableView reloadData];
+            NSLog(@"^^^_availableChatRoomsArray: %@", _availableChatRoomsArray);
         }
     }];
 }
@@ -77,16 +74,18 @@
 {
     NSLog(@"^^^cellForRowAtIndexPath called");
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.textColor = [UIColor whiteColor];
     [cell setBackgroundColor:[UIColor clearColor]];
     PFObject *chatroom = [_availableChatRoomsArray objectAtIndex:indexPath.row];
     NSLog(@"^^^Chatroom for cell: %@", chatroom);
     if ([[chatroom objectForKey:@"username1"] isEqual:[PFUser currentUser].username]) {
-        cell.textLabel.text = [chatroom objectForKey:@"name1"];
-        NSLog(@"^^^Name1 displayed");
-    }
-    else {
         cell.textLabel.text = [chatroom objectForKey:@"name2"];
         NSLog(@"^^^Name2 displayed");
+    }
+    else {
+        cell.textLabel.text = [chatroom objectForKey:@"name1"];
+        NSLog(@"^^^Name1 displayed");
     }
     return cell;
 }

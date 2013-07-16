@@ -34,17 +34,16 @@
     _messages = [[NSMutableArray alloc]init];
     _timestamps = [[NSMutableArray alloc]init];
     PFQuery *queryForChatRoom = [PFQuery queryWithClassName:@"ChatRoom"];
-    [queryForChatRoom includeKey:@"chats"];
     [queryForChatRoom findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
      {
          if (!error) {
              NSLog(@"^^^ChatRoom Objects: %@", objects);
              if (objects.count > 0) {
                  for (PFObject *object in objects) {
-                     if ([[object objectForKey:@"username1"] isEqualToString:[PFUser currentUser].username] &&
-                         [[object objectForKey:@"username2"] isEqualToString:[PFUser currentUser].username]) {
-                         _chatroom = object;
-                         NSLog(@"^^^ChatRoom Added: %@", _chatroom);
+                     if (([[object objectForKey:@"username1"] isEqualToString:[_chatroom objectForKey:@"username1"]] &&
+                          [[object objectForKey:@"username2"] isEqualToString:[_chatroom objectForKey:@"username2"]]) ||
+                         ([[object objectForKey:@"username1"] isEqualToString:[_chatroom objectForKey:@"username2"]] &&
+                          [[object objectForKey:@"username2"] isEqualToString:[_chatroom objectForKey:@"username1"]])) {
                          //get chat objects and create messages for them
                          NSArray *chats = [object objectForKey:@"chats"];
                          for (PFObject *object in chats) {
@@ -79,8 +78,17 @@
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
     PFObject *chat = [PFObject objectWithClassName:@"Chat"];
-    [chat setObject:[PFUser currentUser].username forKey:@"username1"];
-    [chat setObject:[PFUser currentUser].username forKey:@"username2"];
+    NSString *toUsername = [[NSString alloc] init];
+    if ([[_chatroom objectForKey:@"username1"] isEqualToString:[PFUser currentUser].username]) {
+        toUsername = [_chatroom objectForKey:@"username2"];
+        NSLog(@"^^^toUsername set to username2: %@", toUsername);
+    }
+    else {
+        toUsername = [_chatroom objectForKey:@"username1"];
+        NSLog(@"^^^toUsername set to username1: %@", toUsername);
+    }
+    [chat setObject:[PFUser currentUser].username forKey:@"fromUsername"];
+    [chat setObject:toUsername forKey:@"toUsername"];
     [chat setObject:text forKey:@"text"];
     [chat saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
     }];
@@ -89,10 +97,8 @@
     
     [self.timestamps addObject:[NSDate date]];
     
-    if((self.messages.count - 1) % 2)
-        [JSMessageSoundEffect playMessageSentSound];
-    else
-        [JSMessageSoundEffect playMessageReceivedSound];
+    [JSMessageSoundEffect playMessageSentSound];
+    [JSMessageSoundEffect playMessageReceivedSound];
     
     [self finishSend];
     
