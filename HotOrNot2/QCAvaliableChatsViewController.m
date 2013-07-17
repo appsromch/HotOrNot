@@ -1,4 +1,4 @@
-t//
+//
 //  QCAvaliableChatsViewController.m
 //  HotOrNot2
 //
