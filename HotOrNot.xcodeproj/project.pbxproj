@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A7B77A31796FEA400C5DE81 /* chat_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7B77A21796FEA400C5DE81 /* chat_icon.png */; };
 		0A7B77B717970D8500C5DE81 /* like_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7B77B617970D8500C5DE81 /* like_pressed.png */; };
+		0A7B77BD17970FD900C5DE81 /* dislike_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7B77BC17970FD900C5DE81 /* dislike_pressed.png */; };
 		0AC19C1D1794495100328942 /* appicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19BF41794495100328942 /* appicon_1024.png */; };
 		0AC19C1E1794495100328942 /* appicon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19BF51794495100328942 /* appicon_114.png */; };
 		0AC19C1F1794495100328942 /* appicon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19BF61794495100328942 /* appicon_57.png */; };
@@ -181,6 +182,7 @@
 /* Begin PBXFileReference section */
 		0A7B77A21796FEA400C5DE81 /* chat_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_icon.png; sourceTree = "<group>"; };
 		0A7B77B617970D8500C5DE81 /* like_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_pressed.png; sourceTree = "<group>"; };
+		0A7B77BC17970FD900C5DE81 /* dislike_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dislike_pressed.png; sourceTree = "<group>"; };
 		0AC19BF41794495100328942 /* appicon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_1024.png; sourceTree = "<group>"; };
 		0AC19BF51794495100328942 /* appicon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_114.png; sourceTree = "<group>"; };
 		0AC19BF61794495100328942 /* appicon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_57.png; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				0AC19BFF1794495100328942 /* chalk_line@2x.png */,
 				0A7B77A21796FEA400C5DE81 /* chat_icon.png */,
 				0AC19C4F1794702700328942 /* Default.png */,
+				0A7B77BC17970FD900C5DE81 /* dislike_pressed.png */,
 				0AC19C001794495100328942 /* disliker_button.png */,
 				0AC19C021794495100328942 /* disliker_button@2px.png */,
 				0AC19C5A1794735D00328942 /* fb_login.png */,
@@ -1016,6 +1019,7 @@
 				C9F291301796D837009D8936 /* QCAvaliableChatsViewController.xib in Resources */,
 				0A7B77A31796FEA400C5DE81 /* chat_icon.png in Resources */,
 				0A7B77B717970D8500C5DE81 /* like_pressed.png in Resources */,
+				0A7B77BD17970FD900C5DE81 /* dislike_pressed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

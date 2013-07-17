@@ -70,9 +70,10 @@
     self.likeButton.enabled = NO;
 
     
-    //[self.likeButton setBackgroundImage:[UIImage imageNamed:@"fb_login"] forState:UIControlStateNormal];
     [self.likeButton setBackgroundImage:[UIImage imageNamed:@"like_pressed"] forState:UIControlStateHighlighted];
     [self.likeButton setBackgroundImage:[UIImage imageNamed:@"like_pressed"] forState:UIControlStateSelected];
+    [self.dislikeButton setBackgroundImage:[UIImage imageNamed:@"dislike_pressed"] forState:UIControlStateHighlighted];
+    [self.dislikeButton setBackgroundImage:[UIImage imageNamed:@"dislike_pressed"] forState:UIControlStateSelected];
     
     self.currentIndex = 0;
     NSLog(@"%@", self.pfPhotoObject);
