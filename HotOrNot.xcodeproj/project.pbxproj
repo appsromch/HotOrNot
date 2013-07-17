@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7B77A31796FEA400C5DE81 /* chat_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7B77A21796FEA400C5DE81 /* chat_icon.png */; };
+		0A7B77A51797036400C5DE81 /* like_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7B77A41797036400C5DE81 /* like_pressed.png */; };
 		0AC19C1D1794495100328942 /* appicon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19BF41794495100328942 /* appicon_1024.png */; };
 		0AC19C1E1794495100328942 /* appicon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19BF51794495100328942 /* appicon_114.png */; };
 		0AC19C1F1794495100328942 /* appicon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19BF61794495100328942 /* appicon_57.png */; };
@@ -20,7 +22,6 @@
 		0AC19C271794495100328942 /* chalk_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19BFE1794495100328942 /* chalk_line.png */; };
 		0AC19C281794495100328942 /* chalk_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19BFF1794495100328942 /* chalk_line@2x.png */; };
 		0AC19C291794495100328942 /* disliker_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C001794495100328942 /* disliker_button.png */; };
-		0AC19C2A1794495100328942 /* disliker_button.png.tmp$$ in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C011794495100328942 /* disliker_button.png.tmp$$ */; };
 		0AC19C2B1794495100328942 /* disliker_button@2px.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C021794495100328942 /* disliker_button@2px.png */; };
 		0AC19C2D1794495100328942 /* liker_button-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C041794495100328942 /* liker_button-01.png */; };
 		0AC19C2E1794495100328942 /* liker_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C051794495100328942 /* liker_button.png */; };
@@ -54,7 +55,6 @@
 		0AC19C5B1794735D00328942 /* fb_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C5A1794735D00328942 /* fb_login.png */; };
 		0AC19C5D179473B700328942 /* fb_login_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C5C179473B700328942 /* fb_login_pressed.png */; };
 		0AF2AF5917949CA9008D20D3 /* profile_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF2AF5817949CA9008D20D3 /* profile_image.png */; };
-		0AF2AF5B1794AA71008D20D3 /* chat_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF2AF5A1794AA71008D20D3 /* chat_icon.png */; };
 		5994DD211796346200A6AFDE /* QCLikerAndDisliker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994DD201796346200A6AFDE /* QCLikerAndDisliker.m */; };
 		5994DD251796358800A6AFDE /* QCLeaderBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994DD231796358800A6AFDE /* QCLeaderBoardViewController.m */; };
 		5994DD261796358800A6AFDE /* QCLeaderBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5994DD241796358800A6AFDE /* QCLeaderBoardViewController.xib */; };
@@ -179,6 +179,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A7B77A21796FEA400C5DE81 /* chat_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_icon.png; sourceTree = "<group>"; };
+		0A7B77A41797036400C5DE81 /* like_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_pressed.png; sourceTree = "<group>"; };
 		0AC19BF41794495100328942 /* appicon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_1024.png; sourceTree = "<group>"; };
 		0AC19BF51794495100328942 /* appicon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_114.png; sourceTree = "<group>"; };
 		0AC19BF61794495100328942 /* appicon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon_57.png; sourceTree = "<group>"; };
@@ -192,7 +194,6 @@
 		0AC19BFE1794495100328942 /* chalk_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chalk_line.png; sourceTree = "<group>"; };
 		0AC19BFF1794495100328942 /* chalk_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chalk_line@2x.png"; sourceTree = "<group>"; };
 		0AC19C001794495100328942 /* disliker_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disliker_button.png; sourceTree = "<group>"; };
-		0AC19C011794495100328942 /* disliker_button.png.tmp$$ */ = {isa = PBXFileReference; lastKnownFileType = file; path = disliker_button.png.tmp$$; sourceTree = "<group>"; };
 		0AC19C021794495100328942 /* disliker_button@2px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disliker_button@2px.png"; sourceTree = "<group>"; };
 		0AC19C041794495100328942 /* liker_button-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "liker_button-01.png"; sourceTree = "<group>"; };
 		0AC19C051794495100328942 /* liker_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liker_button.png; sourceTree = "<group>"; };
@@ -226,7 +227,6 @@
 		0AC19C5A1794735D00328942 /* fb_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_login.png; sourceTree = "<group>"; };
 		0AC19C5C179473B700328942 /* fb_login_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_login_pressed.png; sourceTree = "<group>"; };
 		0AF2AF5817949CA9008D20D3 /* profile_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_image.png; sourceTree = "<group>"; };
-		0AF2AF5A1794AA71008D20D3 /* chat_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_icon.png; sourceTree = "<group>"; };
 		5994DD1F1796346200A6AFDE /* QCLikerAndDisliker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLikerAndDisliker.h; sourceTree = "<group>"; };
 		5994DD201796346200A6AFDE /* QCLikerAndDisliker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLikerAndDisliker.m; sourceTree = "<group>"; };
 		5994DD221796358800A6AFDE /* QCLeaderBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLeaderBoardViewController.h; sourceTree = "<group>"; };
@@ -442,13 +442,13 @@
 				0AC19BFD1794495100328942 /* bg_profile@2x.png */,
 				0AC19BFE1794495100328942 /* chalk_line.png */,
 				0AC19BFF1794495100328942 /* chalk_line@2x.png */,
-				0AF2AF5A1794AA71008D20D3 /* chat_icon.png */,
+				0A7B77A21796FEA400C5DE81 /* chat_icon.png */,
 				0AC19C4F1794702700328942 /* Default.png */,
 				0AC19C001794495100328942 /* disliker_button.png */,
-				0AC19C011794495100328942 /* disliker_button.png.tmp$$ */,
 				0AC19C021794495100328942 /* disliker_button@2px.png */,
 				0AC19C5A1794735D00328942 /* fb_login.png */,
 				0AC19C5C179473B700328942 /* fb_login_pressed.png */,
+				0A7B77A41797036400C5DE81 /* like_pressed.png */,
 				0AC19C041794495100328942 /* liker_button-01.png */,
 				0AC19C051794495100328942 /* liker_button.png */,
 				0AC19C061794495100328942 /* liker_button@2x.png */,
@@ -977,7 +977,6 @@
 				0AC19C271794495100328942 /* chalk_line.png in Resources */,
 				0AC19C281794495100328942 /* chalk_line@2x.png in Resources */,
 				0AC19C291794495100328942 /* disliker_button.png in Resources */,
-				0AC19C2A1794495100328942 /* disliker_button.png.tmp$$ in Resources */,
 				0AC19C2B1794495100328942 /* disliker_button@2px.png in Resources */,
 				0AC19C2D1794495100328942 /* liker_button-01.png in Resources */,
 				0AC19C2E1794495100328942 /* liker_button.png in Resources */,
@@ -1011,11 +1010,12 @@
 				0AC19C5B1794735D00328942 /* fb_login.png in Resources */,
 				0AC19C5D179473B700328942 /* fb_login_pressed.png in Resources */,
 				0AF2AF5917949CA9008D20D3 /* profile_image.png in Resources */,
-				0AF2AF5B1794AA71008D20D3 /* chat_icon.png in Resources */,
 				5994DD261796358800A6AFDE /* QCLeaderBoardViewController.xib in Resources */,
 				5994DD2B179636D400A6AFDE /* QCLeaderBoardCell.xib in Resources */,
 				C9F2912E1796D837009D8936 /* QCAvailableChatCell.xib in Resources */,
 				C9F291301796D837009D8936 /* QCAvaliableChatsViewController.xib in Resources */,
+				0A7B77A31796FEA400C5DE81 /* chat_icon.png in Resources */,
+				0A7B77A51797036400C5DE81 /* like_pressed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

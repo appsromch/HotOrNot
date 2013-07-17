@@ -28,9 +28,21 @@
 
 -(void)setupBarButtonItems
 {
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStyleBordered target:self action:@selector(chatBarButtonItemPressed:)];
-    [self.navigationItem.rightBarButtonItem setBackButtonBackgroundImage:[UIImage imageNamed:@"chat_icon"] forState:UIControlStateApplication barMetrics:UIBarMetricsDefault];
+
+   // [barButtonItem setBackgroundImage:chatIcon forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    UIImage *chatIcon = [UIImage imageNamed:@"chat_icon"];
+
+    UIButton *chatButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, chatIcon.size.width, chatIcon.size.height)];
+    [chatButton setBackgroundImage:chatIcon forState:UIControlStateNormal];
+    [chatButton addTarget:self action:@selector(chatBarButtonItemPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:chatButton];
     self.navigationItem.rightBarButtonItem = barButtonItem;
+    [[self navigationItem] setRightBarButtonItem:barButtonItem];
+    
+    
 }
 
 - (void)viewDidLoad
@@ -52,10 +64,11 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerTapped:)];
     [self.imageView addGestureRecognizer:tapGestureRecognizer];
     
-    UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelBarButtonItemPressed:)];
-    self.navigationItem.leftBarButtonItem = cancelBarButtonItem;
+   // UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelBarButtonItemPressed:)];
+   //l self.navigationItem.leftBarButtonItem = cancelBarButtonItem;
     
     self.likeButton.enabled = NO;
+    [self.likeButton setBackgroundColor:[UIColor blackColor]];
     
     self.currentIndex = 0;
     NSLog(@"%@", self.pfPhotoObject);

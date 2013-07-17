@@ -20,7 +20,7 @@
     if (self) {
         // Custom initialization
         self.title = NSLocalizedString(@"Leaderboard", @"FirstComment");
-        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        self.tabBarItem.image = [UIImage imageNamed:@"tab_leaderboard"];
     }
     return self;
 }
