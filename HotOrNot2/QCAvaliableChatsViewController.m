@@ -35,6 +35,19 @@
     [self updateAvailableChatRooms];
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]]];
+    [self updateSubjectImages];
+}
+
+-(void)updateSubjectImages {
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    [query includeKey:@"user"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count > 0) {
+                _chatSubjectImages = objects;
+            }
+    }
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -71,32 +84,79 @@
     return _availableChatRoomsArray.count;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 83;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"^^^cellForRowAtIndexPath called");
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    cell.textLabel.textColor = [UIColor whiteColor];
-    cell.detailTextLabel.textColor = [UIColor whiteColor];
-    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:18];
-//    PFFile *file = self.pfPhotoObject[@"image"];
-//    NSLog(@"file %@", file);
-//    self.imageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
-//    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-//        UIImage *image = [UIImage imageWithData:data];
-//        self.imageView.image = image;
-//    }];
+    static NSString *cellIdentifier = @"AvailableChatCell";
+    QCAvailableChatCell *cell = (QCAvailableChatCell *) [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"QCAvailableChatCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    NSLog(@"^^^Cell created: %@", cell);
     [cell setBackgroundColor:[UIColor clearColor]];
     PFObject *chatroom = [_availableChatRoomsArray objectAtIndex:indexPath.row];
     NSLog(@"^^^Chatroom for cell: %@", chatroom);
+    BOOL isUser1CurrentUser;
     if ([[chatroom objectForKey:@"username1"] isEqual:[PFUser currentUser].username]) {
-        cell.textLabel.text = [chatroom objectForKey:@"name2"];
+        cell.nameLabel.text = [chatroom objectForKey:@"name2"];
         NSLog(@"^^^Name2 displayed");
+        isUser1CurrentUser = YES;
     }
     else {
-        cell.textLabel.text = [chatroom objectForKey:@"name1"];
+        cell.nameLabel.text = [chatroom objectForKey:@"name1"];
         NSLog(@"^^^Name1 displayed");
+        isUser1CurrentUser = NO;
     }
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    for (PFObject *photo in _chatSubjectImages) {
+        if (isUser1CurrentUser) {
+            if ([((PFUser *)photo[@"user"]).username isEqualToString:chatroom[@"username2"]]) {
+                PFFile *file = photo[@"image"];
+                NSLog(@"file %@", file);
+                cell.chatSubjectImage.image = [UIImage imageNamed:@"placeHolderImage.png"];
+                [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    if (!error) {
+                        UIImage *image = [UIImage imageWithData:data];
+                        cell.chatSubjectImage.image = image;                        
+                    }
+                }];
+                NSDate *date = [formatter dateFromString:photo[@"user"][@"profile"][@"birthday"]];
+                NSDate *now = [NSDate date];
+                NSTimeInterval seconds = [now timeIntervalSinceDate: date];
+                NSInteger ageInt = seconds / 31536000;
+                NSString *ageStr = [[NSString stringWithFormat:@"%i", (int)ageInt] stringByAppendingString:@" years old"];
+                cell.ageLabel.text = ageStr;
+            }
+        }
+        else {
+            if ([((PFUser *)photo[@"user"]).username isEqualToString:chatroom[@"username1"]]) {
+                PFFile *file = photo[@"image"];
+                NSLog(@"file %@", file);
+                cell.chatSubjectImage.image = [UIImage imageNamed:@"placeHolderImage.png"];
+                [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    if (!error) {
+                        UIImage *image = [UIImage imageWithData:data];
+                        cell.chatSubjectImage.image = image;
+                    }
+                }];
+                NSDate *date = [formatter dateFromString:photo[@"user"][@"profile"][@"birthday"]];
+                NSDate *now = [NSDate date];
+                NSTimeInterval seconds = [now timeIntervalSinceDate: date];
+                NSInteger ageInt = seconds / 31536000;
+                NSString *ageStr = [[NSString stringWithFormat:@"%i", (int)ageInt] stringByAppendingString:@" years old"];
+                cell.ageLabel.text = ageStr;
+            }
+        }
+    }            
     return cell;
 }
 

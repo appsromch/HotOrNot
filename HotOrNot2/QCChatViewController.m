@@ -28,6 +28,7 @@
     [super viewDidLoad];
     self.delegate = self;
     self.dataSource = self;
+    _didLoadOnce = NO;
         
     self.title = @"Messages";
     
@@ -144,23 +145,18 @@
 
 - (JSBubbleMessageStyle)messageStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSArray *chats = [_chatroom objectForKey:@"chats"];
-//    if (indexPath.row < chats.count) {
-//        NSLog(@"_messages.count: %i", _messages.count);
-//        NSLog(@"indexPath.row:, %i", indexPath.row);
-//        NSLog(@"chats.count:, %i", indexPath.row);
-//        PFObject *chat = chats[indexPath.row];
-//        if ([[chat objectForKey:@"toUsername"] isEqualToString:[PFUser currentUser].username]) {
-//            return JSBubbleMessageStyleIncomingDefault;
-//        }
-//        else {
-//            return JSBubbleMessageStyleOutgoingDefault;
-//        }
-//    }
-//    else {
-//        return JSBubbleMessageStyleOutgoingDefault;
-//    }
-    return JSBubbleMessageStyleOutgoingDefault;
+    if (indexPath.row < _chats.count) {
+        PFObject *chat = _chats[indexPath.row];
+        if ([chat[@"toUsername"] isEqualToString:[PFUser currentUser].username]) {
+            return JSBubbleMessageStyleIncomingDefault;
+        }
+        else {
+            return JSBubbleMessageStyleOutgoingDefault;
+        }
+    }
+    else {
+        return JSBubbleMessageStyleOutgoingDefault;
+    }
 //    return (indexPath.row % 2) ? JSBubbleMessageStyleIncomingDefault : JSBubbleMessageStyleOutgoingDefault;
 }
 
@@ -189,6 +185,7 @@
 #pragma mark - Update _chatroom
 
 -(void) updateChatRoom {
+    int oldChatCount = _chats.count;
     PFQuery *queryForChatRoom  = [PFQuery queryWithClassName:@"ChatRoom"];
 //    [queryForChatRoom includeKey:@"chats"];
     [queryForChatRoom whereKey:@"username1" equalTo:[_chatroom objectForKey:@"username1"]];
@@ -219,6 +216,13 @@
         [_timestamps addObject:object.createdAt];
         NSLog(@"^^^_timestamps: %@", _timestamps);
     }
+    //play sound every time a new message comes, except when messages initially load
+    if (_didLoadOnce) {
+        if (_chats.count > oldChatCount) {
+            [JSMessageSoundEffect playMessageReceivedSound];
+        }
+    }
+    _didLoadOnce = YES;
 //    NSArray *chatObjects = [_chatroom objectForKey:@"chats"];
 //    NSLog(@"^^^chat objects: %@", chatObjects);
 //    if (chatObjects.count > 0) {

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "QCChatViewController.h"
+#import "QCAvailableChatCell.h"
 
 @interface QCAvaliableChatsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *availableChatRoomsArray;
+@property (strong, nonatomic) NSArray *chatSubjectImages;
 
 @end

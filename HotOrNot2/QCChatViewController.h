@@ -16,5 +16,6 @@
 
 @property (strong, nonatomic) PFObject *chatroom;
 @property (strong, nonatomic) NSMutableArray *chats;
+@property (nonatomic) BOOL didLoadOnce;
 
 @end

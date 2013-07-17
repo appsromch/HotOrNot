@@ -171,9 +171,11 @@
 		A33EEF0A17936BC9006611CC /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A33EEF0717936BC9006611CC /* ProfileViewController.xib */; };
 		A3A85BEB179376B900A4FD0D /* QCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A85BE8179376B900A4FD0D /* QCDetailViewController.m */; };
 		A3A85BEC179376B900A4FD0D /* QCDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A85BEA179376B900A4FD0D /* QCDetailViewController.xib */; };
-		C9B5FAAB179377310079D2C0 /* QCAvaliableChatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9B5FAA6179377310079D2C0 /* QCAvaliableChatsViewController.xib */; };
-		C9B5FAAC179377310079D2C0 /* QCAvaliableChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B5FAA8179377310079D2C0 /* QCAvaliableChatsViewController.m */; };
-		C9B5FAAD179377310079D2C0 /* QCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B5FAA9179377310079D2C0 /* QCChatViewController.m */; };
+		C9F2912D1796D837009D8936 /* QCAvailableChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F291261796D837009D8936 /* QCAvailableChatCell.m */; };
+		C9F2912E1796D837009D8936 /* QCAvailableChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F291271796D837009D8936 /* QCAvailableChatCell.xib */; };
+		C9F2912F1796D837009D8936 /* QCAvaliableChatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F291291796D837009D8936 /* QCAvaliableChatsViewController.m */; };
+		C9F291301796D837009D8936 /* QCAvaliableChatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9F2912A1796D837009D8936 /* QCAvaliableChatsViewController.xib */; };
+		C9F291311796D837009D8936 /* QCChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F2912C1796D837009D8936 /* QCChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -385,11 +387,14 @@
 		A3A85BE8179376B900A4FD0D /* QCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCDetailViewController.m; sourceTree = "<group>"; };
 		A3A85BE9179376B900A4FD0D /* QCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCDetailViewController.h; sourceTree = "<group>"; };
 		A3A85BEA179376B900A4FD0D /* QCDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCDetailViewController.xib; sourceTree = "<group>"; };
-		C9B5FAA6179377310079D2C0 /* QCAvaliableChatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCAvaliableChatsViewController.xib; sourceTree = "<group>"; };
-		C9B5FAA7179377310079D2C0 /* QCAvaliableChatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCAvaliableChatsViewController.h; sourceTree = "<group>"; };
-		C9B5FAA8179377310079D2C0 /* QCAvaliableChatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCAvaliableChatsViewController.m; sourceTree = "<group>"; };
-		C9B5FAA9179377310079D2C0 /* QCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCChatViewController.m; sourceTree = "<group>"; };
-		C9B5FAAA179377310079D2C0 /* QCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCChatViewController.h; sourceTree = "<group>"; };
+		C9F291251796D837009D8936 /* QCAvailableChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCAvailableChatCell.h; sourceTree = "<group>"; };
+		C9F291261796D837009D8936 /* QCAvailableChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCAvailableChatCell.m; sourceTree = "<group>"; };
+		C9F291271796D837009D8936 /* QCAvailableChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCAvailableChatCell.xib; sourceTree = "<group>"; };
+		C9F291281796D837009D8936 /* QCAvaliableChatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCAvaliableChatsViewController.h; sourceTree = "<group>"; };
+		C9F291291796D837009D8936 /* QCAvaliableChatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCAvaliableChatsViewController.m; sourceTree = "<group>"; };
+		C9F2912A1796D837009D8936 /* QCAvaliableChatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCAvaliableChatsViewController.xib; sourceTree = "<group>"; };
+		C9F2912B1796D837009D8936 /* QCChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCChatViewController.h; sourceTree = "<group>"; };
+		C9F2912C1796D837009D8936 /* QCChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -659,11 +664,14 @@
 		6FA94E8D178F222F00BE7EB7 /* ListOfAvaliableChatsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C9B5FAA7179377310079D2C0 /* QCAvaliableChatsViewController.h */,
-				C9B5FAA8179377310079D2C0 /* QCAvaliableChatsViewController.m */,
-				C9B5FAA6179377310079D2C0 /* QCAvaliableChatsViewController.xib */,
-				C9B5FAAA179377310079D2C0 /* QCChatViewController.h */,
-				C9B5FAA9179377310079D2C0 /* QCChatViewController.m */,
+				C9F291281796D837009D8936 /* QCAvaliableChatsViewController.h */,
+				C9F291291796D837009D8936 /* QCAvaliableChatsViewController.m */,
+				C9F2912A1796D837009D8936 /* QCAvaliableChatsViewController.xib */,
+				C9F2912B1796D837009D8936 /* QCChatViewController.h */,
+				C9F2912C1796D837009D8936 /* QCChatViewController.m */,
+				C9F291251796D837009D8936 /* QCAvailableChatCell.h */,
+				C9F291261796D837009D8936 /* QCAvailableChatCell.m */,
+				C9F291271796D837009D8936 /* QCAvailableChatCell.xib */,
 			);
 			name = ListOfAvaliableChatsViewController;
 			sourceTree = "<group>";
@@ -956,7 +964,6 @@
 				6FA94EF5178F6C7B00BE7EB7 /* QCSettingsViewController.xib in Resources */,
 				A33EEF0A17936BC9006611CC /* ProfileViewController.xib in Resources */,
 				A3A85BEC179376B900A4FD0D /* QCDetailViewController.xib in Resources */,
-				C9B5FAAB179377310079D2C0 /* QCAvaliableChatsViewController.xib in Resources */,
 				0AC19C1D1794495100328942 /* appicon_1024.png in Resources */,
 				0AC19C1E1794495100328942 /* appicon_114.png in Resources */,
 				0AC19C1F1794495100328942 /* appicon_57.png in Resources */,
@@ -1007,6 +1014,8 @@
 				0AF2AF5B1794AA71008D20D3 /* chat_icon.png in Resources */,
 				5994DD261796358800A6AFDE /* QCLeaderBoardViewController.xib in Resources */,
 				5994DD2B179636D400A6AFDE /* QCLeaderBoardCell.xib in Resources */,
+				C9F2912E1796D837009D8936 /* QCAvailableChatCell.xib in Resources */,
+				C9F291301796D837009D8936 /* QCAvaliableChatsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1054,11 +1063,12 @@
 				A33EEF0817936BC9006611CC /* QCLoginViewController.m in Sources */,
 				A33EEF0917936BC9006611CC /* ProfileViewController.m in Sources */,
 				A3A85BEB179376B900A4FD0D /* QCDetailViewController.m in Sources */,
-				C9B5FAAC179377310079D2C0 /* QCAvaliableChatsViewController.m in Sources */,
-				C9B5FAAD179377310079D2C0 /* QCChatViewController.m in Sources */,
 				5994DD211796346200A6AFDE /* QCLikerAndDisliker.m in Sources */,
 				5994DD251796358800A6AFDE /* QCLeaderBoardViewController.m in Sources */,
 				5994DD29179636BD00A6AFDE /* QCLeaderBoardCell.m in Sources */,
+				C9F2912D1796D837009D8936 /* QCAvailableChatCell.m in Sources */,
+				C9F2912F1796D837009D8936 /* QCAvaliableChatsViewController.m in Sources */,
+				C9F291311796D837009D8936 /* QCChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
