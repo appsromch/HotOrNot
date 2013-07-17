@@ -28,21 +28,15 @@
 
 -(void)setupBarButtonItems
 {
-
-   // [barButtonItem setBackgroundImage:chatIcon forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     UIImage *chatIcon = [UIImage imageNamed:@"chat_icon"];
-
     UIButton *chatButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, chatIcon.size.width, chatIcon.size.height)];
     [chatButton setBackgroundImage:chatIcon forState:UIControlStateNormal];
     [chatButton addTarget:self action:@selector(chatBarButtonItemPressed:) forControlEvents:UIControlEventTouchUpInside];
 
-
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:chatButton];
     self.navigationItem.rightBarButtonItem = barButtonItem;
     [[self navigationItem] setRightBarButtonItem:barButtonItem];
-    
-    
 }
 
 - (void)viewDidLoad
@@ -91,8 +85,17 @@
         if (!error && self.photos.count > 0){
             
             NSLog(@"self.photos %@", self.photos);
-        
-            self.nameLabel.text = self.pfPhotoObject[@"user"][@"profile"][@"name"];
+            NSString *firstName = self.pfPhotoObject[@"user"][@"profile"][@"first_name"];
+            
+            //Age label - taken from profile view controller
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateStyle:NSDateFormatterShortStyle];
+            NSDate *date = [formatter dateFromString:[[PFUser currentUser] objectForKey:@"profile"][@"birthday"]];
+            NSDate *now = [NSDate date];
+            NSTimeInterval seconds = [now timeIntervalSinceDate: date];
+            NSInteger ageInt = seconds / 31536000;
+            self.nameLabel.text = [NSString stringWithFormat:@"%@, %d", firstName, ageInt];
+            
             
             PFFile *file = self.pfPhotoObject[@"image"];
             NSLog(@"file %@", file);
