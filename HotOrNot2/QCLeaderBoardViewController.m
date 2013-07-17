@@ -95,6 +95,9 @@
         NSArray *separateLocation = [fullLocation componentsSeparatedByString:@","];
         cell.addressLabel.text = separateLocation[1];
         cell.numberOfLikesLabel.text = [NSString stringWithFormat:@"%i",object.number];
+        cell.numberImageView.image = [UIImage imageNamed:@"rank_box_green.png"];
+        int rank = indexPath.row+1;
+        cell.rankLabel.text = [NSString stringWithFormat:@"%i",rank];
         
         PFFile *file = photo[@"image"];
         cell.photoImageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
@@ -118,6 +121,9 @@
         cell.addressLabel.text = separateLocation[1];
 
         cell.numberOfLikesLabel.text = [NSString stringWithFormat:@"%@",number];
+        cell.numberImageView.image = [UIImage imageNamed:@"rank_box_orange.png"];
+        int rank = indexPath.row+1;
+        cell.rankLabel.text = [NSString stringWithFormat:@"%i",rank];
         
         PFFile *file = photo[@"image"];
         cell.photoImageView.image = [UIImage imageNamed:@"placeHolderImage.png"];

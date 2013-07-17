@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *numberOfLikesLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *numberImageView;
+@property (strong, nonatomic) IBOutlet UILabel *rankLabel;
 
 @end
