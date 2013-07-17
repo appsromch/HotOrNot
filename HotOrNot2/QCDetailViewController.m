@@ -68,7 +68,11 @@
    //l self.navigationItem.leftBarButtonItem = cancelBarButtonItem;
     
     self.likeButton.enabled = NO;
-    [self.likeButton setBackgroundColor:[UIColor blackColor]];
+
+    
+    //[self.likeButton setBackgroundImage:[UIImage imageNamed:@"fb_login"] forState:UIControlStateNormal];
+    [self.likeButton setBackgroundImage:[UIImage imageNamed:@"like_pressed"] forState:UIControlStateHighlighted];
+    [self.likeButton setBackgroundImage:[UIImage imageNamed:@"like_pressed"] forState:UIControlStateSelected];
     
     self.currentIndex = 0;
     NSLog(@"%@", self.pfPhotoObject);
