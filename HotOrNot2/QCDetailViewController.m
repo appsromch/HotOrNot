@@ -145,6 +145,7 @@
 
 -(void)setupNextPhoto
 {
+
     int maxPhotos = self.photos.count;
     
     if (self.currentIndex < maxPhotos -1){
@@ -157,6 +158,18 @@
         
         PFFile *file = self.pfPhotoObject[@"image"];
         self.imageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
+        NSString *firstName = self.pfPhotoObject[@"user"][@"profile"][@"first_name"];
+        
+        //Age label - taken from profile view controller
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterShortStyle];
+        NSDate *date = [formatter dateFromString:self.pfPhotoObject[@"user"][@"profile"][@"birthday"]];
+        NSDate *now = [NSDate date];
+        NSTimeInterval seconds = [now timeIntervalSinceDate: date];
+        NSInteger ageInt = seconds / 31536000;
+        self.nameLabel.text = [NSString stringWithFormat:@"%@, %d", firstName, ageInt];
+        
+        
         [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
             UIImage *image = [UIImage imageWithData:data];
             self.imageView.image = image;
