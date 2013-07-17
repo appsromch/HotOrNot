@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSMutableArray *timestamps;
 
 @property (strong, nonatomic) PFObject *chatroom;
+@property (strong, nonatomic) NSMutableArray *chats;
 
 @end

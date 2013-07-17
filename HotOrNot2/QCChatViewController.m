@@ -33,6 +33,7 @@
     
     _messages = [[NSMutableArray alloc]init];
     _timestamps = [[NSMutableArray alloc]init];
+    _chats = [[NSMutableArray alloc]init];
 //    PFQuery *queryForChatRoom = [PFQuery queryWithClassName:@"ChatRoom"];
 //    [queryForChatRoom findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
 //     {
@@ -78,7 +79,6 @@
 #pragma mark - Messages view delegate
 - (void)sendPressed:(UIButton *)sender withText:(NSString *)text
 {
-    
     if (text.length != 0) {
         
         PFObject *chat = [PFObject objectWithClassName:@"Chat"];
@@ -94,9 +94,8 @@
         [chat setObject:[PFUser currentUser].username forKey:@"fromUsername"];
         [chat setObject:toUsername forKey:@"toUsername"];
         [chat setObject:text forKey:@"text"];
-        [chat saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            [self updateChatRoom];
-        }];
+        [chat save];
+        [self updateChatRoom];
         NSMutableArray *updatedMutableChats = [[NSMutableArray alloc] initWithArray:[_chatroom objectForKey:@"chats"]];
         [updatedMutableChats addObject:chat];
         NSArray * updatedChats = [updatedMutableChats copy];
@@ -107,11 +106,7 @@
                 NSLog(@"_chatroom updated");
             }
         }];
-        
-        [self.messages addObject:text];
-        
-        [self.timestamps addObject:[NSDate date]];
-        
+                
         [JSMessageSoundEffect playMessageSentSound];
 //        [JSMessageSoundEffect playMessageReceivedSound];
         
@@ -188,8 +183,7 @@
 
 - (NSDate *)timestampForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    return [self.timestamps objectAtIndex:indexPath.row];
-    return  nil;
+    return [self.timestamps objectAtIndex:indexPath.row];
 }
 
 #pragma mark - Update _chatroom
@@ -207,6 +201,24 @@
             }
         }
     }];
+    PFQuery *queryForChats = [PFQuery queryWithClassName:@"Chat"];
+    [queryForChats whereKey:@"fromUsername" equalTo:_chatroom[@"username1"]];
+    [queryForChats whereKey:@"toUsername" equalTo:_chatroom[@"username2"]];
+    PFQuery *queryForChatsInverse = [PFQuery queryWithClassName:@"Chat"];
+    [queryForChatsInverse whereKey:@"fromUsername" equalTo:_chatroom[@"username2"]];
+    [queryForChatsInverse whereKey:@"toUsername" equalTo:_chatroom[@"username1"]];
+    PFQuery *combinedQueryForChats = [PFQuery orQueryWithSubqueries:@[queryForChats,queryForChatsInverse]];
+    [combinedQueryForChats orderByAscending:@"createdAt"];
+    [_chats removeAllObjects];
+    [_messages removeAllObjects];
+    [_timestamps removeAllObjects];
+    [_chats addObjectsFromArray:[combinedQueryForChats findObjects]];
+    NSLog(@"^^^_chats: %@", _chats);
+    for (PFObject *object in _chats) {
+        [_messages addObject:object[@"text"]];
+        [_timestamps addObject:object.createdAt];
+        NSLog(@"^^^_timestamps: %@", _timestamps);
+    }
 //    NSArray *chatObjects = [_chatroom objectForKey:@"chats"];
 //    NSLog(@"^^^chat objects: %@", chatObjects);
 //    if (chatObjects.count > 0) {

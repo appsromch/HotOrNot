@@ -1,4 +1,4 @@
-//
+t//
 //  QCAvaliableChatsViewController.m
 //  HotOrNot2
 //
@@ -48,7 +48,6 @@
     [queryInverse whereKey:@"username2" equalTo:[PFUser currentUser].username];
     PFQuery *queryCombined = [PFQuery orQueryWithSubqueries:@[query, queryInverse]];
     [queryCombined includeKey:@"chats"];
-    [queryCombined includeKey:@"Chat"];
     [queryCombined findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             [_availableChatRoomsArray removeAllObjects];
@@ -78,6 +77,15 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.detailTextLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:18];
+//    PFFile *file = self.pfPhotoObject[@"image"];
+//    NSLog(@"file %@", file);
+//    self.imageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
+//    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+//        UIImage *image = [UIImage imageWithData:data];
+//        self.imageView.image = image;
+//    }];
+    
     [cell setBackgroundColor:[UIColor clearColor]];
     PFObject *chatroom = [_availableChatRoomsArray objectAtIndex:indexPath.row];
     NSLog(@"^^^Chatroom for cell: %@", chatroom);
