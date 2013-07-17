@@ -21,6 +21,7 @@
         // Custom initialization
         self.title = NSLocalizedString(@"Leaderboard", @"FirstComment");
         self.tabBarItem.image = [UIImage imageNamed:@"tab_leaderboard"];
+        [[UINavigationBar appearance]setBackgroundImage:[UIImage imageNamed:@"textured_nav"] forBarMetrics:UIBarMetricsDefault];
     }
     return self;
 }
