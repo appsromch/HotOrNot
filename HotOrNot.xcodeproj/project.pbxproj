@@ -55,10 +55,11 @@
 		0AC19C5D179473B700328942 /* fb_login_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C5C179473B700328942 /* fb_login_pressed.png */; };
 		0AF2AF5917949CA9008D20D3 /* profile_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF2AF5817949CA9008D20D3 /* profile_image.png */; };
 		0AF2AF5B1794AA71008D20D3 /* chat_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF2AF5A1794AA71008D20D3 /* chat_icon.png */; };
-		5990EBA217937179005F354C /* QCLeaderBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5990EB9C17937179005F354C /* QCLeaderBoardCell.m */; };
-		5990EBA317937179005F354C /* QCLeaderBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5990EB9D17937179005F354C /* QCLeaderBoardCell.xib */; };
-		5990EBA417937179005F354C /* QCLeaderBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5990EB9F17937179005F354C /* QCLeaderBoardViewController.xib */; };
-		5990EBA517937179005F354C /* QCLeaderBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5990EBA017937179005F354C /* QCLeaderBoardViewController.m */; };
+		5994DD211796346200A6AFDE /* QCLikerAndDisliker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994DD201796346200A6AFDE /* QCLikerAndDisliker.m */; };
+		5994DD251796358800A6AFDE /* QCLeaderBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994DD231796358800A6AFDE /* QCLeaderBoardViewController.m */; };
+		5994DD261796358800A6AFDE /* QCLeaderBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5994DD241796358800A6AFDE /* QCLeaderBoardViewController.xib */; };
+		5994DD29179636BD00A6AFDE /* QCLeaderBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994DD28179636BD00A6AFDE /* QCLeaderBoardCell.m */; };
+		5994DD2B179636D400A6AFDE /* QCLeaderBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5994DD2A179636D400A6AFDE /* QCLeaderBoardCell.xib */; };
 		6FA94DEF178C8ABF00BE7EB7 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA94DDD178C8ABF00BE7EB7 /* AFHTTPClient.m */; };
 		6FA94DF0178C8ABF00BE7EB7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA94DDF178C8ABF00BE7EB7 /* AFHTTPRequestOperation.m */; };
 		6FA94DF1178C8ABF00BE7EB7 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA94DE1178C8ABF00BE7EB7 /* AFImageRequestOperation.m */; };
@@ -224,12 +225,14 @@
 		0AC19C5C179473B700328942 /* fb_login_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_login_pressed.png; sourceTree = "<group>"; };
 		0AF2AF5817949CA9008D20D3 /* profile_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_image.png; sourceTree = "<group>"; };
 		0AF2AF5A1794AA71008D20D3 /* chat_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_icon.png; sourceTree = "<group>"; };
-		5990EB9C17937179005F354C /* QCLeaderBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLeaderBoardCell.m; sourceTree = "<group>"; };
-		5990EB9D17937179005F354C /* QCLeaderBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLeaderBoardCell.xib; sourceTree = "<group>"; };
-		5990EB9E17937179005F354C /* QCLeaderBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLeaderBoardCell.h; sourceTree = "<group>"; };
-		5990EB9F17937179005F354C /* QCLeaderBoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLeaderBoardViewController.xib; sourceTree = "<group>"; };
-		5990EBA017937179005F354C /* QCLeaderBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLeaderBoardViewController.m; sourceTree = "<group>"; };
-		5990EBA117937179005F354C /* QCLeaderBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLeaderBoardViewController.h; sourceTree = "<group>"; };
+		5994DD1F1796346200A6AFDE /* QCLikerAndDisliker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLikerAndDisliker.h; sourceTree = "<group>"; };
+		5994DD201796346200A6AFDE /* QCLikerAndDisliker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLikerAndDisliker.m; sourceTree = "<group>"; };
+		5994DD221796358800A6AFDE /* QCLeaderBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLeaderBoardViewController.h; sourceTree = "<group>"; };
+		5994DD231796358800A6AFDE /* QCLeaderBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLeaderBoardViewController.m; sourceTree = "<group>"; };
+		5994DD241796358800A6AFDE /* QCLeaderBoardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLeaderBoardViewController.xib; sourceTree = "<group>"; };
+		5994DD27179636BD00A6AFDE /* QCLeaderBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLeaderBoardCell.h; sourceTree = "<group>"; };
+		5994DD28179636BD00A6AFDE /* QCLeaderBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLeaderBoardCell.m; sourceTree = "<group>"; };
+		5994DD2A179636D400A6AFDE /* QCLeaderBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCLeaderBoardCell.xib; sourceTree = "<group>"; };
 		6FA94DDC178C8ABF00BE7EB7 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6FA94DDD178C8ABF00BE7EB7 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		6FA94DDE178C8ABF00BE7EB7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -641,12 +644,14 @@
 		6FA94E87178DDA1500BE7EB7 /* Leadboard */ = {
 			isa = PBXGroup;
 			children = (
-				5990EB9C17937179005F354C /* QCLeaderBoardCell.m */,
-				5990EB9D17937179005F354C /* QCLeaderBoardCell.xib */,
-				5990EB9E17937179005F354C /* QCLeaderBoardCell.h */,
-				5990EB9F17937179005F354C /* QCLeaderBoardViewController.xib */,
-				5990EBA017937179005F354C /* QCLeaderBoardViewController.m */,
-				5990EBA117937179005F354C /* QCLeaderBoardViewController.h */,
+				5994DD1F1796346200A6AFDE /* QCLikerAndDisliker.h */,
+				5994DD201796346200A6AFDE /* QCLikerAndDisliker.m */,
+				5994DD221796358800A6AFDE /* QCLeaderBoardViewController.h */,
+				5994DD231796358800A6AFDE /* QCLeaderBoardViewController.m */,
+				5994DD241796358800A6AFDE /* QCLeaderBoardViewController.xib */,
+				5994DD27179636BD00A6AFDE /* QCLeaderBoardCell.h */,
+				5994DD28179636BD00A6AFDE /* QCLeaderBoardCell.m */,
+				5994DD2A179636D400A6AFDE /* QCLeaderBoardCell.xib */,
 			);
 			name = Leadboard;
 			sourceTree = "<group>";
@@ -950,8 +955,6 @@
 				6FA94EEA178F232A00BE7EB7 /* messageReceived.aiff in Resources */,
 				6FA94EF5178F6C7B00BE7EB7 /* QCSettingsViewController.xib in Resources */,
 				A33EEF0A17936BC9006611CC /* ProfileViewController.xib in Resources */,
-				5990EBA317937179005F354C /* QCLeaderBoardCell.xib in Resources */,
-				5990EBA417937179005F354C /* QCLeaderBoardViewController.xib in Resources */,
 				A3A85BEC179376B900A4FD0D /* QCDetailViewController.xib in Resources */,
 				C9B5FAAB179377310079D2C0 /* QCAvaliableChatsViewController.xib in Resources */,
 				0AC19C1D1794495100328942 /* appicon_1024.png in Resources */,
@@ -1002,6 +1005,8 @@
 				0AC19C5D179473B700328942 /* fb_login_pressed.png in Resources */,
 				0AF2AF5917949CA9008D20D3 /* profile_image.png in Resources */,
 				0AF2AF5B1794AA71008D20D3 /* chat_icon.png in Resources */,
+				5994DD261796358800A6AFDE /* QCLeaderBoardViewController.xib in Resources */,
+				5994DD2B179636D400A6AFDE /* QCLeaderBoardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,11 +1053,12 @@
 				6FA94EF4178F6C7B00BE7EB7 /* QCSettingsViewController.m in Sources */,
 				A33EEF0817936BC9006611CC /* QCLoginViewController.m in Sources */,
 				A33EEF0917936BC9006611CC /* ProfileViewController.m in Sources */,
-				5990EBA217937179005F354C /* QCLeaderBoardCell.m in Sources */,
-				5990EBA517937179005F354C /* QCLeaderBoardViewController.m in Sources */,
 				A3A85BEB179376B900A4FD0D /* QCDetailViewController.m in Sources */,
 				C9B5FAAC179377310079D2C0 /* QCAvaliableChatsViewController.m in Sources */,
 				C9B5FAAD179377310079D2C0 /* QCChatViewController.m in Sources */,
+				5994DD211796346200A6AFDE /* QCLikerAndDisliker.m in Sources */,
+				5994DD251796358800A6AFDE /* QCLeaderBoardViewController.m in Sources */,
+				5994DD29179636BD00A6AFDE /* QCLeaderBoardCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
