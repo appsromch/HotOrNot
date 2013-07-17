@@ -75,6 +75,9 @@
     [self.dislikeButton setBackgroundImage:[UIImage imageNamed:@"dislike_pressed"] forState:UIControlStateHighlighted];
     [self.dislikeButton setBackgroundImage:[UIImage imageNamed:@"dislike_pressed"] forState:UIControlStateSelected];
     
+    [self.nameImageView setImage:[UIImage imageNamed:@"name_banner"]];
+    
+    
     self.currentIndex = 0;
     NSLog(@"%@", self.pfPhotoObject);
     
