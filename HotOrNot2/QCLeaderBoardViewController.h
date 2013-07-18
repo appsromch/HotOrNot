@@ -18,6 +18,7 @@
 - (IBAction)topDislikerButtonPressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *leaderBoardTableView;
 @property (nonatomic) BOOL likerAndDislikerBOOL;
+@property (nonatomic) BOOL likerBOOL;
 @property (strong, nonatomic) NSArray *photos;
 @property (strong, nonatomic) NSArray *likerAndDislikerArray;
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;

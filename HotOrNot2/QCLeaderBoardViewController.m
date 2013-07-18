@@ -33,7 +33,9 @@
     
     
     self.likerAndDislikerBOOL = NO;
+    self.likerBOOL = YES;
     self.leaderBoardTableView.backgroundColor = [UIColor clearColor];
+    
     
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
@@ -86,6 +88,14 @@
     }
     if (self.likerAndDislikerBOOL==YES)
     {
+        if (self.likerBOOL==YES)
+        {
+            cell.numberImageView.image = [UIImage imageNamed:@"rank_box_magenta"];
+
+        } else {
+            cell.numberImageView.image = [UIImage imageNamed:@"rank_box_yellow"];
+        }
+        
         QCLikerAndDisliker *object= [[QCLikerAndDisliker alloc]init];
         object = [self.likerAndDislikerArray objectAtIndex:indexPath.row];
         PFObject *photo = object.photo;
@@ -96,7 +106,6 @@
         NSArray *separateLocation = [fullLocation componentsSeparatedByString:@","];
         cell.addressLabel.text = separateLocation[1];
         cell.numberOfLikesLabel.text = [NSString stringWithFormat:@"%i",object.number];
-        cell.numberImageView.image = [UIImage imageNamed:@"rank_box_green.png"];
         int rank = indexPath.row+1;
         cell.rankLabel.text = [NSString stringWithFormat:@"%i",rank];
         
@@ -111,6 +120,12 @@
     }
     else
     {
+        if(self.likerBOOL==YES) {
+            cell.numberImageView.image = [UIImage imageNamed:@"rank_box_orange.png"];
+        } else {
+            cell.numberImageView.image = [UIImage imageNamed:@"rank_box_green.png"];
+        }
+        
         PFObject *photo = [self.photos objectAtIndex:indexPath.row];
         NSNumber *number = photo[@"numberOfLikes"];
         
@@ -122,10 +137,9 @@
         cell.addressLabel.text = separateLocation[1];
 
         cell.numberOfLikesLabel.text = [NSString stringWithFormat:@"%@",number];
-        cell.numberImageView.image = [UIImage imageNamed:@"rank_box_orange.png"];
         int rank = indexPath.row+1;
         cell.rankLabel.text = [NSString stringWithFormat:@"%i",rank];
-        
+
         PFFile *file = photo[@"image"];
         cell.photoImageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
         [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -139,6 +153,7 @@
 - (IBAction)topLikeButtonPressed:(id)sender
 {
     self.likerAndDislikerBOOL = NO;
+    self.likerBOOL = YES;
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
     [query orderByDescending:@"numberOfLikes"];
@@ -155,6 +170,7 @@
 - (IBAction)topDislikesButtonPressed:(id)sender
 {
     self.likerAndDislikerBOOL = NO;
+    self.likerBOOL = NO;
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
     [query orderByDescending:@"numberOfDislikes"];
@@ -171,6 +187,7 @@
 - (IBAction)topLikerButtonPressed:(id)sender
 {
     self.likerAndDislikerBOOL = YES;
+    self.likerBOOL = YES;
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
     NSArray *array = [query findObjects];
@@ -198,6 +215,7 @@
 - (IBAction)topDislikerButtonPressed:(id)sender
 {
     self.likerAndDislikerBOOL = YES;
+    self.likerBOOL = NO;
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
     NSArray *array = [query findObjects];
