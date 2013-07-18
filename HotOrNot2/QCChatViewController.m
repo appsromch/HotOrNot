@@ -68,7 +68,24 @@
     
     [self updateChatRoom];
     [self.tableView reloadData];
+    
+    //check for new chats every 3 seconds
+    _getNewChatsTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkForNewChats) userInfo:nil repeats:YES];
 
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [_getNewChatsTimer invalidate];
+    _getNewChatsTimer = nil;
+    NSLog(@"^^^viewDidDisappear Called");
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self updateChatRoom];
+    [_getNewChatsTimer invalidate];
+    _getNewChatsTimer = nil;
+    _getNewChatsTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkForNewChats) userInfo:nil repeats:YES];
+    NSLog(@"^^^viewDidAppear Called");
 }
 
 #pragma mark - Table view data source
@@ -182,7 +199,7 @@
     return [self.timestamps objectAtIndex:indexPath.row];
 }
 
-#pragma mark - Update _chatroom
+#pragma mark - Receiving Chats
 
 -(void) updateChatRoom {
     int oldChatCount = _chats.count;
@@ -241,6 +258,23 @@
 //            }];
 //        }
 //    }
+}
+
+-(void) checkForNewChats {
+//    NSDateFormatter *dateformatter = 
+    PFQuery *queryForChatRoom  = [PFQuery queryWithClassName:@"ChatRoom"];
+    [queryForChatRoom includeKey:@"chats"];
+    [queryForChatRoom whereKey:@"username1" equalTo:[_chatroom objectForKey:@"username1"]];
+    [queryForChatRoom whereKey:@"username2" equalTo:[_chatroom objectForKey:@"username2"]];
+    [queryForChatRoom findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if (objects.count > _chats.count) {
+                [self updateChatRoom];
+                NSLog(@"^^^New Chat Found %@", [NSDate date]);
+            }
+        }
+        NSLog(@"^^^No new Chat Found %@", [NSDate date]);
+    }];
 }
 
 #pragma mark - Query
