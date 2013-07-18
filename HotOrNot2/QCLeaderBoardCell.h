@@ -15,5 +15,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *numberImageView;
 @property (strong, nonatomic) IBOutlet UILabel *rankLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *cellbg;
 
 @end
