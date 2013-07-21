@@ -45,7 +45,13 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_profile2"]]];
     
     NSString *uppercaseName = [[[PFUser currentUser] objectForKey:@"profile"][@"first_name"] uppercaseString];
-    
+    PFQuery *numberOfLikes = [PFQuery queryWithClassName:@"Activity"];
+    [numberOfLikes whereKey:@"toUser" equalTo:[PFUser currentUser]];
+    [numberOfLikes whereKey:@"type" equalTo:@"like"];
+    [numberOfLikes countObjectsInBackgroundWithBlock:^(int number, NSError *error)
+     {
+         self.numberOfLikes.text = [NSString stringWithFormat:@"%i", number];
+     }];
     self.nameLabel.text = uppercaseName;
     self.locationLabel.text = [[PFUser currentUser] objectForKey:@"profile"][@"location"];
 

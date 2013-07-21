@@ -12,6 +12,7 @@
 @class QCSettingsViewController;
 
 @interface ProfileViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *numberOfLikes;
 
 @property (strong, nonatomic) IBOutlet UIImageView *headerImageView;
 @property (nonatomic, strong) NSMutableData *imageData;
