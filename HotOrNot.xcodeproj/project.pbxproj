@@ -60,6 +60,7 @@
 		0AC19C5B1794735D00328942 /* fb_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C5A1794735D00328942 /* fb_login.png */; };
 		0AC19C5D179473B700328942 /* fb_login_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C5C179473B700328942 /* fb_login_pressed.png */; };
 		0AF2AF5917949CA9008D20D3 /* profile_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF2AF5817949CA9008D20D3 /* profile_image.png */; };
+		597DF128179C1C6800540E11 /* QCTopLikesAndDislikes.m in Sources */ = {isa = PBXBuildFile; fileRef = 597DF127179C1C6800540E11 /* QCTopLikesAndDislikes.m */; };
 		5994DD211796346200A6AFDE /* QCLikerAndDisliker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994DD201796346200A6AFDE /* QCLikerAndDisliker.m */; };
 		5994DD251796358800A6AFDE /* QCLeaderBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994DD231796358800A6AFDE /* QCLeaderBoardViewController.m */; };
 		5994DD261796358800A6AFDE /* QCLeaderBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5994DD241796358800A6AFDE /* QCLeaderBoardViewController.xib */; };
@@ -236,6 +237,8 @@
 		0AC19C5A1794735D00328942 /* fb_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_login.png; sourceTree = "<group>"; };
 		0AC19C5C179473B700328942 /* fb_login_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_login_pressed.png; sourceTree = "<group>"; };
 		0AF2AF5817949CA9008D20D3 /* profile_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_image.png; sourceTree = "<group>"; };
+		597DF126179C1C6800540E11 /* QCTopLikesAndDislikes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCTopLikesAndDislikes.h; sourceTree = "<group>"; };
+		597DF127179C1C6800540E11 /* QCTopLikesAndDislikes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCTopLikesAndDislikes.m; sourceTree = "<group>"; };
 		5994DD1F1796346200A6AFDE /* QCLikerAndDisliker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLikerAndDisliker.h; sourceTree = "<group>"; };
 		5994DD201796346200A6AFDE /* QCLikerAndDisliker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCLikerAndDisliker.m; sourceTree = "<group>"; };
 		5994DD221796358800A6AFDE /* QCLeaderBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCLeaderBoardViewController.h; sourceTree = "<group>"; };
@@ -663,6 +666,8 @@
 			children = (
 				5994DD1F1796346200A6AFDE /* QCLikerAndDisliker.h */,
 				5994DD201796346200A6AFDE /* QCLikerAndDisliker.m */,
+				597DF126179C1C6800540E11 /* QCTopLikesAndDislikes.h */,
+				597DF127179C1C6800540E11 /* QCTopLikesAndDislikes.m */,
 				5994DD221796358800A6AFDE /* QCLeaderBoardViewController.h */,
 				5994DD231796358800A6AFDE /* QCLeaderBoardViewController.m */,
 				5994DD241796358800A6AFDE /* QCLeaderBoardViewController.xib */,
@@ -1085,6 +1090,7 @@
 				C9F2912D1796D837009D8936 /* QCAvailableChatCell.m in Sources */,
 				C9F2912F1796D837009D8936 /* QCAvaliableChatsViewController.m in Sources */,
 				C9F291311796D837009D8936 /* QCChatViewController.m in Sources */,
+				597DF128179C1C6800540E11 /* QCTopLikesAndDislikes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
