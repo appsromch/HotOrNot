@@ -142,10 +142,10 @@
         object = [self.likerAndDislikerArray objectAtIndex:indexPath.row];
         NSLog(@"____________%@", object);
         PFObject *photo = object.photo;
-        NSString *fullName = [photo objectForKey:@"profile"][@"name"];
+        NSString *fullName = [photo[@"user"] objectForKey:@"profile"][@"name"];
         NSArray *separateName = [fullName componentsSeparatedByString:@" "];
         cell.nameLabel.text = separateName[0];
-        NSString *fullLocation = [photo objectForKey:@"profile"][@"location"];
+        NSString *fullLocation = [photo[@"user"] objectForKey:@"profile"][@"location"];
         NSArray *separateLocation = [fullLocation componentsSeparatedByString:@","];
         cell.addressLabel.text = separateLocation[1];
         cell.numberOfLikesLabel.text = [NSString stringWithFormat:@"%i",object.number];
