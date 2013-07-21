@@ -7,7 +7,7 @@
 //
 
 #import "ProfileViewController.h"
-#import "QCSettingsViewController.h"
+//#import "QCSettingsViewController.h"
 
 @interface ProfileViewController ()
 
@@ -26,11 +26,11 @@
     return self;
 }
 
--(void)setupBarButtonItem
-{
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(settingsBarButtonItemPressed:)];
-    self.navigationItem.rightBarButtonItem = barButtonItem;
-}
+//-(void)setupBarButtonItem
+//{
+//    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Settings" style:UIBarButtonItemStyleBordered target:self action:@selector(settingsBarButtonItemPressed:)];
+//    self.navigationItem.rightBarButtonItem = barButtonItem;
+//}
 
 - (void)viewDidLoad
 {
@@ -38,7 +38,7 @@
     
     // Do any additional setup after loading the view, typically from a nib.
    
-    [self setupBarButtonItem];
+//    [self setupBarButtonItem];
     
     [self startPhotoDownload];
     
@@ -62,11 +62,19 @@
     
     
     // Code to retrieve interested in from fb
-    NSArray *interestedIn = [[NSArray alloc] initWithArray:[[PFUser currentUser] objectForKey:@"profile"][@"interested_in"]];
-    NSString  *interestedInAtIndex = [interestedIn objectAtIndex:0];
-     NSString *upperCaseInterestedIn = [interestedInAtIndex stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[interestedInAtIndex  substringToIndex:1] capitalizedString]];
-    NSString *firstInterestedIn = [@"Preference: " stringByAppendingString:upperCaseInterestedIn];
-    self.interestedInLabel.text = firstInterestedIn;
+    if ([[PFUser currentUser] objectForKey:@"profile"][@"interested_in"])
+    {
+        NSArray *interestedIn = [[NSArray alloc] initWithArray:[[PFUser currentUser] objectForKey:@"profile"][@"interested_in"]];
+        NSString  *interestedInAtIndex = [interestedIn objectAtIndex:0];
+        NSString *upperCaseInterestedIn = [interestedInAtIndex stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[interestedInAtIndex  substringToIndex:1] capitalizedString]];
+        NSString *firstInterestedIn = [@"Preference: " stringByAppendingString:upperCaseInterestedIn];
+        self.interestedInLabel.text = firstInterestedIn;
+
+    }
+    else
+    {
+        self.interestedInLabel.text = @"unknown";
+    }
     
 //    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"location"]);
 //    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"gender"]);
@@ -145,9 +153,9 @@
 //    }
 //}
 
--(void)settingsBarButtonItemPressed:(id)sender
-{
-    QCSettingsViewController *settingsViewController = [[QCSettingsViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:settingsViewController animated:YES];
-}
+//-(void)settingsBarButtonItemPressed:(id)sender
+//{
+//    QCSettingsViewController *settingsViewController = [[QCSettingsViewController alloc] initWithNibName:nil bundle:nil];
+//    [self.navigationController pushViewController:settingsViewController animated:YES];
+//}
 @end

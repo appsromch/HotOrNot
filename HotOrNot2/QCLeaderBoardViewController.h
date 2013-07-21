@@ -10,6 +10,7 @@
 #import "QCLeaderBoardViewController.h"
 #import "QCLeaderBoardCell.h"
 #import "QCLikerAndDisliker.h"
+#import "QCTopLikesAndDislikes.h"
 
 @interface QCLeaderBoardViewController : UIViewController
 - (IBAction)topLikeButtonPressed:(id)sender;
@@ -19,7 +20,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *leaderBoardTableView;
 @property (nonatomic) BOOL likerAndDislikerBOOL;
 @property (nonatomic) BOOL likerBOOL;
-@property (strong, nonatomic) NSArray *photos;
 @property (strong, nonatomic) NSArray *likerAndDislikerArray;
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) IBOutlet UIButton *dislikeButton;
