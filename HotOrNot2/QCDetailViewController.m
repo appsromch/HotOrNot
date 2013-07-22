@@ -55,8 +55,8 @@
     
     [self.imageView setUserInteractionEnabled:YES];
     // Do any additional setup after loading the view from its nib.
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerTapped:)];
-    [self.imageView addGestureRecognizer:tapGestureRecognizer];
+   // UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerTapped:)];
+    //[self.imageView addGestureRecognizer:tapGestureRecognizer];
     
    // UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelBarButtonItemPressed:)];
    //l self.navigationItem.leftBarButtonItem = cancelBarButtonItem;
@@ -65,6 +65,7 @@
 
     
     [self.likeButton setBackgroundImage:[UIImage imageNamed:@"like_pressed"] forState:UIControlStateHighlighted];
+    
     [self.likeButton setBackgroundImage:[UIImage imageNamed:@"like_pressed"] forState:UIControlStateSelected];
     [self.dislikeButton setBackgroundImage:[UIImage imageNamed:@"dislike_pressed"] forState:UIControlStateHighlighted];
     [self.dislikeButton setBackgroundImage:[UIImage imageNamed:@"dislike_pressed"] forState:UIControlStateSelected];
@@ -73,7 +74,7 @@
     
     
     self.currentIndex = 0;
-    NSLog(@"%@", self.pfPhotoObject);
+    //NSLog(@"%@", self.pfPhotoObject);
     
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
@@ -84,7 +85,7 @@
         
         if (!error && self.photos.count > 0){
             
-            NSLog(@"self.photos %@", self.photos);
+            //NSLog(@"self.photos %@", self.photos);
             NSString *firstName = self.pfPhotoObject[@"user"][@"profile"][@"first_name"];
             
             //Age label - taken from profile view controller
@@ -98,7 +99,7 @@
             
             
             PFFile *file = self.pfPhotoObject[@"image"];
-            NSLog(@"file %@", file);
+            //NSLog(@"file %@", file);
             self.imageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
             [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                 UIImage *image = [UIImage imageWithData:data];
@@ -113,7 +114,7 @@
             [queryForLike includeKey:@"toUser"];
             
             [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                NSLog(@"********* %@", objects);
+                //NSLog(@"********* %@", objects);
                 if (!error) {
                     self.isLikedByCurrentUser = NO;
                     
@@ -125,7 +126,7 @@
                     else {
                         for (int x = 0; x < objects.count; x ++) {
                             PFObject *object = objects[x];
-                            NSLog(@"%@ %@",object[@"fromUser"], [PFUser currentUser] );
+                            //NSLog(@"%@ %@",object[@"fromUser"], [PFUser currentUser] );
                             if ([object[@"fromUser"][@"username"] isEqual:[PFUser currentUser][@"username"]]){
                                 self.isLikedByCurrentUser = YES;
                             }
@@ -145,10 +146,9 @@
 
 -(void)setupNextPhoto
 {
-
     int maxPhotos = self.photos.count;
     
-    if (self.currentIndex < maxPhotos -1){
+    if (self.currentIndex < maxPhotos - 1){
         
         self.likeButton.enabled = NO;
         
@@ -156,6 +156,17 @@
         NSLog(@"%i", self.currentIndex);
         self.pfPhotoObject = self.photos[self.currentIndex];
         
+        
+        PFUser *user = self.pfPhotoObject[@"user"];
+        PFUser *current = [PFUser currentUser][@"username"];
+        NSLog(@"COMPARED: %@", user);
+        NSLog(@"CURRENTUSER %@", current);
+        if ([user[@"username"] isEqual:[PFUser currentUser][@"username"]]) {
+            NSLog(@"***THESAME");
+             [self setupNextPhoto];
+        }
+        
+    
         PFFile *file = self.pfPhotoObject[@"image"];
         self.imageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
         NSString *firstName = self.pfPhotoObject[@"user"][@"profile"][@"first_name"];
@@ -182,7 +193,7 @@
             [queryForLike includeKey:@"toUser"];
             
             [queryForLike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                NSLog(@"********* %@", objects);
+                //NSLog(@"********* %@", objects);
                 if (!error) {
                     self.isLikedByCurrentUser = NO;
                     
@@ -193,7 +204,7 @@
                     else {
                         for (int x = 0; x < objects.count; x ++) {
                             PFObject *object = objects[x];
-                            NSLog(@"%@ %@",object[@"fromUser"], [PFUser currentUser] );
+                            //NSLog(@"%@ %@",object[@"fromUser"], [PFUser currentUser] );
                             if ([object[@"fromUser"][@"username"] isEqual:[PFUser currentUser][@"username"]]){
                                 self.isLikedByCurrentUser = YES;
                             }
@@ -213,7 +224,7 @@
             [queryForDislike includeKey:@"toUser"];
             
             [queryForDislike findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                NSLog(@"********* %@", objects);
+                //NSLog(@"********* %@", objects);
                 if (!error) {
                     self.isDislikedByCurrentUser = NO;
                     
@@ -224,7 +235,7 @@
                     else {
                         for (int x = 0; x < objects.count; x ++) {
                             PFObject *object = objects[x];
-                            NSLog(@"%@ %@",object[@"fromUser"], [PFUser currentUser] );
+                            //NSLog(@"%@ %@",object[@"fromUser"], [PFUser currentUser] );
                             if ([object[@"fromUser"][@"username"] isEqual:[PFUser currentUser][@"username"]]){
                                 self.isDislikedByCurrentUser = YES;
                             }
@@ -240,9 +251,13 @@
         
     }
     else {
-        //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"No more avaliable photos" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
-        //        [alertView show];
+        self.imageView.image = [UIImage imageNamed:@"no_images"];
+        [self.likeButton setHidden:TRUE];
+        [self.dislikeButton setHidden:TRUE];
+        [self.nameLabel setHidden:TRUE];
+        [self.nameImageView setHidden:TRUE];
         NSLog(@"there are not more photos");
+        
     }
     
 }
@@ -284,15 +299,7 @@
 #pragma mark - Helper
 
 -(void)like
-{
-    PFUser *user = self.pfPhotoObject[@"user"];
-    
-    if ([user[@"username"] isEqual:[PFUser currentUser][@"username"]]) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This is your photo" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles: nil];
-        [alertView show];
-    }
-    else {
-        
+{ 
         // Add the current user as a liker of the photo in PAPCache
         [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
         
@@ -334,7 +341,7 @@
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (!error) {
                         if (objects.count > 0) {
-                            NSLog(@"!@#$ %@", objects);
+                            //NSLog(@"!@#$ %@", objects);
                             PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
                             [chatroom setObject:currentUser[@"username"] forKey:@"username1"];
                             [chatroom setObject:toUser[@"username"] forKey:@"username2"];
@@ -361,58 +368,52 @@
         
     }
     
-}
+
 
 -(void)dislike {
     self.dislikeButton.enabled = NO;
     // Add the current user as a liker of the photo in PAPCache
     //    [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
-    
-    PFUser *user = self.pfPhotoObject[@"user"];
-    
-    if ([user[@"username"] isEqual:[PFUser currentUser][@"username"]]) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This is your photo" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles: nil];
-        [alertView show];
-    }
-    else {
-        if (!self.isDislikedByCurrentUser) {
+        
+   
+    if (!self.isDislikedByCurrentUser) {
+        
+        [PAPUtility dislikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
+            self.isDislikedByCurrentUser = NO;
+            self.dislikeButton.enabled = YES;
+            NSLog(@"dislike Photo");
             
-            [PAPUtility dislikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
-                self.isDislikedByCurrentUser = NO;
-                self.dislikeButton.enabled = YES;
-                NSLog(@"dislike Photo");
-                
-                PFObject *photo = self.pfPhotoObject;
-                
-                NSNumber *number = photo[@"numberOfDislikes"];
-                NSLog(@"%@", number);
-                if (number == 0) {
-                    [self.pfPhotoObject setObject:@1 forKey:@"numberOfDislikes"];
-                }
-                else {
-                    int x = [number integerValue] + 1;
-                    NSNumber *number = [NSNumber numberWithInt:x];
-                    [photo setObject:number forKey:@"numberOfDislikes"];
-                }
-                
-                [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    NSLog(@"photo save successful");
-                    [self setupNextPhoto];
-                }];
-                
-                self.dislikeButton.enabled = YES;
+            PFObject *photo = self.pfPhotoObject;
+            
+            NSNumber *number = photo[@"numberOfDislikes"];
+            NSLog(@"%@", number);
+            if (number == 0) {
+                [self.pfPhotoObject setObject:@1 forKey:@"numberOfDislikes"];
+            }
+            else {
+                int x = [number integerValue] + 1;
+                NSNumber *number = [NSNumber numberWithInt:x];
+                [photo setObject:number forKey:@"numberOfDislikes"];
+            }
+            
+            [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                NSLog(@"photo save successful");
+                [self setupNextPhoto];
             }];
-        } else {
-            NSLog(@"user has already ***disliked Photo");
-            //                        [PAPUtility unlikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
-            //                            self.isLikedByCurrentUser = YES;
-            //                            self.likeButton.enabled = YES;
-            //                            NSLog(@"dislike Photo");
-            //                        }];
-            [self setupNextPhoto];
-        }
+            
+            self.dislikeButton.enabled = YES;
+        }];
+    } else {
+        NSLog(@"user has already ***disliked Photo");
+        //                        [PAPUtility unlikePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
+        //                            self.isLikedByCurrentUser = YES;
+        //                            self.likeButton.enabled = YES;
+        //                            NSLog(@"dislike Photo");
+        //                        }];
+        [self setupNextPhoto];
     }
 }
+
 
 -(void)chatBarButtonItemPressed:(id)sender
 {
