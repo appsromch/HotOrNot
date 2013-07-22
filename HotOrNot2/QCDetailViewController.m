@@ -365,15 +365,14 @@
             [self setupNextPhoto];
             
         }
-        
     }
     
 
 
 -(void)dislike {
     self.dislikeButton.enabled = NO;
-    // Add the current user as a liker of the photo in PAPCache
-    //    [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
+     //Add the current user as a liker of the photo in PAPCache
+    [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
         
    
     if (!self.isDislikedByCurrentUser) {
