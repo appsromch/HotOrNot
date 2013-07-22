@@ -29,8 +29,6 @@
     self.delegate = self;
     self.dataSource = self;
     _didLoadOnce = NO;
-        
-    self.title = @"Messages";
     
     _messages = [[NSMutableArray alloc]init];
     _timestamps = [[NSMutableArray alloc]init];
@@ -68,6 +66,13 @@
     
     [self updateChatRoom];
     [self.tableView reloadData];
+        
+    if ([_chatroom[@"username1"] isEqual:[PFUser currentUser].username]) {
+        self.title = [_chatroom[@"name2"] componentsSeparatedByString:@" "][0];
+    }
+    else {
+        self.title = [_chatroom[@"name1"] componentsSeparatedByString:@" "][0];
+    }
     
     //check for new chats every 3 seconds
     _getNewChatsTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkForNewChats) userInfo:nil repeats:YES];
