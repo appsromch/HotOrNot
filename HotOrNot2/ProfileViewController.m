@@ -79,7 +79,7 @@
     }
     else
     {
-        self.interestedInLabel.text = @"unknown";
+        self.interestedInLabel.text = @"Preference unknown";
     }
     
 //    NSLog(@"*** %@", [[PFUser currentUser] objectForKey:@"profile"][@"location"]);
