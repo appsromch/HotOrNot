@@ -61,14 +61,27 @@
     
     
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed: @"bg_leaderboard"]]];
+    
     [self.likeButton setBackgroundImage:[UIImage imageNamed:@"toplikes_button"] forState:UIControlStateNormal];
+    [self.likeButton setBackgroundImage:[UIImage imageNamed:@"top_likes_pressed"] forState:UIControlStateHighlighted];
+    [self.likeButton setBackgroundImage:[UIImage imageNamed:@"top_likes_pressed"] forState:UIControlStateSelected];
+
+
     
     [self.dislikeButton setBackgroundImage:[UIImage imageNamed:@"top_dislikes_button-01"] forState:UIControlStateNormal];
+    [self.dislikeButton setBackgroundImage:[UIImage imageNamed:@"top_dislikes_button_pressed"] forState:UIControlStateHighlighted];
+    [self.dislikeButton setBackgroundImage:[UIImage imageNamed:@"top_dislikes_button_pressed"] forState:UIControlStateSelected];
+    
+    
     
     [self.likerButton setBackgroundImage:[UIImage imageNamed:@"liker_button-01"] forState:UIControlStateNormal];
     
-    [self.dislikerButton setBackgroundImage:[UIImage imageNamed:@"disliker_button"] forState:UIControlStateNormal];
     
+    
+    
+    [self.dislikerButton setBackgroundImage:[UIImage imageNamed:@"disliker_button"] forState:UIControlStateNormal];
+    [self.dislikerButton setBackgroundImage:[UIImage imageNamed:@"disliker_button_pressed"] forState:UIControlStateHighlighted];
+    [self.dislikerButton setBackgroundImage:[UIImage imageNamed:@"disliker_button_pressed"] forState:UIControlStateSelected];
 }
 
 
