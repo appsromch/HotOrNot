@@ -35,7 +35,7 @@
             BlueprintIdentifier = "6FEBE18117738D160091BE0F"
             BuildableName = "HotOrNot2.app"
             BlueprintName = "HotOrNot2"
-            ReferencedContainer = "container:HotOrNot2.xcodeproj">
+            ReferencedContainer = "container:HotOrNot.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -54,7 +54,7 @@
             BlueprintIdentifier = "6FEBE18117738D160091BE0F"
             BuildableName = "HotOrNot2.app"
             BlueprintName = "HotOrNot2"
-            ReferencedContainer = "container:HotOrNot2.xcodeproj">
+            ReferencedContainer = "container:HotOrNot.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
