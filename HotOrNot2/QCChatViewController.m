@@ -170,14 +170,14 @@
     if (indexPath.row < _chats.count) {
         PFObject *chat = _chats[indexPath.row];
         if ([chat[@"toUsername"] isEqualToString:[PFUser currentUser].username]) {
-            return JSBubbleMessageStyleIncomingDefault;
+            return JSBubbleMessageStyleIncomingSquare;
         }
         else {
-            return JSBubbleMessageStyleOutgoingDefault;
+            return JSBubbleMessageStyleOutgoingSquare;
         }
     }
     else {
-        return JSBubbleMessageStyleOutgoingDefault;
+        return JSBubbleMessageStyleOutgoingSquare;
     }
 //    return (indexPath.row % 2) ? JSBubbleMessageStyleIncomingDefault : JSBubbleMessageStyleOutgoingDefault;
 }

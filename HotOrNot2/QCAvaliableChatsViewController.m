@@ -30,7 +30,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [self createFakeChats];
+//    [self createFakeChats];
     _availableChatRoomsArray = [[NSMutableArray alloc] init];
     [self updateAvailableChatRooms];
     self.tableView.backgroundColor = [UIColor clearColor];
