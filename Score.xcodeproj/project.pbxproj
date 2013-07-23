@@ -352,14 +352,14 @@
 		6FA94EF1178F6C7B00BE7EB7 /* QCSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCSettingsViewController.h; sourceTree = "<group>"; };
 		6FA94EF2178F6C7B00BE7EB7 /* QCSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCSettingsViewController.m; sourceTree = "<group>"; };
 		6FA94EF3178F6C7B00BE7EB7 /* QCSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCSettingsViewController.xib; sourceTree = "<group>"; };
-		6FEBE18217738D160091BE0F /* HotOrNot2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotOrNot2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FEBE18217738D160091BE0F /* Score.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Score.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FEBE18517738D160091BE0F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6FEBE18717738D160091BE0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6FEBE18917738D160091BE0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		6FEBE18D17738D160091BE0F /* HotOrNot2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HotOrNot2-Info.plist"; sourceTree = "<group>"; };
+		6FEBE18D17738D160091BE0F /* Score2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Score2-Info.plist"; sourceTree = "<group>"; };
 		6FEBE18F17738D160091BE0F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6FEBE19117738D160091BE0F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6FEBE19317738D160091BE0F /* HotOrNot2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HotOrNot2-Prefix.pch"; sourceTree = "<group>"; };
+		6FEBE19317738D160091BE0F /* Score2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Score2-Prefix.pch"; sourceTree = "<group>"; };
 		6FEBE19417738D160091BE0F /* QCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QCAppDelegate.h; sourceTree = "<group>"; };
 		6FEBE19517738D160091BE0F /* QCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QCAppDelegate.m; sourceTree = "<group>"; };
 		6FEBE19917738D160091BE0F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -830,7 +830,7 @@
 		6FEBE18317738D160091BE0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6FEBE18217738D160091BE0F /* HotOrNot2.app */,
+				6FEBE18217738D160091BE0F /* Score.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -884,10 +884,10 @@
 		6FEBE18C17738D160091BE0F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6FEBE18D17738D160091BE0F /* HotOrNot2-Info.plist */,
+				6FEBE18D17738D160091BE0F /* Score2-Info.plist */,
 				6FEBE18E17738D160091BE0F /* InfoPlist.strings */,
 				6FEBE19117738D160091BE0F /* main.m */,
-				6FEBE19317738D160091BE0F /* HotOrNot2-Prefix.pch */,
+				6FEBE19317738D160091BE0F /* Score2-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -915,9 +915,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6FEBE18117738D160091BE0F /* HotOrNot2 */ = {
+		6FEBE18117738D160091BE0F /* Score2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6FEBE1B317738D160091BE0F /* Build configuration list for PBXNativeTarget "HotOrNot2" */;
+			buildConfigurationList = 6FEBE1B317738D160091BE0F /* Build configuration list for PBXNativeTarget "Score2" */;
 			buildPhases = (
 				6FEBE17E17738D160091BE0F /* Sources */,
 				6FEBE17F17738D160091BE0F /* Frameworks */,
@@ -927,9 +927,9 @@
 			);
 			dependencies = (
 			);
-			name = HotOrNot2;
+			name = Score2;
 			productName = HotOrNot2;
-			productReference = 6FEBE18217738D160091BE0F /* HotOrNot2.app */;
+			productReference = 6FEBE18217738D160091BE0F /* Score.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -942,7 +942,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = self.edu;
 			};
-			buildConfigurationList = 6FEBE17D17738D160091BE0F /* Build configuration list for PBXProject "HotOrNot" */;
+			buildConfigurationList = 6FEBE17D17738D160091BE0F /* Build configuration list for PBXProject "Score" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -954,7 +954,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6FEBE18117738D160091BE0F /* HotOrNot2 */,
+				6FEBE18117738D160091BE0F /* Score2 */,
 			);
 		};
 /* End PBXProject section */
@@ -1228,9 +1228,9 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HotOrNot2/HotOrNot2-Prefix.pch";
-				INFOPLIST_FILE = "HotOrNot2/HotOrNot2-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "HotOrNot2/Score2-Prefix.pch";
+				INFOPLIST_FILE = "HotOrNot2/Score2-Info.plist";
+				PRODUCT_NAME = Score;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1243,9 +1243,9 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "HotOrNot2/HotOrNot2-Prefix.pch";
-				INFOPLIST_FILE = "HotOrNot2/HotOrNot2-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "HotOrNot2/Score2-Prefix.pch";
+				INFOPLIST_FILE = "HotOrNot2/Score2-Info.plist";
+				PRODUCT_NAME = Score;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1253,7 +1253,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6FEBE17D17738D160091BE0F /* Build configuration list for PBXProject "HotOrNot" */ = {
+		6FEBE17D17738D160091BE0F /* Build configuration list for PBXProject "Score" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FEBE1B117738D160091BE0F /* Debug */,
@@ -1262,7 +1262,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FEBE1B317738D160091BE0F /* Build configuration list for PBXNativeTarget "HotOrNot2" */ = {
+		6FEBE1B317738D160091BE0F /* Build configuration list for PBXNativeTarget "Score2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FEBE1B417738D160091BE0F /* Debug */,

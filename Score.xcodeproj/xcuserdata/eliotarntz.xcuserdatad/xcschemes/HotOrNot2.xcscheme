@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6FEBE18117738D160091BE0F"
             BuildableName = "HotOrNot2.app"
-            BlueprintName = "HotOrNot2"
-            ReferencedContainer = "container:HotOrNot.xcodeproj">
+            BlueprintName = "Score2"
+            ReferencedContainer = "container:Score.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6FEBE18117738D160091BE0F"
             BuildableName = "HotOrNot2.app"
-            BlueprintName = "HotOrNot2"
-            ReferencedContainer = "container:HotOrNot.xcodeproj">
+            BlueprintName = "Score2"
+            ReferencedContainer = "container:Score.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
