@@ -106,7 +106,7 @@
     BOOL isUser1CurrentUser;
     if ([[chatroom objectForKey:@"username1"] isEqual:[PFUser currentUser].username]) {
         
-        NSArray *stringComponents = [[chatroom objectForKey:@"name2"] componentsSeparatedByString:@""];
+        NSArray *stringComponents = [[chatroom objectForKey:@"name2"] componentsSeparatedByString:@" "];
         
         if (stringComponents.count > 0) {
             cell.nameLabel.text = stringComponents[0];
@@ -115,7 +115,7 @@
         isUser1CurrentUser = YES;
     }
     else {
-        NSArray *stringComponents = [[chatroom objectForKey:@"name2"] componentsSeparatedByString:@""];
+        NSArray *stringComponents = [[chatroom objectForKey:@"name1"] componentsSeparatedByString:@" "];
         
         if (stringComponents.count > 0) {
             cell.nameLabel.text = stringComponents[0];
