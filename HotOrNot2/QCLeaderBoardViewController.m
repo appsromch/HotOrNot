@@ -75,13 +75,16 @@
     
     
     [self.likerButton setBackgroundImage:[UIImage imageNamed:@"liker_button-01"] forState:UIControlStateNormal];
-    
+    [self.likerButton setBackgroundImage:[UIImage imageNamed:@"liker_button_pressed"] forState:UIControlStateHighlighted];
+    [self.likerButton setBackgroundImage:[UIImage imageNamed:@"liker_button_pressed"] forState:UIControlStateSelected];
     
     
     
     [self.dislikerButton setBackgroundImage:[UIImage imageNamed:@"disliker_button"] forState:UIControlStateNormal];
     [self.dislikerButton setBackgroundImage:[UIImage imageNamed:@"disliker_button_pressed"] forState:UIControlStateHighlighted];
     [self.dislikerButton setBackgroundImage:[UIImage imageNamed:@"disliker_button_pressed"] forState:UIControlStateSelected];
+    
+    [self.likeButton setSelected:YES];
 }
 
 
@@ -178,6 +181,11 @@
 
 - (IBAction)topLikeButtonPressed:(id)sender
 {
+    [self.likeButton setSelected:YES];
+    [self.likerButton setSelected:NO];
+    [self.dislikeButton setSelected:NO];
+    [self.dislikerButton setSelected:NO];
+    
     self.likerAndDislikerBOOL = NO;
     self.likerBOOL = YES;
     
@@ -206,6 +214,11 @@
 
 - (IBAction)topDislikesButtonPressed:(id)sender
 {
+    [self.likeButton setSelected:NO];
+    [self.likerButton setSelected:NO];
+    [self.dislikeButton setSelected:YES];
+    [self.dislikerButton setSelected:NO];
+    
     self.likerAndDislikerBOOL = NO;
     self.likerBOOL = NO;
     
@@ -234,6 +247,11 @@
 
 - (IBAction)topLikerButtonPressed:(id)sender
 {
+    [self.likeButton setSelected:NO];
+    [self.likerButton setSelected:YES];
+    [self.dislikeButton setSelected:NO];
+    [self.dislikerButton setSelected:NO];
+    
     self.likerAndDislikerBOOL = YES;
     self.likerBOOL = YES;
     PFQuery *query = [PFUser query];
@@ -261,6 +279,11 @@
 }
 - (IBAction)topDislikerButtonPressed:(id)sender
 {
+    [self.likeButton setSelected:NO];
+    [self.likerButton setSelected:NO];
+    [self.dislikeButton setSelected:NO];
+    [self.dislikerButton setSelected:YES];
+    
     self.likerAndDislikerBOOL = YES;
     self.likerBOOL = NO;
     PFQuery *query = [PFUser query];
