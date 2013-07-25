@@ -53,8 +53,9 @@
          self.numberOfLikes.text = [NSString stringWithFormat:@"%i", number];
      }];
     self.nameLabel.text = uppercaseName;
+    
     self.locationLabel.text = [[PFUser currentUser] objectForKey:@"profile"][@"location"];
-
+    
     
     // Code to create age label
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -64,6 +65,7 @@
     NSTimeInterval seconds = [now timeIntervalSinceDate: date];
     NSInteger ageInt = seconds / 31536000;
     NSString *ageStr = [[NSString stringWithFormat:@"%i", (int)ageInt] stringByAppendingString:@" years old"];
+
     self.ageLabel.text = ageStr;
     
     
@@ -73,7 +75,7 @@
         NSArray *interestedIn = [[NSArray alloc] initWithArray:[[PFUser currentUser] objectForKey:@"profile"][@"interested_in"]];
         NSString  *interestedInAtIndex = [interestedIn objectAtIndex:0];
         NSString *upperCaseInterestedIn = [interestedInAtIndex stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[interestedInAtIndex  substringToIndex:1] capitalizedString]];
-        NSString *firstInterestedIn = [@"Preference: " stringByAppendingString:upperCaseInterestedIn];
+        NSString *firstInterestedIn = [@"PREFERENCE: " stringByAppendingString:upperCaseInterestedIn];
         self.interestedInLabel.text = firstInterestedIn;
 
     }

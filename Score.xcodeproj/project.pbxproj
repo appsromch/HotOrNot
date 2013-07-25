@@ -69,9 +69,10 @@
 		0AC19C521794705400328942 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C511794705300328942 /* Default.png */; };
 		0AC19C5B1794735D00328942 /* fb_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C5A1794735D00328942 /* fb_login.png */; };
 		0AC19C5D179473B700328942 /* fb_login_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC19C5C179473B700328942 /* fb_login_pressed.png */; };
-		0AEA5BA817A1927600A211A9 /* QCAvailableChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AEA5BA717A1927600A211A9 /* QCAvailableChatCell.xib */; };
+		0AEA5BA817A1927600A211A9 /* bl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AEA5BA717A1927600A211A9 /* bl.xib */; };
 		0AEA5BAB17A1A21700A211A9 /* ribbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AEA5BA917A1A21700A211A9 /* ribbon.png */; };
 		0AEA5BAC17A1A21700A211A9 /* ribbon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AEA5BAA17A1A21700A211A9 /* ribbon@2x.png */; };
+		0AEA5BAE17A1A97700A211A9 /* QCAvailableChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AEA5BAD17A1A97700A211A9 /* QCAvailableChatCell.xib */; };
 		0AF2AF5917949CA9008D20D3 /* profile_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AF2AF5817949CA9008D20D3 /* profile_image.png */; };
 		597DF128179C1C6800540E11 /* QCTopLikesAndDislikes.m in Sources */ = {isa = PBXBuildFile; fileRef = 597DF127179C1C6800540E11 /* QCTopLikesAndDislikes.m */; };
 		5994DD211796346200A6AFDE /* QCLikerAndDisliker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5994DD201796346200A6AFDE /* QCLikerAndDisliker.m */; };
@@ -258,9 +259,10 @@
 		0AC19C511794705300328942 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0AC19C5A1794735D00328942 /* fb_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_login.png; sourceTree = "<group>"; };
 		0AC19C5C179473B700328942 /* fb_login_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_login_pressed.png; sourceTree = "<group>"; };
-		0AEA5BA717A1927600A211A9 /* QCAvailableChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCAvailableChatCell.xib; sourceTree = "<group>"; };
+		0AEA5BA717A1927600A211A9 /* bl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = bl.xib; sourceTree = "<group>"; };
 		0AEA5BA917A1A21700A211A9 /* ribbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ribbon.png; sourceTree = "<group>"; };
 		0AEA5BAA17A1A21700A211A9 /* ribbon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ribbon@2x.png"; sourceTree = "<group>"; };
+		0AEA5BAD17A1A97700A211A9 /* QCAvailableChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QCAvailableChatCell.xib; sourceTree = "<group>"; };
 		0AF2AF5817949CA9008D20D3 /* profile_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_image.png; sourceTree = "<group>"; };
 		597DF126179C1C6800540E11 /* QCTopLikesAndDislikes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCTopLikesAndDislikes.h; sourceTree = "<group>"; };
 		597DF127179C1C6800540E11 /* QCTopLikesAndDislikes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCTopLikesAndDislikes.m; sourceTree = "<group>"; };
@@ -732,7 +734,8 @@
 				C9F2912C1796D837009D8936 /* QCChatViewController.m */,
 				C9F291251796D837009D8936 /* QCAvailableChatCell.h */,
 				C9F291261796D837009D8936 /* QCAvailableChatCell.m */,
-				0AEA5BA717A1927600A211A9 /* QCAvailableChatCell.xib */,
+				0AEA5BAD17A1A97700A211A9 /* QCAvailableChatCell.xib */,
+				0AEA5BA717A1927600A211A9 /* bl.xib */,
 			);
 			name = ListOfAvaliableChatsViewController;
 			sourceTree = "<group>";
@@ -1090,9 +1093,10 @@
 				0A55F655179DE77D00F11357 /* disliker_button_pressed.png in Resources */,
 				0A55F658179ED1CD00F11357 /* liker_button_pressed@2x.png in Resources */,
 				0A55F659179ED1CD00F11357 /* liker_button_pressed.png in Resources */,
-				0AEA5BA817A1927600A211A9 /* QCAvailableChatCell.xib in Resources */,
+				0AEA5BA817A1927600A211A9 /* bl.xib in Resources */,
 				0AEA5BAB17A1A21700A211A9 /* ribbon.png in Resources */,
 				0AEA5BAC17A1A21700A211A9 /* ribbon@2x.png in Resources */,
+				0AEA5BAE17A1A97700A211A9 /* QCAvailableChatCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
