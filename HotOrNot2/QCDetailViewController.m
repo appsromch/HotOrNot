@@ -48,9 +48,7 @@
     [self setupBarButtonItems];
     
     self.navigationItem.title = @"Like!";
-    
-
-    
+            
     self.imageView.image = self.imageToBePassed;
     
     [self.imageView setUserInteractionEnabled:YES];
