@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *numberOfLikes;
 
 @property (strong, nonatomic) IBOutlet UIImageView *headerImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *banner;
+
 @property (nonatomic, strong) NSMutableData *imageData;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *ageLabel;
