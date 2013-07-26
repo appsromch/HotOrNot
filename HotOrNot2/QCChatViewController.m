@@ -130,7 +130,7 @@
             }
         }];
                 
-        [JSMessageSoundEffect playMessageSentSound];
+//        [JSMessageSoundEffect playMessageSentSound];
 //        [JSMessageSoundEffect playMessageReceivedSound];
         
         [self finishSend];
@@ -239,11 +239,11 @@
         NSLog(@"^^^_timestamps: %@", _timestamps);
     }
     //play sound every time a new message comes, except when messages initially load
-    if (_didLoadOnce) {
-        if (_chats.count > oldChatCount) {
-            [JSMessageSoundEffect playMessageReceivedSound];
-        }
-    }
+//    if (_didLoadOnce) {
+//        if (_chats.count > oldChatCount) {
+//            [JSMessageSoundEffect playMessageReceivedSound];
+//        }
+//    }
     _didLoadOnce = YES;
 //    NSArray *chatObjects = [_chatroom objectForKey:@"chats"];
 //    NSLog(@"^^^chat objects: %@", chatObjects);

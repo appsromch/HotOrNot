@@ -300,7 +300,6 @@
 { 
         // Add the current user as a liker of the photo in PAPCache
         [[PAPCache sharedCache] setPhotoIsLikedByCurrentUser:self.pfPhotoObject liked:self.isLikedByCurrentUser];
-        
         if (!self.isLikedByCurrentUser) {
             [PAPUtility likePhotoInBackground:self.pfPhotoObject block:^(BOOL succeeded, NSError *error) {
                 
@@ -339,14 +338,29 @@
                 [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     if (!error) {
                         if (objects.count > 0) {
-                            //NSLog(@"!@#$ %@", objects);
-                            PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
-                            [chatroom setObject:currentUser[@"username"] forKey:@"username1"];
-                            [chatroom setObject:toUser[@"username"] forKey:@"username2"];
-                            [chatroom setObject:currentUser[@"profile"][@"name"] forKey:@"name1"];
-                            [chatroom setObject:toUser[@"profile"][@"name"] forKey:@"name2"];
-                            [chatroom saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                                NSLog(@"chatroom object saved");
+                            PFQuery *queryForChatRoom = [PFQuery queryWithClassName:@"ChatRoom"];
+                            [queryForChatRoom whereKey:@"username1" equalTo:currentUser[@"username"]];
+                            [queryForChatRoom whereKey:@"username2" equalTo:toUser[@"username"]];
+                            PFQuery *queryForChatRoomInverse = [PFQuery queryWithClassName:@"ChatRoom"];
+                            [queryForChatRoomInverse whereKey:@"username2" equalTo:currentUser[@"username"]];
+                            [queryForChatRoomInverse whereKey:@"username1" equalTo:toUser[@"username"]];
+                            PFQuery *combinedQuery = [PFQuery orQueryWithSubqueries:@[queryForChatRoom, queryForChatRoomInverse]];
+                            [combinedQuery findObjectsInBackgroundWithBlock:^(NSArray *chatRooms, NSError *error) {
+                                if (!error) {
+                                    if (chatRooms.count == 0) {
+                                        PFObject *chatroom = [PFObject objectWithClassName:@"ChatRoom"];
+                                        [chatroom setObject:currentUser[@"username"] forKey:@"username1"];
+                                        [chatroom setObject:toUser[@"username"] forKey:@"username2"];
+                                        [chatroom setObject:currentUser[@"profile"][@"name"] forKey:@"name1"];
+                                        [chatroom setObject:toUser[@"profile"][@"name"] forKey:@"name2"];
+                                        [chatroom saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                            NSLog(@"chatroom object saved");
+                                        }];
+                                    }
+                                    else {
+                                        NSLog(@"Chatroom object already created");
+                                    }
+                                }
                             }];
                         }
                     }
