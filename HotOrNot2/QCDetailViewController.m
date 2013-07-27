@@ -165,10 +165,10 @@
         NSLog(@"CURRENTUSER %@", current);
         if ([user[@"username"] isEqual:[PFUser currentUser][@"username"]]) {
             NSLog(@"***THESAME");
-             [self setupNextPhoto];
+            [self setupNextPhoto];
         }
         
-    
+        
         PFFile *file = self.pfPhotoObject[@"image"];
         self.imageView.image = [UIImage imageNamed:@"placeHolderImage.png"];
         NSString *firstName = self.pfPhotoObject[@"user"][@"profile"][@"first_name"];
@@ -248,7 +248,7 @@
                 }
             }];
             self.dislikeButton.enabled = YES;
-
+            
         }];
         
     }
@@ -263,6 +263,7 @@
     }
     
 }
+
 
 -(void)setupPreviousPhoto
 {
