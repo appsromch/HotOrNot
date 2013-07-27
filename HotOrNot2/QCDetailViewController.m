@@ -76,16 +76,6 @@
     self.currentIndex = 0;
     //NSLog(@"%@", self.pfPhotoObject);
     
-    PFUser *user = self.pfPhotoObject[@"user"];
-    PFUser *current = [PFUser currentUser][@"username"];
-    NSLog(@"COMPARED: %@", user);
-    NSLog(@"CURRENTUSER %@", current);
-    if ([user[@"username"] isEqual:[PFUser currentUser][@"username"]]) {
-        NSLog(@"***THESAME");
-        [self setupNextPhoto];
-    }
-    
-    
     
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query includeKey:@"user"];
