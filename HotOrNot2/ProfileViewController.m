@@ -114,6 +114,7 @@
     self.headerImageView.image = [UIImage imageWithData:self.imageData];
     self.headerImageView.layer.cornerRadius = 8.0f;
     self.headerImageView.layer.masksToBounds = YES;
+    self.headerImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.banner.image = [UIImage imageNamed:@"ribbon"];
 }
 

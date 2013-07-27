@@ -914,8 +914,8 @@
 		6FEBE2171774D1470091BE0F /* DetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A3A85BE8179376B900A4FD0D /* QCDetailViewController.m */,
 				A3A85BE9179376B900A4FD0D /* QCDetailViewController.h */,
+				A3A85BE8179376B900A4FD0D /* QCDetailViewController.m */,
 				A3A85BEA179376B900A4FD0D /* QCDetailViewController.xib */,
 			);
 			name = DetailViewController;
