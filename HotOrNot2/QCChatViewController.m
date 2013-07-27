@@ -75,7 +75,7 @@
     }
     
     //check for new chats every 3 seconds
-    _getNewChatsTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkForNewChats) userInfo:nil repeats:YES];
+    _getNewChatsTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkForNewChats) userInfo:nil repeats:YES];
 
 }
 
@@ -119,11 +119,8 @@
         [chat setObject:text forKey:@"text"];
         [chat save];
         [self updateChatRoom];
-        NSMutableArray *updatedMutableChats = [[NSMutableArray alloc] initWithArray:[_chatroom objectForKey:@"chats"]];
-        [updatedMutableChats addObject:chat];
-        NSArray * updatedChats = [updatedMutableChats copy];
-        NSLog(@"^^^updatedChats: %@", updatedChats);
-        [_chatroom setObject:updatedChats forKey:@"chats"];
+        [_chats addObject:chat];
+        [_chatroom setObject:_chats forKey:@"chats"];
         [_chatroom saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
                 NSLog(@"_chatroom updated");
@@ -232,7 +229,6 @@
     [_messages removeAllObjects];
     [_timestamps removeAllObjects];
     [_chats addObjectsFromArray:[combinedQueryForChats findObjects]];
-    NSLog(@"^^^_chats: %@", _chats);
     for (PFObject *object in _chats) {
         [_messages addObject:object[@"text"]];
         [_timestamps addObject:object.createdAt];
@@ -266,19 +262,27 @@
 }
 
 -(void) checkForNewChats {
-//    NSDateFormatter *dateformatter = 
+//    NSDateFormatter *dateformatter =
+    NSLog(@"^^^_chats.count: %i", _chats.count);
     PFQuery *queryForChatRoom  = [PFQuery queryWithClassName:@"ChatRoom"];
     [queryForChatRoom includeKey:@"chats"];
     [queryForChatRoom whereKey:@"username1" equalTo:[_chatroom objectForKey:@"username1"]];
     [queryForChatRoom whereKey:@"username2" equalTo:[_chatroom objectForKey:@"username2"]];
     [queryForChatRoom findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            if (objects.count > _chats.count) {
-                [self updateChatRoom];
-                NSLog(@"^^^New Chat Found %@", [NSDate date]);
+            for (PFObject *object in objects) {
+                NSLog(@"^^^((NSArray *)object[@\"chats\"]).count: %i", ((NSArray *)object[@"chats"]).count);
+                NSLog(@"^^^object[@\"chats\"]: %@", object[@"chats"]);
+                if (((NSArray *)object[@"chats"]).count > _chats.count) {
+                    [self updateChatRoom];
+                    [self.tableView reloadData];
+                    NSLog(@"^^^New Chat Found %@", [NSDate date]);
+                }
+                else {
+                    NSLog(@"^^^No new Chat Found %@", [NSDate date]);
+                }
             }
         }
-        NSLog(@"^^^No new Chat Found %@", [NSDate date]);
     }];
 }
 

@@ -66,7 +66,6 @@
             [_availableChatRoomsArray removeAllObjects];
             [_availableChatRoomsArray addObjectsFromArray:objects];
             [_tableView reloadData];
-            NSLog(@"^^^_availableChatRoomsArray: %@", _availableChatRoomsArray);
         }
     }];
 }
@@ -91,7 +90,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"^^^cellForRowAtIndexPath called");
     static NSString *cellIdentifier = @"AvailableChatCell";
     QCAvailableChatCell *cell = (QCAvailableChatCell *) [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -102,7 +100,6 @@
     NSLog(@"^^^Cell created: %@", cell);
     [cell setBackgroundColor:[UIColor clearColor]];
     PFObject *chatroom = [_availableChatRoomsArray objectAtIndex:indexPath.row];
-    NSLog(@"^^^Chatroom for cell: %@", chatroom);
     BOOL isUser1CurrentUser;
     if ([[chatroom objectForKey:@"username1"] isEqual:[PFUser currentUser].username]) {
         
@@ -111,7 +108,6 @@
         if (stringComponents.count > 0) {
             cell.nameLabel.text = stringComponents[0];
         }
-        NSLog(@"^^^Name2 displayed");
         isUser1CurrentUser = YES;
     }
     else {
@@ -121,7 +117,6 @@
             cell.nameLabel.text = stringComponents[0];
             
         }
-        NSLog(@"^^^Name1 displayed");
         isUser1CurrentUser = NO;
     }
     
@@ -131,7 +126,6 @@
         if (isUser1CurrentUser) {
             if ([((PFUser *)photo[@"user"]).username isEqualToString:chatroom[@"username2"]]) {
                 PFFile *file = photo[@"image"];
-                NSLog(@"file %@", file);
                 cell.chatSubjectImage.image = [UIImage imageNamed:@"placeHolderImage.png"];
                 [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     if (!error) {
