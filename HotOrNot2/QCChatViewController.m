@@ -89,7 +89,7 @@
     [self updateChatRoom];
     [_getNewChatsTimer invalidate];
     _getNewChatsTimer = nil;
-    _getNewChatsTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(checkForNewChats) userInfo:nil repeats:YES];
+    _getNewChatsTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkForNewChats) userInfo:nil repeats:YES];
     NSLog(@"^^^viewDidAppear Called");
 }
 
