@@ -54,6 +54,7 @@
     [self.imageView setUserInteractionEnabled:YES];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.layer.masksToBounds = YES;
+    _imageView.layer.cornerRadius = 8.0f;
     // Do any additional setup after loading the view from its nib.
    // UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerTapped:)];
     //[self.imageView addGestureRecognizer:tapGestureRecognizer];

@@ -700,8 +700,8 @@
 		6FA94E25178CC88900BE7EB7 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				A33EEF0517936BC9006611CC /* ProfileViewController.m */,
 				A33EEF0617936BC9006611CC /* ProfileViewController.h */,
+				A33EEF0517936BC9006611CC /* ProfileViewController.m */,
 				A33EEF0717936BC9006611CC /* ProfileViewController.xib */,
 			);
 			name = Profile;
