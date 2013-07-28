@@ -143,6 +143,9 @@
         [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
          {
              UIImage *image = [UIImage imageWithData:data];
+             cell.photoImageView.layer.masksToBounds = YES;
+             cell.photoImageView.contentMode = UIViewContentModeScaleAspectFill;
+             cell.photoImageView.layer.cornerRadius = 4.0f;
              cell.photoImageView.image = image;
          }];
         
@@ -175,6 +178,9 @@
          {
              UIImage *image = [UIImage imageWithData:data];
              cell.photoImageView.image = image;
+             cell.photoImageView.layer.masksToBounds = YES;
+             cell.photoImageView.contentMode = UIViewContentModeScaleAspectFill;
+             cell.photoImageView.layer.cornerRadius = 4.0f;
          }];
     }
     return cell;
