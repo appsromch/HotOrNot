@@ -35,7 +35,7 @@
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"fb_login_pressed"] forState:UIControlStateHighlighted];
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"fb_login_pressed"] forState:UIControlStateSelected];
     
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed: @"default"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed: @"Default"]]];
     self.title = @"Facebook Profile";
 }
 
